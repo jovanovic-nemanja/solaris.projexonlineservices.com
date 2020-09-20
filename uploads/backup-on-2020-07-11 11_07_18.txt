@@ -1,0 +1,1736 @@
+#
+# TABLE STRUCTURE FOR: approval_status
+#
+
+DROP TABLE IF EXISTS `approval_status`;
+
+CREATE TABLE `approval_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `approval_status` varchar(255) DEFAULT NULL,
+  `costsheet_id` int(11) NOT NULL,
+  `reason` longtext DEFAULT NULL,
+  `job_code` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (1, Approved, 48, NULL, dfgsdgdsgs, 2020-03-13 11:06:06);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (2, Approved, 4, NULL, 258, 2020-05-20 08:47:57);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (3, Approved, 4, NULL, 258, 2020-05-20 08:48:01);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (4, Approved, 4, NULL, 258, 2020-05-20 08:48:05);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (5, Approved, 4, NULL, 258, 2020-05-20 08:48:06);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (6, Approved, 4, NULL, 258, 2020-05-20 08:48:06);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (7, Approved, 4, NULL, 258, 2020-05-20 08:48:06);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (8, Approved, 4, NULL, 25856, 2020-05-20 08:48:12);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (9, Approved, 82, NULL, 1234, 2020-05-20 09:28:17);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (10, Approved, 71, NULL, m789, 2020-05-20 13:30:07);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (11, Approved, 71, NULL, m789, 2020-05-20 13:30:09);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (12, Approved, 71, NULL, m789, 2020-05-20 13:30:10);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (13, Approved, 71, NULL, m789, 2020-05-20 13:30:10);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (14, Approved, 71, NULL, m789, 2020-05-20 13:30:10);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (15, Approved, 364, NULL, MH678787, 2020-05-27 22:09:23);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (16, Approved, 314, NULL, M09090, 2020-05-27 22:20:49);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (17, Approved, 366, NULL, m9090, 2020-05-28 01:21:37);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (18, Approved, 451, NULL, m89898, 2020-06-10 16:19:28);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (19, Approved, 476, NULL, ddfsdfsdf, 2020-07-02 00:11:24);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (20, Approved, 397, NULL, 3, 2020-07-02 12:18:20);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (21, Approved, 492, NULL, 369, 2020-07-02 14:02:35);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (22, Approved, 504, NULL, M231234, 2020-07-06 13:34:41);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (23, Approved, 503, NULL, tyuyt, 2020-07-06 16:29:30);
+INSERT INTO `approval_status` (`id`, `approval_status`, `costsheet_id`, `reason`, `job_code`, `created_at`) VALUES (24, Approved, 549, NULL, 1234, 2020-07-08 13:28:49);
+
+
+#
+# TABLE STRUCTURE FOR: categories
+#
+
+DROP TABLE IF EXISTS `categories`;
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `parent_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (18, Design and Drawings, 0, 2020-06-11 11:58:48, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (20, Project Management, 0, 2019-09-08 01:55:06, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (21, Platform and Flooring, 0, 2019-10-02 12:16:25, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (26, Partitions & Panels, 0, 2019-10-02 12:18:42, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (27, Flooring, 0, 2020-03-15 07:54:15, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (28, Structure, 0, 2020-03-15 07:54:32, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (30, Custom Furniture, 0, 2020-03-15 07:55:16, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (31, Audio Visuals on hire, 0, 2020-03-15 07:55:32, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (33, Furniture on hire, 0, 2020-03-15 07:56:10, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (34, Graphics, 0, 2020-03-15 07:56:26, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (36, Glass, 0, 2020-03-18 20:51:00, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (40, lop, 0, 2020-05-14 08:25:00, NULL);
+INSERT INTO `categories` (`id`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES (43, Stage & Backdrop, 0, 2020-06-11 10:25:47, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: ci_sessions
+#
+
+DROP TABLE IF EXISTS `ci_sessions`;
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT 0,
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (4b687caa1344d415c37cfe7d4c3f2d34e6c3ec33, 92.96.130.215, 1594112037, __ci_last_regenerate|i:1594112037;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (c99d27265fbfc73bc9ede7fe187b942f040e7c11, 92.96.130.215, 1594112037, __ci_last_regenerate|i:1594112037;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (5046756bc270181f1040dd018da74b1886a2f5db, 92.96.130.215, 1594112037, __ci_last_regenerate|i:1594112037;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (fbaa0840bfb3a267460ab6e6207ec3dd12b83db4, 52.114.6.38, 1594121088, __ci_last_regenerate|i:1594121088;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (c71a107c2cb723fe2824189f8dfdb52d28728684, 92.96.130.215, 1594121368, __ci_last_regenerate|i:1594121368;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (6c6bb3857794b0ac1326c069ca39bec0ebcc3e93, 52.114.14.102, 1594126172, __ci_last_regenerate|i:1594126172;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (d65796ce245bf57413020d93eace350de6de5ed2, 52.114.14.102, 1594126173, __ci_last_regenerate|i:1594126173;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (ede407653d083ae4ba0d60a3bb6325f98d3281e0, 23.111.188.5, 1594126218, __ci_last_regenerate|i:1594126215;user_role_id|s:1:"1";userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (b1265dbb29b904844da912eb8aca9ae9613200d7, 23.111.188.5, 1594126215, __ci_last_regenerate|i:1594126215;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (6f8b8da9729cf11e7081ef79d4d43fc44c7af53f, 92.96.130.215, 1594135642, __ci_last_regenerate|i:1594135641;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (966704598bfc71b9aa9d8ce616a38ad808d23265, 191.96.97.58, 1594140958, __ci_last_regenerate|i:1594140958;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (1cfc4ab51792c55afd24ca42c1f96c22257c5bda, 191.96.97.58, 1594142283, __ci_last_regenerate|i:1594142283;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (f12c3b133dfbeefab82b298e9706a4612c0652c5, 66.102.8.121, 1594195115, __ci_last_regenerate|i:1594195115;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (ae49f9a90af8c77b8bb3bf68bf488630ddb33828, 191.96.97.58, 1594277158, __ci_last_regenerate|i:1594277146;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (526da25b758e49530743b8267d2d77cc5b91bbb8, 52.114.14.102, 1594281227, __ci_last_regenerate|i:1594281227;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (3a00da93a4d26cf5cf28041a7a5d0b40503ddc81, 3.85.123.41, 1594281428, __ci_last_regenerate|i:1594281428;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (159c5c62aac58402b36bc375b1b1415373b1e7cb, 3.85.123.41, 1594281428, __ci_last_regenerate|i:1594281428;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (d575ee6efd8425bf3afa5ec0b806d07fafe52ee9, 195.141.89.139, 1594281442, __ci_last_regenerate|i:1594281442;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (cdec8989a3ec25564260dcc54f534bf9a18b5766, 195.141.89.138, 1594281442, __ci_last_regenerate|i:1594281442;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (1a089bb07ca1a0844a9a0964fb8af20717fec9ff, 82.208.211.234, 1594281464, __ci_last_regenerate|i:1594281463;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (1dca48be3dd9e65aded786847958f769c26cff7d, 142.93.116.114, 1594281481, __ci_last_regenerate|i:1594281481;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (8b0cc7aa50afc8fd47599268647471e08286373f, 142.93.116.114, 1594281496, __ci_last_regenerate|i:1594281496;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (90793ee60b6ba59bc9ddf4e564970679f1c98db9, 65.154.226.109, 1594281509, __ci_last_regenerate|i:1594281508;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (af4f8abc1fb6ae702c34337fc491cb6ddf028719, 150.129.8.30, 1594281556, __ci_last_regenerate|i:1594281556;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (43623e1c072afa05f32c20fe3b1cc2d6ce69cf1d, 80.44.173.91, 1594281557, __ci_last_regenerate|i:1594281557;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (bd14c0493866c149111a94a4f7528f1768e68a53, 150.129.8.30, 1594281557, __ci_last_regenerate|i:1594281557;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (fa97829d165b419122be4b9fa514d5a965568dd2, 80.44.173.91, 1594281558, __ci_last_regenerate|i:1594281558;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (ee4b0a360d020436611b95e46ab1a42334de5191, 196.251.250.65, 1594281563, __ci_last_regenerate|i:1594281563;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (1264ff55388078fa1b0d4450888d645807176023, 87.115.231.170, 1594281566, __ci_last_regenerate|i:1594281566;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (40f21ee6fcdeff2d3f216ce2fe0fa4c5ebfc171e, 196.251.250.65, 1594281566, __ci_last_regenerate|i:1594281566;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (db59f8990d5f34d667e4130b4008e5a431bf08bc, 194.187.249.38, 1594281570, __ci_last_regenerate|i:1594281570;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (d3d3177a258d8f0726e4a6aec480ec41a8502fc7, 178.128.140.117, 1594281674, __ci_last_regenerate|i:1594281674;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (80387700661e294bd42308b7c53491b46a3e27f7, 87.115.231.170, 1594281725, __ci_last_regenerate|i:1594281725;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (271e4a4576c7c1dfb2946a2f116ae5f931a35f4a, 92.96.130.215, 1594293906, __ci_last_regenerate|i:1594293899;user_role_id|s:1:"1";userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (0dadadfdc60edebe97903468e5fdb3c9b18e21a8, 87.115.231.170, 1594303236, __ci_last_regenerate|i:1594303236;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (fb9c0184300178d623f36432b21df881e44c0aff, 46.166.138.183, 1594308215, __ci_last_regenerate|i:1594308215;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (68f9996932441f4e845e23f4ccf4f20879d63390, 46.166.138.183, 1594308215, __ci_last_regenerate|i:1594308215;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (4eacee65a43fce94c04d92da3ceea8142cfb273d, 46.166.138.183, 1594308215, __ci_last_regenerate|i:1594308215;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (3ab4bfec6cc8d91a2668f59c9662694e446bf7e0, 134.209.140.66, 1594308216, __ci_last_regenerate|i:1594308216;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (cc186a63ea9f89a5dbb07884fbdb08e16df0d0a8, 87.115.231.170, 1594308216, __ci_last_regenerate|i:1594308216;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (b899a58e308b25a7754f91a258f8d8566156fe7c, 196.251.250.110, 1594308221, __ci_last_regenerate|i:1594308221;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (2b81999216ba14ed9697bb1404f8879147eadb93, 87.115.231.170, 1594308230, __ci_last_regenerate|i:1594308230;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (b51c1758d4983cccfb2abe0f9d2741bb771569b4, 134.209.128.89, 1594308255, __ci_last_regenerate|i:1594308255;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (4007cf7fd13b0cf9c6fd5c3c844c4f1705650056, 134.209.128.89, 1594308255, __ci_last_regenerate|i:1594308255;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (4e5395f21eebf3a804edf8659b4b8f3d75d1c8b2, 163.172.151.47, 1594308258, __ci_last_regenerate|i:1594308256;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (cd4fea51842d208ff8782763a00e9a38fe20f54b, 163.172.151.47, 1594308256, __ci_last_regenerate|i:1594308256;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (cc551011c4e9e226ddca469fb058a9a308b5e4a4, 80.44.20.16, 1594308256, __ci_last_regenerate|i:1594308256;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (51aa5f76c795352e2c5588451c731fd5a24020ee, 87.115.231.170, 1594308262, __ci_last_regenerate|i:1594308262;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (32a623ad12ad6676c179715b8f94d6c4d06a1831, 46.166.138.183, 1594308262, __ci_last_regenerate|i:1594308262;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (af717847badab739ba8a0c5f94164e6f27423a74, 196.251.250.110, 1594308268, __ci_last_regenerate|i:1594308268;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (e9f8902d8658feb3c51a09972ab60c5256174d3c, 80.44.20.16, 1594308485, __ci_last_regenerate|i:1594308485;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (5ef5b94990fd4819123ff5dd2a9c53302299e6f5, 80.44.20.16, 1594308485, __ci_last_regenerate|i:1594308485;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (c85c6e8aa3a2857e5c63edbc5cdb8404499a9bcc, 185.17.207.12, 1594308486, __ci_last_regenerate|i:1594308486;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (e0b07191b61ef104ed75722abb351b358c761145, 87.115.231.170, 1594308524, __ci_last_regenerate|i:1594308524;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (2eb20bc7f3ae885845d35bbcf10cb04f83ac9e28, 51.75.141.254, 1594308524, __ci_last_regenerate|i:1594308524;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (28a103b79dd2a18a1d3e93aa0c63fd9ac17c464f, 87.115.231.170, 1594308524, __ci_last_regenerate|i:1594308524;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (090dc0781c80fe4a42d5d643f934463043295ef6, 51.75.141.254, 1594308524, __ci_last_regenerate|i:1594308524;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (80e2f95d8de9b17374e8e04380306dc3821f48be, 5.253.206.114, 1594308524, __ci_last_regenerate|i:1594308524;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (7f980f5349b46fbac531e62ba472ef06a8548291, 5.253.206.114, 1594308528, __ci_last_regenerate|i:1594308528;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (763277eb55565096694de213c8da4de7c2b8dfcd, 185.17.207.12, 1594308569, __ci_last_regenerate|i:1594308569;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (59e1dd2119046930af8c8f845bd3892fd0274128, 80.44.20.16, 1594308569, __ci_last_regenerate|i:1594308569;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (355bfd7cb23dfabe06d5ddd5e3891be290c75369, 185.17.207.12, 1594308570, __ci_last_regenerate|i:1594308570;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (d403be1868830321fc48ff70824ea1c0fef447d3, 178.128.140.117, 1594308579, __ci_last_regenerate|i:1594308579;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (471dc71b189a4434ca6e60aebfa5a3025af5f7a0, 185.104.186.91, 1594308579, __ci_last_regenerate|i:1594308579;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (d27b65db81e9706af19d69e238b4a29d9f0914f2, 178.128.140.117, 1594308580, __ci_last_regenerate|i:1594308580;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (6695173c1d432ca1be31b584cd38bc77e9ded763, 185.104.186.91, 1594308580, __ci_last_regenerate|i:1594308580;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (61fac0be156cc7fb270ea47ee7def7312453132f, 87.115.231.170, 1594308582, __ci_last_regenerate|i:1594308582;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (8d3634d4d7ff6282fb86e9054c11d930b0c88ea9, 87.115.231.170, 1594308585, __ci_last_regenerate|i:1594308585;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (57e8419f209e55b6b9838280c358db4d6490535b, 178.128.140.117, 1594308586, __ci_last_regenerate|i:1594308586;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (043816d28aa201704c24d40f59fec5b22dffcfaa, 80.44.20.16, 1594308606, __ci_last_regenerate|i:1594308606;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (aed913612aad95c331aed5a669fb9eed0a1b5927, 80.44.20.16, 1594308606, __ci_last_regenerate|i:1594308606;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (ad4ecb663128ab084240581c8fe909bb0da57153, 134.209.128.89, 1594308730, __ci_last_regenerate|i:1594308730;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (4a1b5cfcab86dc3863eced964e552708ef0a460a, 134.209.128.89, 1594308731, __ci_last_regenerate|i:1594308731;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (d77059b9ba9d6de70ed407fc01e7d606e0a251a8, 84.17.46.155, 1594308741, __ci_last_regenerate|i:1594308741;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (bf8a5d9182b2f9976e76b092113b0d813582bf2d, 196.251.250.110, 1594308747, __ci_last_regenerate|i:1594308747;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (4fa7420263b04681d7dda16fca29e556dff7595c, 5.193.25.59, 1594309211, __ci_last_regenerate|i:1594309198;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (fe4819534260a71c36660d4bb46e9ca395fd44de, 87.115.231.170, 1594325109, __ci_last_regenerate|i:1594325109;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (de170de70ede573bfe07ebddbdfdaec33958d376, 51.75.141.254, 1594325109, __ci_last_regenerate|i:1594325109;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (acab1e6bed85f26632d47156f80d3e9f601c7136, 51.75.141.254, 1594325110, __ci_last_regenerate|i:1594325110;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (632c1ca7f12b0085b1b79ef72419517e29176023, 159.65.210.36, 1594325110, __ci_last_regenerate|i:1594325110;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (7e3d1a0563ee8709bc9b8855785b227104958318, 87.115.231.170, 1594325110, __ci_last_regenerate|i:1594325110;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (9027f96999751478271b9f3045a0340eddbf1128, 87.115.231.170, 1594346443, __ci_last_regenerate|i:1594346443;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (091fadf84323ac10e0f359aedc8781d6e0401f7d, 88.107.185.239, 1594348846, __ci_last_regenerate|i:1594348846;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (7efc51da4a610aa814f083f95ae47e36266bdf8c, 88.107.185.239, 1594348847, __ci_last_regenerate|i:1594348847;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (83b58a7c206189441eba1208922ea811265d07b5, 159.65.210.36, 1594348852, __ci_last_regenerate|i:1594348852;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (2aa8690bf69df5e87793ee3cf4c029ef0282df48, 88.107.185.239, 1594348853, __ci_last_regenerate|i:1594348853;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (0f6cea008ee92b82df3b3e1ae83209bf03f70c10, 159.65.210.36, 1594348853, __ci_last_regenerate|i:1594348853;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (3e39b7a92f4ab1e5ff0b1a22f73db59be71feb9d, 88.107.185.239, 1594348853, __ci_last_regenerate|i:1594348853;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (160f7864764545dc11fe9db967405b30f487f202, 185.93.2.93, 1594348857, __ci_last_regenerate|i:1594348857;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (b56cdb38e172e75311265446ddbb08b451cc7f90, 185.93.2.93, 1594348857, __ci_last_regenerate|i:1594348857;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (eb35b422911ba9a051ea3f97a1ed1e45761ac2de, 23.111.188.5, 1594374303, __ci_last_regenerate|i:1594374303;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (1410a5dc634e638a2930cdf8f53b5b8576f39f84, 23.111.188.5, 1594374383, __ci_last_regenerate|i:1594374383;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (839c4f861d27c9614b7e30ef70f26bf20bf2dab2, 23.111.188.5, 1594375864, __ci_last_regenerate|i:1594375864;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (61bbbd6faae5539578d71fe3771f0f969ddcae3d, 23.111.188.5, 1594388515, __ci_last_regenerate|i:1594388515;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (7ada1ea6ba8e87f6d72e5c5a2e0743af9037f3eb, 62.210.10.77, 1594392623, __ci_last_regenerate|i:1594392623;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (6bb7996d24b7a8cb7a6d79da536e8958b59b4a44, 62.210.10.77, 1594392626, __ci_last_regenerate|i:1594392626;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (c27aaa7b1c2aa18757d8b5d396d816bc834b5779, 62.210.5.253, 1594394526, __ci_last_regenerate|i:1594394526;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (f98558e340348a35cc599f1c36f3eb7cea910fee, 62.210.5.253, 1594394528, __ci_last_regenerate|i:1594394528;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (9dac2ddcd5dbe0f9f79772744d920b66f41a6f5a, 92.96.130.215, 1594408308, __ci_last_regenerate|i:1594408279;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (58055411dcd3401c43a633fffd7cde7de0cea3f5, 134.209.128.89, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (348907fe3cdc0b4e2a1aa05688cb787ffb81cac2, 87.115.231.248, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (5a02a15b552c49b5d8a93d75568a8ce9e422884f, 159.65.210.36, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (55a21a2fead6970e94e31acb0c8fee7587a4e325, 159.65.210.36, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (53496557be3385bbffb66dba57bf2b49f4d22657, 84.17.46.177, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (b38c9d8ba66fdbdebb9aa0dcb230aa0490ca8b37, 134.209.128.89, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (ad2424c3224eda8b559298704d897fe7758afbb0, 88.107.188.216, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (56bdb145c7d92836cfbf5768b5c67721e7eca910, 87.115.231.248, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (705c597fd854e10228288910ed431975e9f7528e, 84.17.46.177, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (92562c5d7c6c12c23721465428e36740c1294a55, 88.107.188.216, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (7910ed05400a0c85942edcfd1ea10f7ff15a8b07, 185.101.32.169, 1594432678, __ci_last_regenerate|i:1594432678;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (8e69edbc6ee46308c24e8a3f7e4283183dd10ac0, 159.65.210.36, 1594432709, __ci_last_regenerate|i:1594432709;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (00d9572891fc6e92d47abf8763870c79ac501752, 88.107.188.216, 1594432709, __ci_last_regenerate|i:1594432709;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (9b150f5e0146f8e01b0f5376c0d194d89fe8b0bb, 134.209.128.89, 1594432709, __ci_last_regenerate|i:1594432709;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (106fa5655484188e86f11f29bcc09fce9a9e42ca, 87.115.231.248, 1594432713, __ci_last_regenerate|i:1594432709;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (a381d7eba4ce7ee27b8ab0ed4489efc8ee3867e7, 159.65.210.36, 1594432709, __ci_last_regenerate|i:1594432709;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (0561e81222599aa97fe90e4279687f741decd502, 88.107.188.216, 1594432709, __ci_last_regenerate|i:1594432709;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (6a2b2192903a9044354833ae46bf0f362bafa7a9, 87.115.231.248, 1594432823, __ci_last_regenerate|i:1594432823;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (5b261fda6041a26a88e0163fa8211df2cb4d6925, 212.83.164.133, 1594432824, __ci_last_regenerate|i:1594432823;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (9635932c3f9a6ab1791ca9d32316616c3973be08, 87.115.231.248, 1594432824, __ci_last_regenerate|i:1594432824;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (5542e32e529621109d97f36414a098eea1f07fa2, 212.83.164.133, 1594432824, __ci_last_regenerate|i:1594432824;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (b581152fe83c1b2bab16864b675a8e86e0695dff, 5.30.32.132, 1594440092, __ci_last_regenerate|i:1594440092;);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (395733b2c5ae4e2b0871d7f334d5c7202a18267e, 51.79.161.247, 1594442536, __ci_last_regenerate|i:1594442523;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES (1dceab147581f812d9e1dcfdbd7572fd0c3ab126, 176.126.83.98, 1594448357, __ci_last_regenerate|i:1594448357;userfname|s:5:"Admin";is_admin_logged|b:1;userid|s:1:"1";user_role_id|s:1:"1";);
+
+
+#
+# TABLE STRUCTURE FOR: comments
+#
+
+DROP TABLE IF EXISTS `comments`;
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cost_sheet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (1, This is a template comment.
+
+You can see the comment now.
+
+You can't edit the this text., 366, 1, 2020-06-01 17:42:18, 0000-00-00 00:00:00);
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (6, This is a template comment.
+
+But you can not edit and delete this text.
+
+Because the text is submitted., 366, 16, 2020-06-01 18:29:36, 0000-00-00 00:00:00);
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (7, This is a very good system. Thanks, 366, 1, 2020-06-01 18:46:32, 0000-00-00 00:00:00);
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (8, 123, 366, 1, 2020-06-01 23:31:15, 0000-00-00 00:00:00);
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (9, 123123, 366, 1, 2020-06-02 23:49:05, 0000-00-00 00:00:00);
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (10, llkjlkjl, 476, 13, 2020-07-01 22:47:56, 0000-00-00 00:00:00);
+INSERT INTO `comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (11, 110, 503, 1, 2020-07-09 12:02:54, 0000-00-00 00:00:00);
+
+
+#
+# TABLE STRUCTURE FOR: contact_person
+#
+
+DROP TABLE IF EXISTS `contact_person`;
+
+CREATE TABLE `contact_person` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `conatct_person` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` longtext DEFAULT NULL,
+  `mobile` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+INSERT INTO `contact_person` (`id`, `conatct_person`, `name`, `email`, `mobile`, `created_at`) VALUES (19, 51, Craig Munro, craig@2020productions.com, 00447887558091, 2020-06-11 10:13:00);
+INSERT INTO `contact_person` (`id`, `conatct_person`, `name`, `email`, `mobile`, `created_at`) VALUES (20, 12, grace, sales@mambodubai.com, 0558827281, 2020-07-01 23:48:38);
+INSERT INTO `contact_person` (`id`, `conatct_person`, `name`, `email`, `mobile`, `created_at`) VALUES (21, 52, Nebiyu, sales@mambodubai.com, 0558827281, 2020-07-02 00:05:01);
+INSERT INTO `contact_person` (`id`, `conatct_person`, `name`, `email`, `mobile`, `created_at`) VALUES (22, 53, Nebiyu, nebiyu@gmail.com, 0558827281, 2020-07-08 12:34:06);
+
+
+#
+# TABLE STRUCTURE FOR: convert_usd_to_aed
+#
+
+DROP TABLE IF EXISTS `convert_usd_to_aed`;
+
+CREATE TABLE `convert_usd_to_aed` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `convert_value` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+INSERT INTO `convert_usd_to_aed` (`id`, `convert_value`, `created_at`, `updated_at`) VALUES (1, 3.8, 2019-09-26 00:00:00, 2020-05-19 10:25:17);
+
+
+#
+# TABLE STRUCTURE FOR: copyright
+#
+
+DROP TABLE IF EXISTS `copyright`;
+
+CREATE TABLE `copyright` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `copyright` (`id`, `description`, `created_at`, `updated_at`) VALUES (1, We hereby inform you that any Designs presented by Projex and bearing the company seal are
+subject to copyright restrictions and as such remain the sole property of Projex. No part of the
+Designs can be reproduced, transmitted or utilized in any form or by any means, digital,
+electronic or mechanical, including photocopying (whether part / whole or modified) without
+first obtaining our written consent. Contravention will be prosecuted. Our drawing is subject
+to modification of its design and measurement from time to time to suit construction purposes.
+Furniture, graphics and accessories shown in the design are just for presentation purpose only
+and need to be finalised with us.
+, 2020-07-07 12:13:22, 0000-00-00 00:00:00);
+INSERT INTO `copyright` (`id`, `description`, `created_at`, `updated_at`) VALUES (2, 123, 2020-07-09 14:13:47, 0000-00-00 00:00:00);
+INSERT INTO `copyright` (`id`, `description`, `created_at`, `updated_at`) VALUES (3, 123123, 2020-07-09 14:14:05, 0000-00-00 00:00:00);
+INSERT INTO `copyright` (`id`, `description`, `created_at`, `updated_at`) VALUES (4, 123, 2020-07-09 14:14:33, 0000-00-00 00:00:00);
+
+
+#
+# TABLE STRUCTURE FOR: cost_comments
+#
+
+DROP TABLE IF EXISTS `cost_comments`;
+
+CREATE TABLE `cost_comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cost_sheet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (1, asdfasdf, 366, 1, 2020-06-01 20:07:07, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, This is interesting topic but we need also to work on the changes as well.
+, 366, 1, 2020-06-01 23:24:31, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (3, 123, 366, 1, 2020-06-01 23:32:14, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (4, It is done properly., 366, 1, 2020-06-01 23:48:19, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (5, asdfasdf, 436, 1, 2020-06-02 23:49:28, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (6, 123000, 443, 1, 2020-06-03 15:43:32, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (7, The customer has agreed but they want discount., 503, 1, 2020-07-06 12:00:52, 0000-00-00 00:00:00);
+INSERT INTO `cost_comments` (`id`, `comment`, `cost_sheet_id`, `user_id`, `created_at`, `updated_at`) VALUES (8, The dsdfsdf, 549, 1, 2020-07-08 11:47:18, 0000-00-00 00:00:00);
+
+
+#
+# TABLE STRUCTURE FOR: cost_sheet
+#
+
+DROP TABLE IF EXISTS `cost_sheet`;
+
+CREATE TABLE `cost_sheet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `customer` int(100) DEFAULT NULL,
+  `conatct_person` int(11) DEFAULT NULL,
+  `payment_terms` int(11) DEFAULT NULL,
+  `sales_person` int(11) DEFAULT NULL,
+  `venue` int(100) DEFAULT NULL,
+  `cost_type` int(100) DEFAULT NULL,
+  `currency` enum('AED','USD') DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `quotation_status` enum('Pending','Accepted','Not Accepted') NOT NULL,
+  `quotation_pdf` longtext DEFAULT NULL,
+  `quotation_comment` longtext DEFAULT NULL,
+  `discountPerent` decimal(10,2) NOT NULL,
+  `project_start_date` varchar(255) DEFAULT NULL,
+  `project_end_date` varchar(255) DEFAULT NULL,
+  `genrated_date` datetime DEFAULT NULL,
+  `exclusions` varchar(255) NOT NULL,
+  `copyright` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=555 DEFAULT CHARSET=latin1;
+
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (470, a, 51, NULL, 0, 12, 10, 17, AED, genrated, Not Accepted, NULL, 3, 0.00, 07/28/2020, 08/05/2020, 2020-07-01 23:45:39, 1, 0, 2020-07-01 23:39:14, 2020-07-02 13:55:29);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (493, te, 12, 20, 13, 12, 7, 15, AED, genrated, Pending, NULL, NULL, 0.00, 07/26/2020, 08/06/2020, 2020-07-02 22:22:53, 2,1, 0, 2020-07-02 22:21:02, 2020-07-02 22:22:53);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (494, te, 0, 0, 0, 0, 0, 15, , templated, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-05 09:37:08, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (495, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-05 09:37:29, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (496, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 10:24:36, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (497, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 10:24:57, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (498, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 10:25:07, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (499, NULL, 52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 10:25:17, 2020-07-06 10:25:22);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 10:38:22, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (501, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 10:45:56, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (502, , 51, 0, 0, 0, 0, 0, , , Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 13:02:50, 2020-07-06 13:03:45);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (503, Stand at Trade Center, 51, 19, 16, 15, 10, 9, AED, genrated, Accepted, 15940331115f0303d792704costsheet_summary.pdf, gjhgjh, 0.00, 07/15/2020, 07/30/2020, 2020-07-06 13:21:23, 2,1, 0, 2020-07-06 13:04:26, 2020-07-06 13:21:23);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (504, Stand at Trade Center-rev-1, 51, 19, 16, 15, 10, 9, AED, genrated, Accepted, 15940225945f02dac2e8db4costsheet_summary (37).pdf, The customer has accepted., 950.00, NULL, NULL, 2020-07-06 13:31:43, , 0, 2020-07-06 13:31:20, 2020-07-06 13:31:43);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (505, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 15:47:14, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (506, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 16:32:00, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (507, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 16:33:00, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (508, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 3000.00, NULL, NULL, NULL, , 0, 2020-07-06 18:07:12, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (509, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 21:01:06, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (510, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 22:47:32, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (511, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-06 23:53:04, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (512, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, 2, 0, 2020-07-06 23:54:11, 2020-07-06 23:54:26);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (513, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 00:08:11, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (514, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 00:09:15, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (515, 3k, 12, 20, 13, 12, 7, 16, AED, genrated, Accepted, 15941066235f0422ffeaeaecostsheet_summary (2).pdf, 999, 0.00, 07/06/2020, 07/10/2020, 2020-07-07 03:39:17, 2,1, 1, 2020-07-07 12:58:38, 2020-07-07 03:39:17);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (516, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 02:08:46, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (517, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 03:40:36, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (518, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 10:31:06, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (519, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, 2, 0, 2020-07-07 10:32:01, 2020-07-07 10:32:15);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (520, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, 2,1, 0, 2020-07-07 10:32:36, 2020-07-07 10:45:13);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (521, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 10:44:49, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (522, blue bay office, 52, NULL, NULL, 15, 10, 15, AED, 1, Pending, NULL, NULL, 0.00, 07/15/2020, 07/31/2020, NULL, 2,1, 0, 2020-07-07 10:45:18, 2020-07-07 10:45:57);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (523, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 10:51:43, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (524, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 50000.00, NULL, NULL, NULL, 2,1, 0, 2020-07-07 10:57:00, 2020-07-07 11:14:14);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (525, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 10:57:41, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (526, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 11:07:00, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (527, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 12:15:34, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (528, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 12:20:56, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (529, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, Pending, NULL, NULL, 0.00, , NULL, NULL, 2,1, 1, 2020-07-07 12:42:19, 2020-07-07 12:34:56);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (530, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, 2,1, 1, 2020-07-07 12:44:20, 2020-07-07 12:44:53);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (531, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 13:05:24, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (532, Blue or , 52, NULL, NULL, 12, 9, 16, AED, 1, Pending, NULL, NULL, 0.00, , NULL, NULL, 2,1, 1, 2020-07-07 14:18:19, 2020-07-07 14:18:24);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (533, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 14:24:57, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (534, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 17:53:40, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (535, NULL, NULL, NULL, NULL, NULL, 10, NULL, AED, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 18:12:40, 2020-07-07 18:13:01);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (536, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 18:17:32, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (537, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 923.00, NULL, NULL, NULL, 12,11,10,9,8,7,6,5,2,1, 0, 2020-07-07 18:18:34, 2020-07-07 18:18:50);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (538, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 923.00, NULL, NULL, NULL, , 0, 2020-07-07 20:42:30, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (539, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-07 20:43:58, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (540, 3k-rev-1, 12, 20, 13, 12, 7, 16, AED, 1, Pending, NULL, NULL, 232.00, NULL, NULL, NULL, 11, 0, 2020-07-07 20:44:12, 2020-07-07 22:31:12);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (541, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 1, 2020-07-07 21:00:49, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (542, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 11.00, NULL, NULL, NULL, 12,5, 0, 2020-07-07 22:13:37, 2020-07-07 22:25:23);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (543, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 25.98, NULL, NULL, NULL, , 0, 2020-07-07 22:38:22, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (544, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, 12,11, 0, 2020-07-07 22:40:35, 2020-07-07 22:40:44);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (545, NULL, 52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, 12,11,10,9,8,7,6, 0, 2020-07-08 09:36:24, 2020-07-08 09:36:46);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (546, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-08 12:31:31, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (547, NULL, 51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-08 12:32:39, 2020-07-08 12:32:59);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (548, NULL, 53, NULL, NULL, 15, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-08 12:34:28, 2020-07-08 12:34:40);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (549, blue bay office, 53, 22, 16, 15, 6, 17, AED, genrated, Accepted, 15941948425f057b9a2117bcostsheet_summary_details (61).pdf, sdfsdf, 692.30, 07/13/2020, 07/30/2020, 2020-07-08 12:59:26, 12, 1, 2020-07-08 12:52:30, 2020-07-08 12:59:26);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (550, , 0, 0, 0, 0, 0, 0, , , Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-08 13:42:47, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (551, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-09 14:25:55, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (552, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-10 11:21:13, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (553, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-10 11:21:55, NULL);
+INSERT INTO `cost_sheet` (`id`, `name`, `customer`, `conatct_person`, `payment_terms`, `sales_person`, `venue`, `cost_type`, `currency`, `status`, `quotation_status`, `quotation_pdf`, `quotation_comment`, `discountPerent`, `project_start_date`, `project_end_date`, `genrated_date`, `exclusions`, `copyright`, `created_at`, `updated_at`) VALUES (554, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, Pending, NULL, NULL, 0.00, NULL, NULL, NULL, , 0, 2020-07-11 00:12:07, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: cost_sheet_category
+#
+
+DROP TABLE IF EXISTS `cost_sheet_category`;
+
+CREATE TABLE `cost_sheet_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cost_sheet_id` int(11) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
+  `sub_cat_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=547 DEFAULT CHARSET=latin1;
+
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (476, 470, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (522, 493, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (523, 494, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (524, 495, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (525, 500, 18, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (526, 501, 40, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (527, 502, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (528, 503, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (529, 503, 18, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (530, 503, 36, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (531, 504, 36, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (532, 504, 18, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (533, 504, 43, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (534, 508, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (535, 515, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (536, 521, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (537, 522, 20, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (538, 523, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (539, 524, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (540, 528, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (541, 530, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (542, 532, 18, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (543, 537, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (544, 540, 26, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (545, 549, 18, NULL);
+INSERT INTO `cost_sheet_category` (`id`, `cost_sheet_id`, `cat_id`, `sub_cat_id`) VALUES (546, 550, 18, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: cost_sheet_line_item
+#
+
+DROP TABLE IF EXISTS `cost_sheet_line_item`;
+
+CREATE TABLE `cost_sheet_line_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(11) DEFAULT NULL,
+  `sub_cat_id` int(100) DEFAULT NULL,
+  `cost_sheet_id` int(100) DEFAULT NULL,
+  `product_name` longtext DEFAULT NULL,
+  `unit_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `unit_cost` varchar(255) DEFAULT NULL,
+  `total_cost` varchar(255) DEFAULT NULL,
+  `o/h` varchar(100) DEFAULT NULL,
+  `selling_price` varchar(255) DEFAULT NULL,
+  `document` longtext DEFAULT NULL,
+  `position` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) DEFAULT 0,
+  `actual_cost` int(11) NOT NULL,
+  `total_actual_cost` int(11) NOT NULL,
+  `deviation` int(11) NOT NULL,
+  `editable` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sub_cat_id` (`sub_cat_id`),
+  KEY `cat_id` (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2289 DEFAULT CHARSET=latin1;
+
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2019, 43, 1512, 470, Stock Stage (Adjustable), 23, 4, 100, 400.00, 0.65, 615.38, NULL, 0, 1, 0, 0, 0, 0, 2020-07-01 23:42:12, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2254, 43, 1727, 493, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-02 22:22:39, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2255, 43, 1728, 494, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-05 09:37:08, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2256, 43, 1729, 495, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-05 09:37:29, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2257, 43, 1730, 502, Stock Stage (Adjustable), 23, 4, 100, 400.00, 0.65, 615.38, NULL, 0, 1, 0, 0, 0, 0, 2020-07-06 13:02:50, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2258, 43, 1731, 503, Stock Stage (Adjustable), 23, 10, 150, 1500, 0.65, 2307.7, NULL, 0, 1, 120, 1200, 300, 1, 2020-07-06 13:04:26, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2259, 43, 1731, 503, MDF Skin on Stage, 23, 12, 750, 9000.00, 0.65, 13846.15, NULL, 0, 1, 800, 9600, -600, 1, 2020-07-06 13:08:02, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2260, 43, 1731, 503, Stock Stage (Adjustable), 23, 11, 89, 979.00, 0.65, 1506.15, NULL, 0, 1, 120, 1200, 300, 1, 2020-07-06 13:08:18, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2261, 43, 1732, 503, NBF WOOD, 17, 20, 45, 900.00, 0.85, 1058.82, NULL, 0, 1, 45, 900, 0, 1, 2020-07-06 13:10:06, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2262, 43, 1732, 503, Timber, 17, 10, 25, 250.00, 0.65, 384.62, NULL, 0, 1, 22, 220, 30, 1, 2020-07-06 13:10:33, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2263, 18, 1733, 503, Auto Cad, 15, 2, 1500, 3000.00, 0.65, 4615.38, NULL, 0, 1, 1567, 3134, -134, 1, 2020-07-06 13:14:31, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2264, 18, 1733, 503, 3D MODELLING, 15, 1, 1250, 1250.00, 0.65, 1923.08, NULL, 0, 1, 1250, 1250, 0, 1, 2020-07-06 13:14:51, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2265, 36, 1734, 503, Door, 17, 1, 2150, 2150.00, 0.65, 3307.69, NULL, 0, 1, 2150, 2150, 0, 1, 2020-07-06 13:17:47, 2020-07-06 16:31:37);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2266, 36, 1735, 504, Door, 17, 1, 2150, 2150.00, 0.65, 3307.69, NULL, 0, 1, 2120, 2120, 30, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2267, 18, 1736, 504, 3D MODELLING, 15, 1, 1250, 1250.00, 0.65, 1923.08, NULL, 0, 1, 1500, 1500, -250, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2268, 18, 1736, 504, Auto Cad, 15, 2, 1500, 3000.00, 0.65, 4615.38, NULL, 0, 1, 1822, 3644, -644, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2269, 43, 1737, 504, Timber, 17, 10, 25, 250.00, 0.65, 384.62, NULL, 0, 1, 22, 220, 30, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2270, 43, 1737, 504, NBF WOOD, 17, 20, 45, 900.00, 0.85, 1058.82, NULL, 0, 1, 20, 400, 500, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2271, 43, 1738, 504, Stock Stage (Adjustable), 23, 11, 89, 979.00, 0.65, 1506.15, NULL, 0, 1, 150, 1500, 0, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2272, 43, 1738, 504, MDF Skin on Stage, 23, 12, 750, 9000.00, 0.65, 13846.15, NULL, 0, 1, 750, 9000, 0, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2273, 43, 1738, 504, Stock Stage (Adjustable), 23, 10, 150, 1500, 0.65, 2307.7, NULL, 0, 1, 150, 1500, 0, 1, 2020-07-06 13:31:20, 2020-07-06 13:37:58);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2274, 26, 1739, 508, Olive oil, 24, 10, 500, 5000.00, 0.65, 7692.31, NULL, 0, 1, 0, 0, 0, 0, 2020-07-06 18:07:58, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2275, 26, 1741, 515, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 03:39:14, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2276, 26, 1742, 521, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 10:44:49, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2277, 26, 1743, 523, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 10:51:43, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2278, 26, 1744, 524, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 10:57:00, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2279, 26, 1745, 524, Olive oil, 24, 13, 500, 6500.00, 0.65, 10000.00, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 11:18:05, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2280, 26, 1746, 528, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 12:20:56, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2281, 26, 1747, 530, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 12:43:43, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2282, 18, 1748, 532, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 2020-07-07 14:19:09, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2283, 26, 1749, 537, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 18:18:34, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2284, 26, 1750, 540, Stock Stage (Adjustable), 23, 6, 100, 600.00, 0.65, 923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-07 20:44:12, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2285, 18, 1751, 549, Chris, 16, 10, 450, 4500.00, 0.65, 6923.08, NULL, 0, 1, 500, 5000, -500, -1, 2020-07-08 12:54:03, 2020-07-08 13:39:23);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2286, 18, 1751, 549, 3D Modelling, 16, 1, 500, 500.00, 0.65, 769.23, NULL, 0, 1, 300, 300, 200, -1, 2020-07-08 12:57:13, 2020-07-08 13:39:23);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2287, 18, 1752, 550, 3D Modelling, 16, 1, 500, 500.00, 0.65, 769.23, NULL, 0, 1, 0, 0, 0, 0, 2020-07-08 13:42:47, NULL);
+INSERT INTO `cost_sheet_line_item` (`id`, `cat_id`, `sub_cat_id`, `cost_sheet_id`, `product_name`, `unit_id`, `quantity`, `unit_cost`, `total_cost`, `o/h`, `selling_price`, `document`, `position`, `status`, `actual_cost`, `total_actual_cost`, `deviation`, `editable`, `created_at`, `updated_at`) VALUES (2288, 18, 1752, 550, Chris, 16, 10, 450, 4500.00, 0.65, 6923.08, NULL, 0, 1, 0, 0, 0, 0, 2020-07-08 13:42:47, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: cost_sheet_product
+#
+
+DROP TABLE IF EXISTS `cost_sheet_product`;
+
+CREATE TABLE `cost_sheet_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cost_sheet_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (57, 470, 40);
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (61, 493, 40);
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (62, 503, 39);
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (63, 503, 40);
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (64, 508, 41);
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (65, 515, 40);
+INSERT INTO `cost_sheet_product` (`id`, `cost_sheet_id`, `product_id`) VALUES (66, 524, 41);
+
+
+#
+# TABLE STRUCTURE FOR: cost_template
+#
+
+DROP TABLE IF EXISTS `cost_template`;
+
+CREATE TABLE `cost_template` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `customer` int(100) DEFAULT NULL,
+  `conatct_person` int(11) DEFAULT NULL,
+  `payment_terms` int(11) DEFAULT NULL,
+  `sales_person` int(11) DEFAULT NULL,
+  `venue` int(100) DEFAULT NULL,
+  `cost_type` int(100) DEFAULT NULL,
+  `currency` enum('AED','USD') DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `quotation_status` enum('Pending','Accepted','Not Accepted') DEFAULT NULL,
+  `quotation_pdf` longtext DEFAULT NULL,
+  `quotation_comment` longtext DEFAULT NULL,
+  `discountPerent` int(100) NOT NULL,
+  `project_start_date` varchar(255) DEFAULT NULL,
+  `project_end_date` varchar(255) DEFAULT NULL,
+  `genrated_date` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# TABLE STRUCTURE FOR: cost_type
+#
+
+DROP TABLE IF EXISTS `cost_type`;
+
+CREATE TABLE `cost_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (8, Features 3, 2020-05-19 10:36:26, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (9, Exhibition Stand, 2020-05-12 09:49:54, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (10, Event 1, 2020-05-14 20:48:07, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (11, Museum Fit-out, 2019-10-02 12:40:24, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (12, Interior Fit-out, 2019-09-18 14:47:23, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (13,  Branding , 2019-09-18 14:47:33, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (14, Design-Beauty, 2020-05-14 17:36:36, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (15, Maxima Stand, 2019-10-02 12:40:03, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (16, technology, 2020-05-14 17:37:01, NULL);
+INSERT INTO `cost_type` (`id`, `title`, `created_at`, `updated_at`) VALUES (17, Interior1, 2020-05-14 19:06:55, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: costsheet_comment
+#
+
+DROP TABLE IF EXISTS `costsheet_comment`;
+
+CREATE TABLE `costsheet_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `costsheet_id` int(11) DEFAULT NULL,
+  `comment` longtext DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: costsheet_draft
+#
+
+DROP TABLE IF EXISTS `costsheet_draft`;
+
+CREATE TABLE `costsheet_draft` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cost_sheet_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: costsheet_save_template
+#
+
+DROP TABLE IF EXISTS `costsheet_save_template`;
+
+CREATE TABLE `costsheet_save_template` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cost_sheet_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: costsheet_subcategory
+#
+
+DROP TABLE IF EXISTS `costsheet_subcategory`;
+
+CREATE TABLE `costsheet_subcategory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
+  `costsheet_id` int(11) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `unit` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1753 DEFAULT CHARSET=latin1;
+
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1512, 4, 43, 470, 4, Wk, 2020-07-01 23:42:00, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1727, te, 43, 493, 5, SQM, 2020-07-02 22:22:25, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1728, te, 43, 494, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1729, te, 43, 495, 0, , 2020-07-05 09:37:29, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1730, 4, 43, 502, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1731, 4, 43, 503, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1732, Supply and Installation, 43, 503, 78, Set, 2020-07-06 13:09:12, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1733, Autocad, 18, 503, 2, Days, 2020-07-06 13:14:03, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1734, Door, 36, 503, 1, Nos, 2020-07-06 13:17:26, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1735, Door, 36, 504, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1736, Autocad, 18, 504, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1737, Supply and Installation, 43, 504, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1738, 4, 43, 504, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1739, 4k, 26, 508, 5, Minutes, 2020-07-06 18:07:45, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1740, 5k, 26, 508, 7, Hrs, 2020-07-06 18:09:05, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1741, 4k, 26, 515, 4, Wk, 2020-07-07 03:39:01, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1742, 4k, 26, 521, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1743, 4k, 26, 523, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1744, 4k, 26, 524, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1745, 20, 26, 524, 5, SQF, 2020-07-07 11:17:50, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1746, 4k, 26, 528, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1747, 4k, 26, 530, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1748, Yes , 18, 532, 123, Hrs, 2020-07-07 14:18:51, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1749, 4k, 26, 537, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1750, 4k, 26, 540, 0, NULL, NULL, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1751, Autocad, 18, 549, 20, Hrs, 2020-07-08 12:53:23, NULL);
+INSERT INTO `costsheet_subcategory` (`id`, `title`, `cat_id`, `costsheet_id`, `quantity`, `unit`, `created_at`, `updated_at`) VALUES (1752, Autocad, 18, 550, 0, NULL, NULL, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: countries
+#
+
+DROP TABLE IF EXISTS `countries`;
+
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL,
+  `sortname` varchar(3) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `phonecode` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (1, AF, Afghanistan, 93);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (2, AL, Albania, 355);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (3, DZ, Algeria, 213);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (4, AS, American Samoa, 1684);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (5, AD, Andorra, 376);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (6, AO, Angola, 244);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (7, AI, Anguilla, 1264);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (8, AQ, Antarctica, 0);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (9, AG, Antigua And Barbuda, 1268);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (10, AR, Argentina, 54);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (11, AM, Armenia, 374);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (12, AW, Aruba, 297);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (13, AU, Australia, 61);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (14, AT, Austria, 43);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (15, AZ, Azerbaijan, 994);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (16, BS, Bahamas The, 1242);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (17, BH, Bahrain, 973);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (18, BD, Bangladesh, 880);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (19, BB, Barbados, 1246);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (20, BY, Belarus, 375);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (21, BE, Belgium, 32);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (22, BZ, Belize, 501);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (23, BJ, Benin, 229);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (24, BM, Bermuda, 1441);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (25, BT, Bhutan, 975);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (26, BO, Bolivia, 591);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (27, BA, Bosnia and Herzegovina, 387);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (28, BW, Botswana, 267);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (29, BV, Bouvet Island, 0);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (30, BR, Brazil, 55);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (31, IO, British Indian Ocean Territory, 246);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (32, BN, Brunei, 673);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (33, BG, Bulgaria, 359);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (34, BF, Burkina Faso, 226);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (35, BI, Burundi, 257);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (36, KH, Cambodia, 855);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (37, CM, Cameroon, 237);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (38, CA, Canada, 1);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (39, CV, Cape Verde, 238);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (40, KY, Cayman Islands, 1345);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (41, CF, Central African Republic, 236);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (42, TD, Chad, 235);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (43, CL, Chile, 56);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (44, CN, China, 86);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (45, CX, Christmas Island, 61);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (46, CC, Cocos (Keeling) Islands, 672);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (47, CO, Colombia, 57);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (48, KM, Comoros, 269);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (49, CG, Republic Of The Congo, 242);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (50, CD, Democratic Republic Of The Congo, 242);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (51, CK, Cook Islands, 682);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (52, CR, Costa Rica, 506);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (53, CI, Cote D'Ivoire (Ivory Coast), 225);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (54, HR, Croatia (Hrvatska), 385);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (55, CU, Cuba, 53);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (56, CY, Cyprus, 357);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (57, CZ, Czech Republic, 420);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (58, DK, Denmark, 45);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (59, DJ, Djibouti, 253);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (60, DM, Dominica, 1767);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (61, DO, Dominican Republic, 1809);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (62, TP, East Timor, 670);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (63, EC, Ecuador, 593);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (64, EG, Egypt, 20);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (65, SV, El Salvador, 503);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (66, GQ, Equatorial Guinea, 240);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (67, ER, Eritrea, 291);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (68, EE, Estonia, 372);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (69, ET, Ethiopia, 251);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (70, XA, External Territories of Australia, 61);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (71, FK, Falkland Islands, 500);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (72, FO, Faroe Islands, 298);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (73, FJ, Fiji Islands, 679);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (74, FI, Finland, 358);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (75, FR, France, 33);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (76, GF, French Guiana, 594);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (77, PF, French Polynesia, 689);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (78, TF, French Southern Territories, 0);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (79, GA, Gabon, 241);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (80, GM, Gambia The, 220);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (81, GE, Georgia, 995);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (82, DE, Germany, 49);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (83, GH, Ghana, 233);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (84, GI, Gibraltar, 350);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (85, GR, Greece, 30);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (86, GL, Greenland, 299);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (87, GD, Grenada, 1473);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (88, GP, Guadeloupe, 590);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (89, GU, Guam, 1671);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (90, GT, Guatemala, 502);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (91, XU, Guernsey and Alderney, 44);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (92, GN, Guinea, 224);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (93, GW, Guinea-Bissau, 245);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (94, GY, Guyana, 592);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (95, HT, Haiti, 509);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (96, HM, Heard and McDonald Islands, 0);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (97, HN, Honduras, 504);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (98, HK, Hong Kong S.A.R., 852);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (99, HU, Hungary, 36);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (100, IS, Iceland, 354);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (101, IN, India, 91);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (102, ID, Indonesia, 62);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (103, IR, Iran, 98);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (104, IQ, Iraq, 964);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (105, IE, Ireland, 353);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (106, IL, Israel, 972);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (107, IT, Italy, 39);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (108, JM, Jamaica, 1876);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (109, JP, Japan, 81);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (110, XJ, Jersey, 44);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (111, JO, Jordan, 962);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (112, KZ, Kazakhstan, 7);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (113, KE, Kenya, 254);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (114, KI, Kiribati, 686);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (115, KP, Korea North, 850);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (116, KR, Korea South, 82);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (117, KW, Kuwait, 965);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (118, KG, Kyrgyzstan, 996);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (119, LA, Laos, 856);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (120, LV, Latvia, 371);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (121, LB, Lebanon, 961);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (122, LS, Lesotho, 266);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (123, LR, Liberia, 231);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (124, LY, Libya, 218);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (125, LI, Liechtenstein, 423);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (126, LT, Lithuania, 370);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (127, LU, Luxembourg, 352);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (128, MO, Macau S.A.R., 853);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (129, MK, Macedonia, 389);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (130, MG, Madagascar, 261);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (131, MW, Malawi, 265);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (132, MY, Malaysia, 60);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (133, MV, Maldives, 960);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (134, ML, Mali, 223);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (135, MT, Malta, 356);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (136, XM, Man (Isle of), 44);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (137, MH, Marshall Islands, 692);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (138, MQ, Martinique, 596);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (139, MR, Mauritania, 222);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (140, MU, Mauritius, 230);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (141, YT, Mayotte, 269);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (142, MX, Mexico, 52);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (143, FM, Micronesia, 691);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (144, MD, Moldova, 373);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (145, MC, Monaco, 377);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (146, MN, Mongolia, 976);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (147, MS, Montserrat, 1664);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (148, MA, Morocco, 212);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (149, MZ, Mozambique, 258);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (150, MM, Myanmar, 95);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (151, NA, Namibia, 264);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (152, NR, Nauru, 674);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (153, NP, Nepal, 977);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (154, AN, Netherlands Antilles, 599);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (155, NL, Netherlands The, 31);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (156, NC, New Caledonia, 687);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (157, NZ, New Zealand, 64);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (158, NI, Nicaragua, 505);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (159, NE, Niger, 227);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (160, NG, Nigeria, 234);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (161, NU, Niue, 683);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (162, NF, Norfolk Island, 672);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (163, MP, Northern Mariana Islands, 1670);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (164, NO, Norway, 47);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (165, OM, Oman, 968);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (166, PK, Pakistan, 92);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (167, PW, Palau, 680);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (168, PS, Palestinian Territory Occupied, 970);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (169, PA, Panama, 507);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (170, PG, Papua new Guinea, 675);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (171, PY, Paraguay, 595);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (172, PE, Peru, 51);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (173, PH, Philippines, 63);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (174, PN, Pitcairn Island, 0);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (175, PL, Poland, 48);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (176, PT, Portugal, 351);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (177, PR, Puerto Rico, 1787);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (178, QA, Qatar, 974);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (179, RE, Reunion, 262);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (180, RO, Romania, 40);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (181, RU, Russia, 70);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (182, RW, Rwanda, 250);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (183, SH, Saint Helena, 290);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (184, KN, Saint Kitts And Nevis, 1869);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (185, LC, Saint Lucia, 1758);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (186, PM, Saint Pierre and Miquelon, 508);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (187, VC, Saint Vincent And The Grenadines, 1784);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (188, WS, Samoa, 684);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (189, SM, San Marino, 378);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (190, ST, Sao Tome and Principe, 239);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (191, SA, Saudi Arabia, 966);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (192, SN, Senegal, 221);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (193, RS, Serbia, 381);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (194, SC, Seychelles, 248);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (195, SL, Sierra Leone, 232);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (196, SG, Singapore, 65);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (197, SK, Slovakia, 421);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (198, SI, Slovenia, 386);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (199, XG, Smaller Territories of the UK, 44);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (200, SB, Solomon Islands, 677);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (201, SO, Somalia, 252);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (202, ZA, South Africa, 27);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (203, GS, South Georgia, 0);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (204, SS, South Sudan, 211);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (205, ES, Spain, 34);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (206, LK, Sri Lanka, 94);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (207, SD, Sudan, 249);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (208, SR, Suriname, 597);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (209, SJ, Svalbard And Jan Mayen Islands, 47);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (210, SZ, Swaziland, 268);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (211, SE, Sweden, 46);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (212, CH, Switzerland, 41);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (213, SY, Syria, 963);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (214, TW, Taiwan, 886);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (215, TJ, Tajikistan, 992);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (216, TZ, Tanzania, 255);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (217, TH, Thailand, 66);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (218, TG, Togo, 228);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (219, TK, Tokelau, 690);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (220, TO, Tonga, 676);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (221, TT, Trinidad And Tobago, 1868);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (222, TN, Tunisia, 216);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (223, TR, Turkey, 90);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (224, TM, Turkmenistan, 7370);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (225, TC, Turks And Caicos Islands, 1649);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (226, TV, Tuvalu, 688);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (227, UG, Uganda, 256);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (228, UA, Ukraine, 380);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (229, AE, United Arab Emirates, 971);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (230, GB, United Kingdom, 44);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (231, US, United States, 1);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (232, UM, United States Minor Outlying Islands, 1);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (233, UY, Uruguay, 598);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (234, UZ, Uzbekistan, 998);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (235, VU, Vanuatu, 678);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (236, VA, Vatican City State (Holy See), 39);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (237, VE, Venezuela, 58);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (238, VN, Vietnam, 84);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (239, VG, Virgin Islands (British), 1284);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (240, VI, Virgin Islands (US), 1340);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (241, WF, Wallis And Futuna Islands, 681);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (242, EH, Western Sahara, 212);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (243, YE, Yemen, 967);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (244, YU, Yugoslavia, 38);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (245, ZM, Zambia, 260);
+INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES (246, ZW, Zimbabwe, 263);
+
+
+#
+# TABLE STRUCTURE FOR: coverletter
+#
+
+DROP TABLE IF EXISTS `coverletter`;
+
+CREATE TABLE `coverletter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `coverletter` (`id`, `description`, `created_at`, `updated_at`) VALUES (12, 
+                            
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <strong> signature of acceptance by return fax/ e-mail (please sign all pages of the quote)</strong>. </p>
+<p style="padding: 0px 20px 20px;">Should   you   require   any further information or clarification, please feel free to contact Nebiyu at <u>$salespersonEmail</u> who will be happy to assist you.</p>
+<p style="margin: 40px 0px 0px; padding: 0px 20px;">Yours sincerely,</p>
+<p style="margin: 0px 0px 40px; padding: 0px 20px;"><strong> PROJEX </strong></p>
+<p style="margin: 0px 0px 0px; padding: 0px 20px;"><strong>Martin Clough</strong></p>
+<p style="margin: 0px 0px 0px; padding: 0px 20px;"><strong>Commercial manager</strong></p>
+                                                        
+                                                  
+                      , 2020-07-10 21:50:44, 0000-00-00 00:00:00);
+
+
+#
+# TABLE STRUCTURE FOR: css
+#
+
+DROP TABLE IF EXISTS `css`;
+
+CREATE TABLE `css` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `color` varchar(32) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
+INSERT INTO `css` (`id`, `name`, `color`, `created_at`, `updated_at`) VALUES (31, style.css, , 2020-07-11 10:07:15, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: customer
+#
+
+DROP TABLE IF EXISTS `customer`;
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `vat_number` varchar(255) DEFAULT NULL,
+  `payment_terms` int(100) DEFAULT NULL,
+  `payment_terms2` varchar(100) NOT NULL,
+  `payment_terms3` varchar(100) NOT NULL,
+  `tel_number` varchar(100) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `mobile` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+
+INSERT INTO `customer` (`id`, `company_name`, `email`, `vat_number`, `payment_terms`, `payment_terms2`, `payment_terms3`, `tel_number`, `address`, `mobile`, `created_at`, `updated_at`) VALUES (12, INTELSAT @ CABSAT 2020 , nebiyu@solarisdubai.com, , 16, Select, Select, , , , 2020-07-08 12:33:21, NULL);
+INSERT INTO `customer` (`id`, `company_name`, `email`, `vat_number`, `payment_terms`, `payment_terms2`, `payment_terms3`, `tel_number`, `address`, `mobile`, `created_at`, `updated_at`) VALUES (51, 20/20 Productions Europe Ltd, craig@2020productions.com, , 16, Select, Select, , , , 2020-07-06 13:04:15, NULL);
+INSERT INTO `customer` (`id`, `company_name`, `email`, `vat_number`, `payment_terms`, `payment_terms2`, `payment_terms3`, `tel_number`, `address`, `mobile`, `created_at`, `updated_at`) VALUES (53, Solaris DWC LLC, nebiyu@solarisdubai.com, , 16, Select, Select, , , , 2020-07-08 12:33:45, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: document
+#
+
+DROP TABLE IF EXISTS `document`;
+
+CREATE TABLE `document` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `line_item_id` int(11) DEFAULT NULL,
+  `doc_image` varchar(255) DEFAULT NULL,
+  `doc_type` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
+
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (48, 5, Doc_2019-10-03_16:47:30_Screenshot_from_2019-08-27_18-18-44.png, NULL, 2019-10-03 16:47:30);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (49, 5, Doc_2019-10-03_16:54:16_Screenshot_from_2019-08-07_00-23-27.png, NULL, 2019-10-03 16:54:16);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (50, 6, Doc_2019-10-03_17:15:04_Screenshot_from_2019-08-21_12-06-19.png, NULL, 2019-10-03 17:15:04);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (51, 8, Doc_2019-10-04_08:44:05_Welcome_Scan.jpg, NULL, 2019-10-04 08:44:05);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (52, 8, Doc_2019-10-04_08:44:37_costsheet_summery_(1).pdf, NULL, 2019-10-04 08:44:37);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (53, 7, Doc_2019-10-04_11:22:47_Screenshot_from_2019-09-25_16-40-39.png, NULL, 2019-10-04 11:22:47);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (54, 48, Doc_2019-10-04_17:43:07_Screenshot_from_2019-08-26_16-43-39.png, NULL, 2019-10-04 17:43:07);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (55, 48, Doc_2019-10-04_17:43:36_Screenshot_from_2019-08-22_15-37-07.png, NULL, 2019-10-04 17:43:36);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (56, 50, Doc_2019-10-04_17:49:44_Screenshot_from_2019-08-12_11-34-00.png, NULL, 2019-10-04 17:49:44);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (57, 52, Doc_2019-10-04_18:04:13_Screenshot_from_2019-08-26_16-43-39.png, NULL, 2019-10-04 18:04:13);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (58, 55, Doc_2019-10-04_18:14:47_Screenshot_from_2019-08-27_18-18-44.png, NULL, 2019-10-04 18:14:47);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (59, 55, Doc_2019-10-04_18:15:27_Screenshot_from_2019-08-21_12-06-19.png, NULL, 2019-10-04 18:15:27);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (60, 82, Doc_2019-10-04_18:35:12_Screenshot_from_2019-08-12_11-34-00.png, NULL, 2019-10-04 18:35:12);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (61, 82, Doc_2019-10-04_18:36:16_Screenshot_from_2019-08-07_18-59-56.png, NULL, 2019-10-04 18:36:16);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (62, 55, Doc_2019-10-04_18:36:42_Screenshot_from_2019-08-01_22-04-26.png, NULL, 2019-10-04 18:36:42);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (65, 89, Doc_2019-10-05_01:54:46_costsheet_summery_details_(1).pdf, NULL, 2019-10-05 01:54:46);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (66, 90, Doc_2019-10-07_10:39:34_Screenshot_from_2019-09-25_16-40-39.png, NULL, 2019-10-07 10:39:34);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (67, 90, Doc_2019-10-07_10:40:07_Screenshot_from_2019-08-07_00-23-27.png, NULL, 2019-10-07 10:40:07);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (73, 93, Doc_2019-10-07_15:58:13_Screenshot_from_2019-08-07_00-23-27.png, NULL, 2019-10-07 15:58:13);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (75, 95, Doc_2019-10-07_16:16:46_Screenshot_from_2019-08-22_15-37-07.png, NULL, 2019-10-07 16:16:46);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (76, 87, Doc_2019-10-09_11:42:47_Screenshot_from_2019-08-22_15-37-07.png, NULL, 2019-10-09 11:42:47);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (77, 111, Doc_2019-10-09_18:58:16_costsheet_summery_(2).pdf, NULL, 2019-10-09 18:58:16);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (86, 92, Doc_2019-10-15_18:58:17_Screenshot_from_2019-08-12_11-34-00.png, NULL, 2019-10-15 18:58:17);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (87, 92, Doc_2019-10-15_18:59:24_Screenshot_from_2019-08-27_18-18-44.png, NULL, 2019-10-15 18:59:24);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (91, 109, Doc_2019-10-16_14:47:47_Screenshot_from_2019-08-07_18-59-56.png, NULL, 2019-10-16 14:47:47);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (101, 278, Doc_2019-10-21_15:18:33_Screenshot_from_2019-09-16_14-27-00.png, .png, 2019-10-21 15:18:33);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (102, 276, Doc_2019-10-21_15:38:48_background.jpg, .jpg, 2019-10-21 15:38:48);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (104, 278, Doc_2019-10-21_15:44:01_NewDocument.pdf, .pdf, 2019-10-21 15:44:01);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (105, 339, Doc_2019-10-22_14:35:21_sample.pdf, .pdf, 2019-10-22 14:35:21);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (106, 343, Doc_2019-10-24_10:30:15_Sceno_hervé_DUBAI_.pdf, .pdf, 2019-10-24 10:30:15);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (107, 344, Doc_2019-10-24_10:31:08_image007.jpg, .jpg, 2019-10-24 10:31:08);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (108, 350, Doc_2019-10-31_10:51:30_Fukur_shipping.pdf, .pdf, 2019-10-31 10:51:30);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (109, 352, Doc_2019-10-31_14:48:52_Driving_License.pdf, .pdf, 2019-10-31 14:48:52);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (110, 352, Doc_2019-10-31_14:48:55_Driving_License.pdf, .pdf, 2019-10-31 14:48:55);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (111, 352, Doc_2019-10-31_14:49:16_Driving_License.pdf, .pdf, 2019-10-31 14:49:16);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (112, 352, Doc_2019-10-31_14:49:20_Driving_License.pdf, .pdf, 2019-10-31 14:49:20);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (113, 353, Doc_2019-10-31_14:54:04_images.png, .png, 2019-10-31 14:54:04);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (114, 353, Doc_2019-10-31_14:54:04_images1.png, .png, 2019-10-31 14:54:04);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (115, 415, Doc_2020-03-15_09:57:31_costsheet_summary_details_(13).pdf, .pdf, 2020-03-15 09:57:31);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (116, 416, Doc_2020-03-15_09:58:03_costsheet_summary_details_(13).pdf, .pdf, 2020-03-15 09:58:03);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (117, 416, Doc_2020-03-15_09:58:13_1526-O_1_-_Intelsat_@_Cabsat_Dubai_2020-_-_Summary_(1).pdf, .pdf, 2020-03-15 09:58:13);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (118, 416, Doc_2020-03-15_09:58:25_1526-O_1_-_Intelsat_@_Cabsat_Dubai_2020-_-_Summary.pdf, .pdf, 2020-03-15 09:58:25);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (119, 418, Doc_2020-03-15_09:58:42_costsheet_summary_details_(12).pdf, .pdf, 2020-03-15 09:58:42);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (120, 597, Doc_2020-03-22_11:07:04_A68A48FCBE7D4436AB991DE38F166D35.pdf, .pdf, 2020-03-22 11:07:04);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (121, 668, Doc_2020-05-18_10:59:18_1.jpg, .jpg, 2020-05-18 10:59:18);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (122, 668, Doc_2020-05-18_10:59:25_1.jpg, .jpg, 2020-05-18 10:59:25);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (123, 668, Doc_2020-05-18_11:26:59_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:26:59);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (124, 668, Doc_2020-05-18_11:27:00_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:27:00);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (125, 723, Doc_2020-05-18_11:54:24_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:54:24);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (126, 724, Doc_2020-05-18_11:58:34_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:58:34);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (127, 724, Doc_2020-05-18_11:58:35_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:58:35);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (128, 724, Doc_2020-05-18_11:58:36_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:58:36);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (129, 724, Doc_2020-05-18_11:58:36_React-Tutorial-20201.pdf, .pdf, 2020-05-18 11:58:36);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (130, 724, Doc_2020-05-18_11:58:36_React-Tutorial-20202.pdf, .pdf, 2020-05-18 11:58:36);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (131, 724, Doc_2020-05-18_11:58:37_React-Tutorial-2020.pdf, .pdf, 2020-05-18 11:58:37);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (132, 669, Doc_2020-05-18_12:01:24_React-Tutorial-2020.pdf, .pdf, 2020-05-18 12:01:24);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (133, 671, Doc_2020-05-18_12:24:31_React-Tutorial-2020.pdf, .pdf, 2020-05-18 12:24:31);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (134, 671, Doc_2020-05-18_12:24:31_React-Tutorial-20201.pdf, .pdf, 2020-05-18 12:24:31);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (135, 725, Doc_2020-05-18_12:25:27_React-Tutorial-2020.pdf, .pdf, 2020-05-18 12:25:27);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (136, 672, Doc_2020-05-18_12:38:17_React-Tutorial-2020.pdf, .pdf, 2020-05-18 12:38:17);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (137, 731, Doc_2020-05-18_16:57:02_costsheet_summary_details_(16).pdf, .pdf, 2020-05-18 16:57:02);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (138, 1029, Doc_2020-05-19_10:55:50_costsheet_summary_details_(17).pdf, .pdf, 2020-05-19 10:55:50);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (139, 1029, Doc_2020-05-19_10:55:59_costsheet_summary_details_(17).pdf, .pdf, 2020-05-19 10:55:59);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (140, 1030, Doc_2020-05-19_10:59:17_UV_-_96GPM_Catalogue_(1).pdf, .pdf, 2020-05-19 10:59:17);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (141, 1030, Doc_2020-05-19_10:59:24_UV_-_96GPM_Catalogue_(1).pdf, .pdf, 2020-05-19 10:59:24);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (142, 1030, Doc_2020-05-19_10:59:24_UV_-_96GPM_Catalogue_(1)1.pdf, .pdf, 2020-05-19 10:59:24);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (143, 1030, Doc_2020-05-19_10:59:24_UV_-_96GPM_Catalogue_(1)2.pdf, .pdf, 2020-05-19 10:59:24);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (144, 1384, Doc_2020-05-21_21:03:00_costsheet_summary_details_(20).pdf, .pdf, 2020-05-21 21:03:00);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (145, 1498, Doc_2020-05-21_22:30:03_costsheet_summary_(10).pdf, .pdf, 2020-05-21 22:30:03);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (146, 1555, Doc_2020-05-21_22:41:27_Customer_Survey.jpg, .jpg, 2020-05-21 22:41:27);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (147, 1612, Doc_2020-05-22_08:43:22_Customer_Survey.jpg, .jpg, 2020-05-22 08:43:22);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (148, 1613, Doc_2020-05-22_08:43:44_costsheet_summary_details_(20).pdf, .pdf, 2020-05-22 08:43:44);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (149, 1993, Doc_2020-06-10_16:09:08_powertec2.jpg, .jpg, 2020-06-10 16:09:08);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (150, 2264, Doc_2020-07-06_13:15:04_costsheet_summary_(36).pdf, .pdf, 2020-07-06 13:15:04);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (151, 2284, Doc_2020-07-07_20:45:36_costsheet_summary_(45).pdf, .pdf, 2020-07-07 20:45:36);
+INSERT INTO `document` (`id`, `line_item_id`, `doc_image`, `doc_type`, `created_at`) VALUES (152, 2286, Doc_2020-07-08_12:57:31_costsheet_summary_(45).pdf, .pdf, 2020-07-08 12:57:31);
+
+
+#
+# TABLE STRUCTURE FOR: exclusions
+#
+
+DROP TABLE IF EXISTS `exclusions`;
+
+CREATE TABLE `exclusions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) NOT NULL,
+  `description` varchar(256) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (1, days, Our business day is Saturday and Sunday., 2020-06-21 11:21:38, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (2, Deadline, Our deadline is 30 days.
+If you don't release the money between deadline time, your request will be cancel automatically. , 2020-06-21 11:23:02, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (5, Deadline2, Deadline2, 2020-07-07 18:13:29, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (6, Deadline3, Deadline3, 2020-07-07 18:13:40, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (7, Deadline4, Deadline4, 2020-07-07 18:13:51, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (8, Deadline5, Deadline5, 2020-07-07 18:14:03, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (9, Deadline6, Deadline6, 2020-07-07 18:14:16, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (10, Interior1, hhlkjhljh, 2020-07-07 18:15:01, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (11, Event 1, Event, 2020-07-07 18:17:16, NULL);
+INSERT INTO `exclusions` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES (12, Event9, Event9, 2020-07-07 18:17:25, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: gerated_costsheet
+#
+
+DROP TABLE IF EXISTS `gerated_costsheet`;
+
+CREATE TABLE `gerated_costsheet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `template_name` varchar(255) DEFAULT NULL,
+  `cost_sheet_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: logo
+#
+
+DROP TABLE IF EXISTS `logo`;
+
+CREATE TABLE `logo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL,
+  `active` int(11) NOT NULL DEFAULT 0,
+  `device` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+INSERT INTO `logo` (`id`, `name`, `active`, `device`, `created_at`, `updated_at`) VALUES (9, Projex_Strap_blk.png, 1, 1, 2020-06-30 01:06:25, NULL);
+INSERT INTO `logo` (`id`, `name`, `active`, `device`, `created_at`, `updated_at`) VALUES (10, projexlogo.jpg.PNG, 1, 0, 2020-06-30 01:06:50, NULL);
+INSERT INTO `logo` (`id`, `name`, `active`, `device`, `created_at`, `updated_at`) VALUES (12, header.jpg, 0, 1, 2020-07-01 12:07:41, NULL);
+INSERT INTO `logo` (`id`, `name`, `active`, `device`, `created_at`, `updated_at`) VALUES (13, beach-1761410_1920.jpg, 1, 2, 2020-07-09 02:07:46, NULL);
+INSERT INTO `logo` (`id`, `name`, `active`, `device`, `created_at`, `updated_at`) VALUES (14, demo_570x380.png, 0, 2, 2020-07-09 03:07:02, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: logs
+#
+
+DROP TABLE IF EXISTS `logs`;
+
+CREATE TABLE `logs` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(32) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `user` int(11) NOT NULL,
+  `status` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=357 DEFAULT CHARSET=utf8;
+
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (162, Cost Sheet, 470, 1, Created, 2020-07-01 22:09:14, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (210, Cost Sheet, 493, 1, Created, 2020-07-02 20:52:53, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (211, Cost Sheet, 494, 1, Created, 2020-07-05 08:07:08, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (212, Cost Sheet By Model, 495, 1, Created, 2020-07-05 08:07:29, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (213, Cost Sheet, 497, 1, Created, 2020-07-06 08:54:57, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (214, Cost Template, 498, 1, Created, 2020-07-06 08:55:07, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (215, Cost Sheet, 499, 1, Created, 2020-07-06 08:55:17, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (216, Cost Sheet, 500, 1, Created, 2020-07-06 09:08:22, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (217, Cost Sheet, 501, 1, Created, 2020-07-06 09:15:57, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (218, Cost Sheet, 502, 1, Created, 2020-07-06 11:32:50, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (219, Customer, 20/20 Productions Europe Ltd, 1, Updated, 2020-07-06 11:34:15, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (220, Cost Sheet, 503, 1, Created, 2020-07-06 11:34:26, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (221, Cost Sheet, 503, 1, Created, 2020-07-06 11:51:23, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (222, Quotation, 503, 1, Revised, 2020-07-06 12:01:20, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (223, Cost Sheet, 504, 1, Created, 2020-07-06 12:01:43, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (224, Quotation Status, 504, 1, Changed, 2020-07-06 12:03:14, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (225, Jobs, 504, 13, Updated, 2020-07-06 12:06:20, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (226, Jobs, 504, 13, Submitted, 2020-07-06 12:07:58, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (227, Cost Sheet, 505, 1, Created, 2020-07-06 14:17:14, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (228, Quotation Status, 503, 1, Changed, 2020-07-06 14:58:31, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (229, Jobs, 503, 13, Submitted, 2020-07-06 15:01:37, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (230, Cost Sheet, 506, 1, Created, 2020-07-06 15:02:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (231, Cost Sheet, 507, 1, Created, 2020-07-06 15:03:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (232, Cost Sheet, 508, 1, Created, 2020-07-06 16:37:12, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (233, Cost Sheet, 509, 1, Created, 2020-07-06 19:31:06, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (234, Terms and Conditions, adf, 1, Added, 2020-07-06 21:01:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (235, Terms and Conditions, asdfasdfasdf, 1, Added, 2020-07-06 21:03:35, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (237, Terms and Conditions, 123, 1, Added, 2020-07-06 21:05:04, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (238, Terms and Conditions, 123, 1, Deleted, 2020-07-06 21:05:16, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (239, Terms and Conditions, Cancellation fees: 50% of the total quoted price as cancellation fees will be
+imposed for project cancellation after received of signed confirmation or Purchase
+Order.
+, 1, Added, 2020-07-06 21:05:40, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (240, Terms and Conditions, adf, 1, Deleted, 2020-07-06 21:05:46, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (241, Terms and Conditions, All graphics to be supplied by Client in high resolution on CD by no later than 10
+days before the show with Confirmation, 1, Added, 2020-07-06 21:06:03, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (242, Terms and Conditions, Any variation orders for on-site items such as lightings, furniture, and graphics not
+included in the scope of work will be charged accordingly, depending on stock
+availability, Projex reserves the right to provide such items dependent on its
+availabil, 1, Added, 2020-07-06 21:06:16, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (243, Terms and Conditions, If due to unforeseen circumstances such as war, natural calamities, etc., Projex is
+unable to execute the job at the exhibition venue, Projex shall not be held
+responsible for any reason whatsoever.
+, 1, Added, 2020-07-06 21:06:28, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (244, Terms and Conditions, This quotation herein is for services and material rendered to the client strictly on
+rental basis only., 1, Added, 2020-07-06 21:06:42, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (245, Terms and Conditions, This quotation herein is for services and material rendered to the client strictly on
+rental basis only., 1, Deleted, 2020-07-06 21:14:03, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (246, Cost Sheet, 510, 1, Created, 2020-07-06 21:17:32, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (247, Cost Sheet, 511, 1, Created, 2020-07-06 22:23:04, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (248, Terms and Conditions, jlkjlkjlkj, 1, Added, 2020-07-06 22:23:53, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (249, Terms and Conditions, jlkjlkjlkj, 1, Deleted, 2020-07-06 22:24:02, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (250, Cost Sheet, 512, 1, Created, 2020-07-06 22:24:11, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (251, Cost Sheet, 513, 1, Created, 2020-07-06 22:38:11, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (252, Cost Sheet, 514, 1, Created, 2020-07-06 22:39:15, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (253, Cost Sheet, 515, 1, Created, 2020-07-06 23:48:33, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (254, Cost Sheet, 516, 1, Created, 2020-07-07 00:38:46, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (255, Cost Sheet, 515, 1, Created, 2020-07-07 02:09:17, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (256, Cost Sheet, 517, 1, Created, 2020-07-07 02:10:36, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (257, Cost Sheet, 518, 1, Created, 2020-07-07 09:01:06, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (258, Cost Sheet, 519, 1, Created, 2020-07-07 09:02:01, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (259, Cost Sheet, 520, 1, Created, 2020-07-07 09:02:36, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (260, Quotation, 515, 1, Revised, 2020-07-07 09:14:49, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (261, Cost Sheet, 522, 1, Created, 2020-07-07 09:15:18, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (262, Quotation, 515, 1, Revised, 2020-07-07 09:21:43, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (263, Quotation, 515, 1, Revised, 2020-07-07 09:27:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (264, Cost Sheet, 525, 1, Created, 2020-07-07 09:27:41, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (265, Cost Sheet, 526, 1, Created, 2020-07-07 09:37:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (266, Copyright, hello, 1, Added, 2020-07-07 10:41:26, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (267, Copyright, hello00, 1, Updated, 2020-07-07 10:42:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (268, Copyright, We hereby inform you that any Designs presented by Projex and bearing the company seal are
+subject to copyright restrictions and as such remain the sole property of Projex. No part of the
+Designs can be reproduced, transmitted or utilized in any form or, 1, Updated, 2020-07-07 10:42:31, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (269, Copyright, We hereby inform you that any Designs presented by Projex and bearing the company seal are
+subject to copyright restrictions and as such remain the sole property of Projex. No part of the
+Designs can be reproduced, transmitted or utilized in any form or, 1, Updated, 2020-07-07 10:43:22, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (270, Cost Sheet, 527, 1, Created, 2020-07-07 10:45:34, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (271, Quotation, 515, 1, Revised, 2020-07-07 10:50:56, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (272, Cost Sheet, 529, 1, Created, 2020-07-07 10:51:10, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (273, Quotation, 515, 1, Revised, 2020-07-07 11:13:43, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (274, Quotation Status, 515, 1, Changed, 2020-07-07 11:23:44, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (275, Cost Sheet, 531, 1, Created, 2020-07-07 11:35:17, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (276, Cost Sheet, 532, 1, Created, 2020-07-07 12:46:53, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (277, Cost Sheet, 533, 1, Created, 2020-07-07 12:54:57, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (278, Cost Sheet, 534, 1, Created, 2020-07-07 16:23:40, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (279, Cost Sheet, 535, 1, Created, 2020-07-07 16:42:40, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (280, Exclusion, Deadline2, 1, Added, 2020-07-07 16:43:29, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (281, Exclusion, Deadline3, 1, Added, 2020-07-07 16:43:40, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (282, Exclusion, Deadline4, 1, Added, 2020-07-07 16:43:51, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (283, Exclusion, Deadline5, 1, Added, 2020-07-07 16:44:03, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (284, Exclusion, Deadline6, 1, Added, 2020-07-07 16:44:16, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (285, Exclusion, Interior1, 1, Added, 2020-07-07 16:45:01, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (286, Exclusion, Event 1, 1, Added, 2020-07-07 16:47:16, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (287, Exclusion, Event9, 1, Added, 2020-07-07 16:47:25, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (288, Cost Sheet, 536, 1, Created, 2020-07-07 16:47:32, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (289, Quotation, 515, 1, Revised, 2020-07-07 16:48:34, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (290, Cost Sheet, 538, 1, Created, 2020-07-07 19:12:30, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (291, Cost Sheet, 539, 1, Created, 2020-07-07 19:13:58, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (292, Quotation, 515, 1, Revised, 2020-07-07 19:14:12, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (293, Cost Sheet, 541, 1, Created, 2020-07-07 19:30:17, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (294, Cost Sheet, 542, 1, Created, 2020-07-07 20:43:37, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (295, Cost Sheet, 543, 1, Created, 2020-07-07 21:08:22, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (296, Cost Sheet, 544, 1, Created, 2020-07-07 21:10:35, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (297, Cost Sheet, 545, 1, Created, 2020-07-08 08:06:16, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (298, Cost Sheet, 546, 1, Created, 2020-07-08 11:01:31, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (299, Cost Sheet, 547, 1, Created, 2020-07-08 11:02:39, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (300, Customer, Afroportal, 1, Deleted, 2020-07-08 11:03:10, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (301, Customer, INTELSAT @ CABSAT 2020 , 1, Updated, 2020-07-08 11:03:21, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (302, Customer, Solaris DWC LLC, 1, Added, 2020-07-08 11:03:45, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (303, Contact Person, Nebiyu, 1, Added, 2020-07-08 11:04:06, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (304, Cost Sheet, 548, 1, Created, 2020-07-08 11:04:28, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (305, Venue, beauty flower 2, 1, Deleted, 2020-07-08 11:06:29, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (306, Venue, beauty and beast, 1, Deleted, 2020-07-08 11:06:34, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (307, Venue, Event 1, 1, Deleted, 2020-07-08 11:06:38, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (308, Venue, World Trade Center, 1, Updated, 2020-07-08 11:06:47, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (309, Cost Sheet, 549, 1, Created, 2020-07-08 11:21:00, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (310, Cost Sheet, 549, 1, Created, 2020-07-08 11:29:26, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (311, User, paul21, 1, Added, 2020-07-08 11:40:25, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (312, Quotation Status, 549, 1, Changed, 2020-07-08 11:54:02, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (313, Jobs, 549, 13, Updated, 2020-07-08 12:09:23, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (314, Cost Sheet, 550, 1, Created, 2020-07-08 12:12:47, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (315, Copyright, 123, 1, Added, 2020-07-09 12:43:47, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (316, Copyright, 123123, 1, Added, 2020-07-09 12:44:05, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (317, Copyright, 123, 1, Added, 2020-07-09 12:44:33, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (318, Validity, asdf, 1, Added, 2020-07-09 12:44:38, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (319, Validity, After which Projex reserves the right to re-quote taking into account overtime etc., 1, Updated, 2020-07-09 12:45:50, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (320, Cost Sheet, 551, 1, Created, 2020-07-09 12:55:55, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (321, Validity, 10258, 1, Updated, 2020-07-09 12:59:55, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (322, Validity, Validity Test Texts, 1, Updated, 2020-07-09 13:01:02, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (323, Coverletter, Please find our quotation for the above and should they meet with your approval, we look
+forward to receiving signature of acceptance by return fax/ e-mail (please sign all pages
+of the quote).
+Should you require any further information or clarificatio, 1, Added, 2020-07-09 14:45:57, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (324, Coverletter, Please find our quotation for the above and should they meet with your approval, we look
+forward to receiving signature of acceptance by return fax/ e-mail (please sign all pages
+of the quote).
+
+Should you require any further information or clarificat, 1, Updated, 2020-07-09 16:11:44, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (325, Coverletter, Please find our quotation for the above and should they meet with your approval, we look
+forward to receiving signature of acceptance by return fax/ e-mail (please sign all pages
+of the quote).
+
+Should you require any further information or clarificat, 1, Updated, 2020-07-10 09:33:34, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (326, Cost Sheet, 552, 1, Created, 2020-07-10 09:51:13, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (327, Cost Template, 553, 1, Created, 2020-07-10 09:51:55, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (329, Coverletter, 
+    <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+    <p style="margin: 40px 0px 0px; padding: 0px 20px;">Yours sincerely,</p>
+    <p style="margin: 0px 0px 40px; padding: 0px 20px;"><strong> PROJEX </strong></p>
+    <p s, 1, Added, 2020-07-10 13:44:09, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (330, Coverletter, Please find our quotation for the above and should they meet with your approval, we look
+forward to receiving signature of acceptance by return fax/ e-mail (please sign all pages
+of the quote).
+
+Should you require any further information or clarificat, 1, Deleted, 2020-07-10 13:45:02, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (331, Coverletter, <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+                          <p style="margin: 40px 0px 0px; padding: 0px 20px;">Yours sincerely,</p>
+                          <p style="margin: 0px 0px 40px; padding: 0px 20px;"><, 1, Deleted, 2020-07-10 13:46:06, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (332, Coverletter, 
+                              <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam ABC,</p>
+    <p style="margin: 40px 0px 0px; padding: 0px 20px;">Yours sincerely,</p>
+    <p style="margin: 0px 0px 40px; padding: 0px 20px;"><strong> , 1, Updated, 2020-07-10 13:58:38, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (333, Coverletter, 
+                          <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+                            <p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look , 1, Added, 2020-07-10 14:04:21, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (334, Coverletter, 
+                          <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+                            <p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look , 1, Added, 2020-07-10 14:08:48, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (335, Coverletter, 
+                                                    <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Nebiyu,</p>
+                            <p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet w, 1, Updated, 2020-07-10 14:10:17, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (336, Coverletter, 
+                          <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+                            <p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look , 1, Deleted, 2020-07-10 14:11:03, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (337, Coverletter, 
+                              <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam ABC,</p>
+    <p style="margin: 40px 0px 0px; padding: 0px 20px;">Yours sincerely,</p>
+    <p style="margin: 0px 0px 40px; padding: 0px 20px;"><strong> , 1, Deleted, 2020-07-10 14:11:18, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (338, Coverletter, 
+                                                    <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Nebiyu,</p>
+                            <p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet w, 1, Deleted, 2020-07-10 14:11:27, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (339, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 14:23:40, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (340, Coverletter, <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <strong> signature of acceptance by, 1, Updated, 2020-07-10 14:24:19, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (341, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 17:31:16, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (342, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 17:39:56, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (343, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Deleted, 2020-07-10 17:41:54, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (344, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Deleted, 2020-07-10 17:42:04, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (345, Coverletter, <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <strong> signature of acceptance by, 1, Deleted, 2020-07-10 17:42:09, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (346, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 17:46:46, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (347, Coverletter, 
+                            
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we l, 1, Updated, 2020-07-10 19:14:12, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (348, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 19:18:49, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (349, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Deleted, 2020-07-10 19:21:26, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (350, Coverletter, 
+                            
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we l, 1, Deleted, 2020-07-10 19:21:35, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (351, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 19:21:41, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (352, Coverletter, 
+                            
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Nebiyu,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we , 1, Updated, 2020-07-10 19:23:58, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (353, Coverletter, 
+                            
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Nebiyu,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we , 1, Deleted, 2020-07-10 20:18:43, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (354, Coverletter, 
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we look forward to receiving <stro, 1, Added, 2020-07-10 20:18:58, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (355, Coverletter, 
+                            
+                            <p style="margin: 40px 0px 40px; padding: 0px 20px;">Dear Sir / Madam,</p>
+<p style="padding: 0px 20px 0px;">Please find our quotation for the above and should they meet with your approval, we l, 1, Updated, 2020-07-10 20:20:44, NULL);
+INSERT INTO `logs` (`id`, `type`, `description`, `user`, `status`, `created_at`, `updated_at`) VALUES (356, Cost Sheet, 554, 1, Created, 2020-07-10 22:42:07, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: payment_terms
+#
+
+DROP TABLE IF EXISTS `payment_terms`;
+
+CREATE TABLE `payment_terms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+INSERT INTO `payment_terms` (`id`, `title`, `created_at`, `updated_at`) VALUES (16, 50% Advance Payment on confirmation, 2020-06-11 10:22:38, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: products
+#
+
+DROP TABLE IF EXISTS `products`;
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(255) DEFAULT NULL,
+  `product_cat` varchar(255) DEFAULT NULL,
+  `product_unit` varchar(255) DEFAULT NULL,
+  `product_desc` longtext DEFAULT NULL,
+  `cost_in_aed` varchar(255) DEFAULT NULL,
+  `cost_in_usd` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+
+INSERT INTO `products` (`id`, `product_name`, `product_cat`, `product_unit`, `product_desc`, `cost_in_aed`, `cost_in_usd`, `created_at`, `updated_at`) VALUES (39, MDF Skin on Stage, 43, 23, 18MM thick MDF Skin on Stage Surface, 30, 8.2, 2020-06-11 11:57:53, NULL);
+INSERT INTO `products` (`id`, `product_name`, `product_cat`, `product_unit`, `product_desc`, `cost_in_aed`, `cost_in_usd`, `created_at`, `updated_at`) VALUES (40, Stock Stage (Adjustable), 43, 23, Stock Stage (Adjustable), 100, 27.2, 2020-06-11 13:43:11, NULL);
+INSERT INTO `products` (`id`, `product_name`, `product_cat`, `product_unit`, `product_desc`, `cost_in_aed`, `cost_in_usd`, `created_at`, `updated_at`) VALUES (41, Olive oil, 18, 24, olive, 500, 136.2, 2020-07-02 00:02:52, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: salesperson
+#
+
+DROP TABLE IF EXISTS `salesperson`;
+
+CREATE TABLE `salesperson` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+INSERT INTO `salesperson` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES (8, Mehari, nebiyu@solarisdubai.com, 2020-05-16 12:20:29, NULL);
+INSERT INTO `salesperson` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES (12, Nebiyu, nebiyu@gmail.com, 2020-05-22 08:41:08, NULL);
+INSERT INTO `salesperson` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES (13, Grace, grace@projexuae.com, 2020-06-02 08:26:46, NULL);
+INSERT INTO `salesperson` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES (14, Maria, maria@projexuae.com, 2020-06-02 08:27:02, NULL);
+INSERT INTO `salesperson` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES (15, Prasath, prasath@projexuae.com, 2020-06-02 08:27:18, NULL);
+INSERT INTO `salesperson` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES (16, Rob Jefferson, rjefferson@projexuae.com, 2020-06-11 10:08:19, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: terms_conditions
+#
+
+DROP TABLE IF EXISTS `terms_conditions`;
+
+CREATE TABLE `terms_conditions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `terms_conditions` (`id`, `description`, `created_at`, `updated_at`) VALUES (5, All graphics to be supplied by Client in high resolution on CD by no later than 10
+days before the show with Confirmation, 2020-07-06 22:36:03, 0000-00-00 00:00:00);
+INSERT INTO `terms_conditions` (`id`, `description`, `created_at`, `updated_at`) VALUES (4, Cancellation fees: 50% of the total quoted price as cancellation fees will be
+imposed for project cancellation after received of signed confirmation or Purchase
+Order.
+, 2020-07-06 22:35:40, 0000-00-00 00:00:00);
+INSERT INTO `terms_conditions` (`id`, `description`, `created_at`, `updated_at`) VALUES (6, Any variation orders for on-site items such as lightings, furniture, and graphics not
+included in the scope of work will be charged accordingly, depending on stock
+availability, Projex reserves the right to provide such items dependent on its
+availabil, 2020-07-06 22:36:16, 0000-00-00 00:00:00);
+INSERT INTO `terms_conditions` (`id`, `description`, `created_at`, `updated_at`) VALUES (7, If due to unforeseen circumstances such as war, natural calamities, etc., Projex is
+unable to execute the job at the exhibition venue, Projex shall not be held
+responsible for any reason whatsoever.
+, 2020-07-06 22:36:28, 0000-00-00 00:00:00);
+
+
+#
+# TABLE STRUCTURE FOR: units
+#
+
+DROP TABLE IF EXISTS `units`;
+
+CREATE TABLE `units` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (14, Tr, 2020-06-11 11:44:42, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (15, Days, 2019-09-18 15:41:11, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (16, Hrs, 2019-10-02 12:17:00, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (17, Nos, 2019-10-02 12:19:43, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (18, LS, 2019-10-02 12:19:50, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (19, Set, 2019-10-02 12:20:04, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (21, Minutes, 2020-05-19 10:25:56, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (23, SQM, 2020-06-11 11:45:36, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (24, SQF, 2020-06-11 11:45:47, NULL);
+INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`) VALUES (25, Wk, 2020-06-11 11:46:09, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: user
+#
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `user_role_id` int(11) NOT NULL DEFAULT 2 COMMENT 'Admin=1,Sales=2,Project Managers=3',
+  `name` varchar(50) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `gender` varchar(11) DEFAULT NULL,
+  `password` longtext DEFAULT NULL,
+  `user_password` longtext DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL COMMENT 'mobile or email',
+  `dob` varchar(255) DEFAULT NULL,
+  `profile_image` varchar(255) DEFAULT NULL,
+  `is_mobile_verified` enum('yes','no') DEFAULT NULL,
+  `mobile_otp` varchar(20) DEFAULT NULL,
+  `send_otp_time` datetime DEFAULT NULL,
+  `otp_verified_date_time` datetime DEFAULT NULL,
+  `is_otp_verified` enum('no','yes') NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `latitude` float DEFAULT 0,
+  `longitude` float DEFAULT 0,
+  `additional_address` varchar(255) DEFAULT NULL,
+  `is_active` enum('active','inactive') NOT NULL DEFAULT 'inactive' COMMENT 'enum type : active, inactive',
+  `active_deactive_by` int(11) DEFAULT NULL,
+  `active_deactive_date` datetime DEFAULT NULL,
+  `userStatus` enum('active','inactive') NOT NULL,
+  `user_ip` varchar(100) DEFAULT NULL,
+  `created_platform` varchar(10) NOT NULL DEFAULT 'W' COMMENT ' W= Web Portal , A= App ( Android and   IOS )',
+  `is_user_logged` enum('no','yes') NOT NULL DEFAULT 'no',
+  `device_token` text DEFAULT NULL,
+  `verifyCode` varchar(255) DEFAULT NULL,
+  `profile_updated` varchar(255) DEFAULT '0',
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `created_by` int(11) NOT NULL DEFAULT 58,
+  `updated_by` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `mobile` (`mobile`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `mobile_3` (`mobile`),
+  KEY `mobile_2` (`mobile`),
+  KEY `username_2` (`username`),
+  KEY `user_role_id` (`user_role_id`),
+  KEY `id_2` (`id`),
+  KEY `id_3` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (1, 1, Admin, admin, admin, 0, e6e061838856bf47e1de730719fb2609, NULL, NULL, NULL, NULL, no, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2018-06-05 11:11:17, 0, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (7, 3, vartika, vartika1, vgupta@techinventive.com, NULL, 176b13c4453997d305f230ad09274d12, 6PZRuyatBhh, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-03-12 11:54:26, 58, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (11, 4, Nebiyu, nebiyu11, nebiyu@gmail.com, NULL, 2418895fb361ca654474fd30029e7726, F2pGQDtZQ1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-05-18 17:39:28, 58, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (13, 4, Nebiyu, nebiyu1, nebiyue@yahoo.com, NULL, c37bf859faf392800d739a41fe5af151, 98765, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-06-01 23:53:02, 58, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (18, 1, nebiyu, nebiyu18, nebiyu@mambodubai.com, NULL, 16513a9c5488c11c4647407a71cf6541, Projex@2020, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-06-03 17:21:02, 58, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (19, 2, Nebiyu, nebiyu19, nebiyu@solarisdubai.com, NULL, 6319fc6e9bc90a248929adb7d2a21024, tHmYdeaFNc, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-06-11 10:59:08, 58, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (20, 5, test, test20, test@gmail.com, NULL, a8207c24b06377ee36d264f4469b10ea, KzFCuS4cqP, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-07-02 01:12:18, 58, 0);
+INSERT INTO `user` (`id`, `user_role_id`, `name`, `username`, `email`, `gender`, `password`, `user_password`, `mobile`, `dob`, `profile_image`, `is_mobile_verified`, `mobile_otp`, `send_otp_time`, `otp_verified_date_time`, `is_otp_verified`, `address`, `latitude`, `longitude`, `additional_address`, `is_active`, `active_deactive_by`, `active_deactive_date`, `userStatus`, `user_ip`, `created_platform`, `is_user_logged`, `device_token`, `verifyCode`, `profile_updated`, `updated_at`, `created_at`, `created_by`, `updated_by`) VALUES (21, 4, Paul , paul21, phawkins@projexuae.com , NULL, 81ca4d089ce25a36c50b6ef38c824d21, kFt15CyV7K, NULL, NULL, NULL, NULL, NULL, NULL, NULL, no, NULL, 0, 0, NULL, active, NULL, NULL, active, NULL, W, no, NULL, NULL, 0, NULL, 2020-07-08 13:10:25, 58, 0);
+
+
+#
+# TABLE STRUCTURE FOR: user_profile
+#
+
+DROP TABLE IF EXISTS `user_profile`;
+
+CREATE TABLE `user_profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `profile_image` varchar(255) DEFAULT NULL,
+  `headline` varchar(255) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `citizenship` int(11) DEFAULT NULL,
+  `country` int(11) DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `city` int(11) DEFAULT NULL,
+  `zip_code` int(11) DEFAULT NULL,
+  `introduction` text DEFAULT NULL,
+  `Interests` varchar(255) DEFAULT NULL,
+  `grades` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: user_role
+#
+
+DROP TABLE IF EXISTS `user_role`;
+
+CREATE TABLE `user_role` (
+  `id` int(11) NOT NULL,
+  `is_delete_able` enum('no','yes') NOT NULL DEFAULT 'no',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` varchar(100) DEFAULT NULL,
+  `role_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `user_role` (`id`, `is_delete_able`, `created_at`, `updated_at`, `role_id`, `name`) VALUES (1, no, 2019-10-16 05:04:24, NULL, 1, Admin);
+INSERT INTO `user_role` (`id`, `is_delete_able`, `created_at`, `updated_at`, `role_id`, `name`) VALUES (2, no, 2019-10-16 05:04:24, NULL, 2, Sales);
+INSERT INTO `user_role` (`id`, `is_delete_able`, `created_at`, `updated_at`, `role_id`, `name`) VALUES (3, no, 2019-10-16 05:04:59, NULL, 3, Project Managers);
+INSERT INTO `user_role` (`id`, `is_delete_able`, `created_at`, `updated_at`, `role_id`, `name`) VALUES (4, no, 2020-03-13 01:25:47, NULL, 4, Finance);
+INSERT INTO `user_role` (`id`, `is_delete_able`, `created_at`, `updated_at`, `role_id`, `name`) VALUES (5, no, 2020-06-11 01:08:50, NULL, 5, Cost Estimator);
+
+
+#
+# TABLE STRUCTURE FOR: validity
+#
+
+DROP TABLE IF EXISTS `validity`;
+
+CREATE TABLE `validity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `validity` (`id`, `description`, `created_at`, `updated_at`) VALUES (1, Validity Test Texts, 2020-07-09 14:31:02, 0000-00-00 00:00:00);
+
+
+#
+# TABLE STRUCTURE FOR: venue
+#
+
+DROP TABLE IF EXISTS `venue`;
+
+CREATE TABLE `venue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` longtext DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+INSERT INTO `venue` (`id`, `title`, `created_at`, `updated_at`) VALUES (1, World Trade Center, 2020-07-08 12:36:47, 2019-09-04 00:00:00);
+INSERT INTO `venue` (`id`, `title`, `created_at`, `updated_at`) VALUES (5, Dubai Design Destrict, 2019-09-18 14:49:31, NULL);
+INSERT INTO `venue` (`id`, `title`, `created_at`, `updated_at`) VALUES (6, Dubai Opera, 2019-09-18 14:49:40, NULL);
+INSERT INTO `venue` (`id`, `title`, `created_at`, `updated_at`) VALUES (10, Madeenat Jumeirah, 2020-06-11 10:11:01, NULL);
+
+

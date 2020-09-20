@@ -1,0 +1,18 @@
+[11-Jul-2020 04:29:27 UTC] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php on line 4
+[11-Jul-2020 04:29:52 UTC] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php on line 4
+[11-Jul-2020 04:31:07 UTC] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php on line 4
+[11-Jul-2020 04:43:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_instance() in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php on line 4
+[11-Jul-2020 04:53:35 UTC] PHP Warning:  Illegal string offset 'color' in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php on line 17
+[11-Jul-2020 04:53:48 UTC] PHP Warning:  Illegal string offset 'color' in /home/projexon/solaris.projexonlineservices.com/application/views/admin/custom.php on line 17

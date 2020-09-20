@@ -1,0 +1,53 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-06-30 01:06:24 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-06-30 01:06:58 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:07:42 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:08:22 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:08:28 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:08:34 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:08:40 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:09:13 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:09:18 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:10:05 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:10:11 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:10:14 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:10:28 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:10:53 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:10:58 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:11:03 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:11:08 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:11:17 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:14:02 --> Severity: Notice --> Undefined variable: color1 /home/theindus/public_html/costestimator.theindustrialparts.com/application/views/admin/changestyle.php 29
+ERROR - 2020-06-30 01:14:02 --> Severity: Notice --> Undefined variable: color2 /home/theindus/public_html/costestimator.theindustrialparts.com/application/views/admin/changestyle.php 33
+ERROR - 2020-06-30 01:14:09 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:17 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:25 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:27 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:30 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:33 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:35 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:15:37 --> 404 Page Not Found: Admin_assets/vendors
+ERROR - 2020-06-30 01:15:42 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:19:21 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:19:27 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:20:41 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 01:29:37 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:23:53 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:23:59 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:44:47 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:44:49 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:44:54 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:44:57 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:44:59 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:02 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:05 --> 404 Page Not Found: Admin_assets/vendors
+ERROR - 2020-06-30 14:45:06 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:12 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:27 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:30 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:34 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:37 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 14:45:39 --> 404 Page Not Found: Demo_admin_assets/css
+ERROR - 2020-06-30 15:08:19 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-06-30 23:05:38 --> 404 Page Not Found: Demo_admin_assets/css
