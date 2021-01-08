@@ -77,6 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	// 'hostname' => 'localhost',
+	// 'hostname' => 'localhost',
 	'username' => 'agqyuqbxsv',
 	'password' => 'SWYS3FE5wV',
 	'database' => 'agqyuqbxsv',
