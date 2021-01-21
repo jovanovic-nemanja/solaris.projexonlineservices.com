@@ -1,3 +1,4 @@
+var price = $('.price').text();
 
 /*
  * Camera Buttons
@@ -93,7 +94,10 @@ var ContextMenu = function(blueprint3d) {
 
   function init() {
     $("#context-menu-delete").click(function(event) {
-        selectedItem.remove();
+      var item = selectedItem;
+      var item_price = item.metadata.itemPrice;
+      selectedItem.remove();
+      sumPrice(parseInt(-item_price));
     });
 
     three.itemSelectedCallbacks.add(itemSelected);
@@ -119,7 +123,7 @@ var ContextMenu = function(blueprint3d) {
     selectedItem = item;
 
     $("#context-menu-name").text(item.metadata.itemName);
-
+    
     $("#item-width").val(cmToIn(selectedItem.getWidth()).toFixed(0));
     $("#item-height").val(cmToIn(selectedItem.getHeight()).toFixed(0));
     $("#item-depth").val(cmToIn(selectedItem.getDepth()).toFixed(0));
@@ -326,13 +330,16 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
   function initItems() {
     $("#add-items").find(".add-item").mousedown(function(e) {
       var modelUrl = $(this).attr("model-url");
+      var model_price = $(this).attr('model-price');
       var itemType = parseInt($(this).attr("model-type"));
       var metadata = {
         itemName: $(this).attr("model-name"),
+        itemPrice: $(this).attr("model-price"),
         resizable: true,
         modelUrl: modelUrl,
         itemType: itemType
       }
+      sumPrice(model_price);
 
       blueprint3d.model.scene.addItem(itemType, modelUrl, metadata);
       setCurrentState(scope.states.DEFAULT);
@@ -341,6 +348,17 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
 
   init();
 
+}
+
+function sumPrice(cur_price) {
+  if(price == 0) {
+    price = parseInt(cur_price);
+  }else{
+    price = parseInt(price) + parseInt(cur_price);
+  }
+  
+  $('.price').text(0);
+  $('.price').text(price);
 }
 
 /*

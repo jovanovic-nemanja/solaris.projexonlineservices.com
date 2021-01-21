@@ -24,18 +24,21 @@ $(document).ready(function() {
       "name" : "Chair",
       "image" : "models/thumbnails/thumbnail_Church-Chair-oak-white_1024x1024.jpg",
       "model" : "models/js/gus-churchchair-whiteoak.js",
+      "price" : "1500",
       "type" : "1"
     }, 
     {
       "name" : "Red Chair",
       "image" : "models/thumbnails/thumbnail_tn-orange.png",
       "model" : "models/js/ik-ekero-orange_baked.js",
+      "price" : "2000",
       "type" : "1"
     },
     {
       "name" : "Blue Chair",
       "image" : "models/thumbnails/thumbnail_ekero-blue3.png",
       "model" : "models/js/ik-ekero-blue_baked.js",
+      "price" : "1400",
       "type" : "1"
     },
     // {
@@ -78,6 +81,7 @@ $(document).ready(function() {
       "name" : "Bookshelf",
       "image" : "models/thumbnails/thumbnail_kendall-walnut-bookcase.jpg",
       "model" : "models/js/cb-kendallbookcasewalnut_baked.js",
+      "price" : "1050",
       "type" : "1"
     }, 
     // {
@@ -174,10 +178,13 @@ $(document).ready(function() {
                 item.model +
                 '" model-type="' +
                 item.type + 
+                '" model-price="' +
+                item.price +
                 '"><img src="' +
                 item.image + 
                 '" alt="Add Item"> '+
-                item.name +
+                item.name + "&nbsp; /&nbsp; " + 
+                item.price + " AED" + 
                 '</a></div>';
     itemsDiv.append(html);
   }
