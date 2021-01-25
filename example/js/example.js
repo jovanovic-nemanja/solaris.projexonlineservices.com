@@ -1,4 +1,5 @@
 var price = $('.price').text();
+var arr_items = [];
 
 /*
  * Camera Buttons
@@ -98,6 +99,7 @@ var ContextMenu = function(blueprint3d) {
       var item_price = item.metadata.itemPrice;
       selectedItem.remove();
       sumPrice(parseInt(-item_price));
+      shoppingCart(item.metadata, 2);
     });
 
     three.itemSelectedCallbacks.add(itemSelected);
@@ -340,14 +342,68 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
         itemType: itemType
       }
       sumPrice(model_price);
-
       blueprint3d.model.scene.addItem(itemType, modelUrl, metadata);
       setCurrentState(scope.states.DEFAULT);
+      shoppingCart(metadata, 1);
     });
   }
 
   init();
 
+}
+
+function shoppingCart(item, type) {
+  if (item) {
+    if(type == 1) {
+      if (arr_items == '') {
+        arr_items[0] = {
+          'itemName' : item.itemName,
+          'itemPrice' : item.itemPrice,
+          'itemCount' : 1,
+        };
+      }else{
+        // const j = arr_items.contains(item.itemName);
+        for (let k = 0; k < arr_items.length; k++) {
+          if (arr_items[k].itemName == item.itemName) {
+            arr_items[k].itemCount = parseInt(arr_items[k].itemCount) + 1;  
+            break;
+          }else{
+            if (arr_items.length == (k+1)) {
+              arr_items[(k+1)] = {
+                'itemName' : item.itemName,
+                'itemPrice' : item.itemPrice,
+                'itemCount' : 1,
+              };
+              break;
+            } else{
+              continue;
+            }
+          }
+        }
+      }
+    }else{
+      for (let l = 0; l < arr_items.length; l++) {
+        if (arr_items[l].itemName == item.itemName) {
+          if (arr_items[l].itemCount > 1) {
+            arr_items[l].itemCount = arr_items[l].itemCount - 1;
+            break;
+          }else{
+            arr_items.splice(l, 1);
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  if(arr_items) {
+    $('#shopping_cart_table').empty();
+    var tbody = $('#shopping_cart_table');
+    for(var i=0; i<arr_items.length; i++) {
+      var element = "<tr><td>" + (i+1) + "</td><td>" + arr_items[i].itemName + "</td><td>" + arr_items[i].itemCount + "</td><td>" + arr_items[i].itemPrice + "</td><td>" + (arr_items[i].itemCount * arr_items[i].itemPrice) + "</td></tr>";
+      tbody.append(element);
+    }
+  }
 }
 
 function sumPrice(cur_price) {
