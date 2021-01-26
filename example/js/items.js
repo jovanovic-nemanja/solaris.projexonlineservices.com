@@ -84,12 +84,13 @@ $(document).ready(function() {
       "price" : "1050",
       "type" : "1"
     }, 
-    // {
-    //   "name" : "Media Console - White",
-    //   "image" : "models/thumbnails/thumbnail_clapboard-white-60-media-console-1.jpg",
-    //   "model" : "models/js/cb-clapboard_baked.js",
-    //   "type" : "1"
-    // }, 
+    {
+      "name" : "Media Console - White",
+      "image" : "models/thumbnails/thumbnail_clapboard-white-60-media-console-1.jpg",
+      "model" : "models/js/cb-clapboard_baked.js",
+      "price" : "3000",
+      "type" : "1"
+    }, 
     //     {
     //   "name" : "Media Console - Black",
     //   "image" : "models/thumbnails/thumbnail_moore-60-media-console-1.jpg",
