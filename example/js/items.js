@@ -181,6 +181,8 @@ $(document).ready(function() {
                 item.type + 
                 '" model-price="' +
                 item.price +
+                '" model-image="' +
+                item.image +
                 '"><img src="' +
                 item.image + 
                 '" alt="Add Item"> '+

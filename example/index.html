@@ -42,6 +42,10 @@
               Add Items
               <span class="glyphicon glyphicon-chevron-right pull-right"></span>
             </a></li>
+            <li id="checkout_tab"><a href="#">
+              Checkouts
+              <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+            </a></li>
           </ul>
 
           <!-- Context Menu -->
@@ -156,8 +160,6 @@
             </div>
 
             <div id="right_top_panel">
-              <h4><span class="price">0 </span> AED</h4>
-
               <div class="row">
                 <table class="form-control table table-scroll">
                   <thead>
@@ -171,7 +173,9 @@
                     
                   </tbody>
                 </table>
-                </div>
+              </div>
+
+              <h4 class="total_price"><button class="btn btn-default btn-medium checkout">Checkout</button> &nbsp; &nbsp; <span class="price">0 </span> AED</h4>
             </div>
 
             <div id="camera-controls">
@@ -242,7 +246,31 @@
               <!-- Items added here by items.js -->
             </div>
           </div>
-      
+          <!-- end items -->
+
+          <!-- Add check out -->
+          <div id="add-checkout">
+            <div class="row">
+              <div class="col-md-6">
+                <table class="form-control table table-scroll">
+                  <thead>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Photo</td>
+                    <td>Count</td>
+                    <td>Price</td>
+                    <td>All Price</td>
+                  </thead>
+                  <tbody id="checkout_tbody">
+                    
+                  </tbody>
+                </table>
+                <br>
+                <h4 class="total_price_checkout"><span class="checkout_price">0 </span> AED</h4>
+              </div>
+            </div>
+          </div>
+          <!-- end check out -->
         </div>
         <!-- End Right Column -->
       </div>

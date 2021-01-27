@@ -1,6 +1,14 @@
 var price = $('.price').text();
 var arr_items = [];
 
+function formatNumbertoNew(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
+function formatNumbertoOld(num) {
+  return num.replace(",", "");
+}
+
 /*
  * Camera Buttons
  */
@@ -211,7 +219,8 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
   var tabs = {
     "FLOORPLAN" : $("#floorplan_tab"),
     "SHOP" : $("#items_tab"),
-    "DESIGN" : $("#design_tab")
+    "DESIGN" : $("#design_tab"),
+    "CHECKOUT" : $("#checkout_tab")
   }
 
   var scope = this;
@@ -229,6 +238,10 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
     "SHOP" : {
       "div" : $("#add-items"),
       "tab" : tabs.SHOP
+    },
+    "CHECKOUT" : {
+      "div" : $("#add-checkout"),
+      "tab" : tabs.CHECKOUT
     }
   }
 
@@ -325,7 +338,6 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
   function handleWindowResize() {
     $(".sidebar").height(window.innerHeight);
     $("#add-items").height(window.innerHeight);
-
   };
 
   // TODO: this doesn't really belong here
@@ -337,6 +349,7 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
       var metadata = {
         itemName: $(this).attr("model-name"),
         itemPrice: $(this).attr("model-price"),
+        itemimage: $(this).attr("model-image"),
         resizable: true,
         modelUrl: modelUrl,
         itemType: itemType
@@ -360,6 +373,7 @@ function shoppingCart(item, type) {
           'itemName' : item.itemName,
           'itemPrice' : item.itemPrice,
           'itemCount' : 1,
+          'itemPhoto' : item.itemimage,
         };
       }else{
         // const j = arr_items.contains(item.itemName);
@@ -373,6 +387,7 @@ function shoppingCart(item, type) {
                 'itemName' : item.itemName,
                 'itemPrice' : item.itemPrice,
                 'itemCount' : 1,
+                'itemPhoto' : item.itemimage,
               };
               break;
             } else{
@@ -400,8 +415,14 @@ function shoppingCart(item, type) {
     $('#shopping_cart_table').empty();
     var tbody = $('#shopping_cart_table');
     for(var i=0; i<arr_items.length; i++) {
-      var element = "<tr><td>" + (i+1) + "</td><td>" + arr_items[i].itemName + "</td><td>" + arr_items[i].itemCount + "</td><td>" + arr_items[i].itemPrice + "</td><td>" + (arr_items[i].itemCount * arr_items[i].itemPrice) + "</td></tr>";
+      var element = "<tr><td>" + (i+1) + "</td><td>" + arr_items[i].itemName + "</td><td>" + arr_items[i].itemCount + "</td><td>" + formatNumbertoNew(arr_items[i].itemPrice) + "</td><td>" + formatNumbertoNew(arr_items[i].itemCount * arr_items[i].itemPrice) + "</td></tr>";
       tbody.append(element);
+    }
+
+    if (arr_items.length > 0) {
+      $('.checkout').show();  
+    }else{
+      $('.checkout').hide();
     }
   }
 }
@@ -414,7 +435,23 @@ function sumPrice(cur_price) {
   }
   
   $('.price').text(0);
-  $('.price').text(price);
+  $('.price').text(formatNumbertoNew(price));
+}
+
+function checkout() {
+  if(arr_items) {
+    $('#checkout_tbody').empty();
+    var tbody = $('#checkout_tbody');
+    for(var i=0; i<arr_items.length; i++) {
+      var element = "<tr><td>" + (i+1) + "</td><td>" + arr_items[i].itemName + "</td><td><img src='" + arr_items[i].itemPhoto + "' /></td><td>" + arr_items[i].itemCount + "</td><td>" + formatNumbertoNew(arr_items[i].itemPrice) + "</td><td>" + formatNumbertoNew(arr_items[i].itemCount * arr_items[i].itemPrice) + "</td></tr>";
+      tbody.append(element);
+    }
+  }
+
+  $('.checkout_price').text(0);
+  $('.checkout_price').text(formatNumbertoNew(price));
+
+  $("#add-checkout").height(window.innerHeight - parseInt(50));
 }
 
 /*
@@ -579,8 +616,12 @@ var mainControls = function(blueprint3d) {
 /*
  * Initialize!
  */
+$(document).resize(function() {
+  $("#add-checkout").height(window.innerHeight - parseInt(50));
+});
 
 $(document).ready(function() {
+  $('.checkout').hide();
 
   // main setup
   var opts = {
@@ -599,6 +640,15 @@ $(document).ready(function() {
   var textureSelector = new TextureSelector(blueprint3d, sideMenu);        
   var cameraButtons = new CameraButtons(blueprint3d);
   mainControls(blueprint3d);
+
+  $('#checkout_tab').click(function() {
+    checkout();
+  });
+  
+  $('.checkout').click(function() {
+    $('#checkout_tab').click();
+    checkout();
+  });
 
   // This serialization format needs work
   // Load a simple rectangle room
