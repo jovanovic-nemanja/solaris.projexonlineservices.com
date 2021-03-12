@@ -174,3 +174,11 @@ div {
 .total_price_checkout {
   text-align: right;
 }
+
+.inline-flex {
+  display: inline-block;
+}
+
+.alignRight {
+  text-align: right;
+}

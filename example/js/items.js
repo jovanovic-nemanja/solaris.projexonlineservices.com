@@ -20,13 +20,7 @@ $(document).ready(function() {
   //     "model" : "models/js/whitewindow.js",
   //     "type" : "3"
   //   }, 
-    {
-      "name" : "Bar Stool",
-      "image" : "models/thumbnails/chair.png",
-      "model" : "models/js/chair.js",
-      "price" : "500",
-      "type" : "1"
-    }, 
+    
     // {
     //   "name" : "Chair",
     //   "image" : "models/thumbnails/thumbnail_Church-Chair-oak-white_1024x1024.jpg",
@@ -79,26 +73,63 @@ $(document).ready(function() {
     //   "model" : "models/js/ik_nordli_full.js",
     //   "type" : "1"
     // }, 
+    // {
+    //   "name" : "Bookshelf",
+    //   "image" : "models/thumbnails/thumbnail_kendall-walnut-bookcase.jpg",
+    //   "model" : "models/js/cb-kendallbookcasewalnut_baked.js",
+    //   "price" : "1050",
+    //   "type" : "1"
+    // }, 
+    // {
+    //   "name" : "Media Console - White",
+    //   "image" : "models/thumbnails/thumbnail_clapboard-white-60-media-console-1.jpg",
+    //   "model" : "models/js/cb-clapboard_baked.js",
+    //   "price" : "3000",
+    //   "type" : "1"
+    // }, 
+
     {
-      "name" : "Bookshelf",
-      "image" : "models/thumbnails/thumbnail_kendall-walnut-bookcase.jpg",
-      "model" : "models/js/cb-kendallbookcasewalnut_baked.js",
-      "price" : "1050",
+      "name" : "Bar Stool",
+      "image" : "models/thumbnails/chair-red.png",
+      "model" : "models/js/chair_1-2.js",
+      "price" : "500",
       "type" : "1"
     }, 
     {
-      "name" : "Media Console - White",
-      "image" : "models/thumbnails/thumbnail_clapboard-white-60-media-console-1.jpg",
-      "model" : "models/js/cb-clapboard_baked.js",
+      "name" : "TV",
+      "image" : "models/thumbnails/TV.png",
+      "model" : "models/js/led_1-2.js",
+      "price" : "3000",
+      "type" : "2"
+    }, 
+    {
+      "name" : "Round Table",
+      "image" : "models/thumbnails/roundtable.png",
+      "model" : "models/js/table_round.js",
+      "price" : "5000",
+      "type" : "1"
+    }, 
+    {
+      "name" : "Box",
+      "image" : "models/thumbnails/box.png",
+      "model" : "models/js/table4_1-2.js",
       "price" : "3000",
       "type" : "1"
     }, 
-    //     {
-    //   "name" : "Media Console - Black",
-    //   "image" : "models/thumbnails/thumbnail_moore-60-media-console-1.jpg",
-    //   "model" : "models/js/cb-moore_baked.js",
-    //   "type" : "1"
-    // }, 
+    {
+      "name" : "Structure",
+      "image" : "models/thumbnails/structure.png",
+      "model" : "models/js/structure.js",
+      "price" : "2000",
+      "type" : "1"
+    }, 
+    {
+      "name" : "Wallpaper",
+      "image" : "models/thumbnails/wallpaper.png",
+      "model" : "models/js/cobord.js",
+      "price" : "6000",
+      "type" : "1"
+    }, 
     //    {
     //   "name" : "Sectional - Olive",
     //   "image" : "models/thumbnails/thumbnail_img21o.jpg",

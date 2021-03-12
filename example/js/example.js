@@ -443,7 +443,7 @@ function checkout() {
     $('#checkout_tbody').empty();
     var tbody = $('#checkout_tbody');
     for(var i=0; i<arr_items.length; i++) {
-      var element = "<tr><td>" + (i+1) + "</td><td>" + arr_items[i].itemName + "</td><td><img src='" + arr_items[i].itemPhoto + "' /></td><td>" + arr_items[i].itemCount + "</td><td>" + formatNumbertoNew(arr_items[i].itemPrice) + "</td><td>" + formatNumbertoNew(arr_items[i].itemCount * arr_items[i].itemPrice) + "</td></tr>";
+      var element = "<tr><td>" + (i+1) + "</td><td>" + arr_items[i].itemName + "</td><td><img src='" + arr_items[i].itemPhoto + "' style='height: 30rem;' /></td><td>" + arr_items[i].itemCount + "</td><td>" + formatNumbertoNew(arr_items[i].itemPrice) + "</td><td>" + formatNumbertoNew(arr_items[i].itemCount * arr_items[i].itemPrice) + "</td></tr>";
       tbody.append(element);
     }
   }
@@ -452,6 +452,38 @@ function checkout() {
   $('.checkout_price').text(formatNumbertoNew(price));
 
   $("#add-checkout").height(window.innerHeight - parseInt(50));
+}
+
+function ExportCSV() {
+  var csv = "Name, Price, Count, All Price" + '\r\n';
+  var arrs = arr_items;
+
+  // Loop the array of objects
+  for(let row = 0; row < arr_items.length; row++){
+      let keysAmount = Object.keys(arr_items[row]).length
+      let keysCounter = 0
+
+      for(let key in arr_items[row]){
+        if (key == "itemPhoto") {
+          var allprice = arr_items[row]["itemCount"] * arr_items[row]["itemPrice"] + '\r\n';
+          csv += allprice
+        }else{
+          csv += arr_items[row][key] + (keysCounter+1 < keysAmount ? ',' : '\r\n' )  
+        }
+        
+        keysCounter++
+      }
+
+      keysCounter = 0
+  }
+
+  // Once we are done looping, download the .csv by creating a link
+  let link = document.createElement('a')
+  link.id = 'download-csv'
+  link.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csv));
+  link.setAttribute('download', 'pricelist.csv');
+  document.body.appendChild(link)
+  document.querySelector('#download-csv').click()
 }
 
 /*
@@ -650,7 +682,12 @@ $(document).ready(function() {
     checkout();
   });
 
+  $('.exportCSV').click(function() {
+    ExportCSV();
+  });
+
   // This serialization format needs work
   // Load a simple rectangle room
   blueprint3d.model.loadSerialized('{"floorplan":{"corners":{"f90da5e3-9e0e-eba7-173d-eb0b071e838e":{"x":204.85099999999989,"y":289.052},"da026c08-d76a-a944-8e7b-096b752da9ed":{"x":672.2109999999999,"y":289.052},"4e3d65cb-54c0-0681-28bf-bddcc7bdb571":{"x":672.2109999999999,"y":-178.308},"71d4f128-ae80-3d58-9bd2-711c6ce6cdf2":{"x":204.85099999999989,"y":-178.308}},"walls":[{"corner1":"71d4f128-ae80-3d58-9bd2-711c6ce6cdf2","corner2":"f90da5e3-9e0e-eba7-173d-eb0b071e838e","frontTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0},"backTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0}},{"corner1":"f90da5e3-9e0e-eba7-173d-eb0b071e838e","corner2":"da026c08-d76a-a944-8e7b-096b752da9ed","frontTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0},"backTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0}},{"corner1":"da026c08-d76a-a944-8e7b-096b752da9ed","corner2":"4e3d65cb-54c0-0681-28bf-bddcc7bdb571","frontTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0},"backTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0}},{"corner1":"4e3d65cb-54c0-0681-28bf-bddcc7bdb571","corner2":"71d4f128-ae80-3d58-9bd2-711c6ce6cdf2","frontTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0},"backTexture":{"url":"rooms/textures/wallmap.png","stretch":true,"scale":0}}],"wallTextures":[],"floorTextures":{},"newFloorTextures":{}},"items":[]}');
 });
+
