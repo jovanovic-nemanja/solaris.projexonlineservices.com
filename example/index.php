@@ -118,6 +118,16 @@
               <div class="panel-heading">Adjust Wall</div>
               <div class="panel-body" style="color: #333333">
                 <div class="col-sm-6" style="padding: 3px">
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/uae.jpg" texture-stretch="false" texture-scale="400">
+                    <img alt="Thumbnail marbletiles" src="rooms/thumbnails/uae.jpg" />
+                  </a>
+                </div>
+                <div class="col-sm-6" style="padding: 3px">
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/burjkalifatower.jpg" texture-stretch="false" texture-scale="400">
+                    <img alt="Thumbnail marbletiles" src="rooms/thumbnails/burjkalifatower.jpg" />
+                  </a>
+                </div>
+                <div class="col-sm-6" style="padding: 3px">
                   <a href="#" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/marbletiles.jpg" texture-stretch="false" texture-scale="300">
                     <img alt="Thumbnail marbletiles" src="rooms/thumbnails/thumbnail_marbletiles.jpg" />
                   </a>

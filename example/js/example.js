@@ -501,7 +501,8 @@ var TextureSelector = function (blueprint3d, sideMenu) {
   function initTextureSelectors() {
     $(".texture-select-thumbnail").click(function(e) {
       var textureUrl = $(this).attr("texture-url");
-      var textureStretch = ($(this).attr("texture-stretch") == "true");
+      var textureStretch = "true";
+      // var textureStretch = ($(this).attr("texture-stretch") == "true");
       var textureScale = parseInt($(this).attr("texture-scale"));
       currentTarget.setTexture(textureUrl, textureStretch, textureScale);
 
