@@ -184,12 +184,12 @@ $(document).ready(function() {
     //   "model" : "models/js/cb-blue-block-60x96.js",
     //   "type" : "8"
     // },
-    // {
-    //   "name" : "NYC Poster",
-    //   "image" : "models/thumbnails/thumbnail_nyc2.jpg",
-    //   "model" : "models/js/nyc-poster2.js",
-    //   "type" : "2"
-    // }
+    {
+      "name" : "NYC Poster",
+      "image" : "models/thumbnails/thumbnail_nyc2.jpg",
+      "model" : "models/js/nyc-poster2.js",
+      "type" : "2"
+    }
    /*     
    {
       "name" : "",
