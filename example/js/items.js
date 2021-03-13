@@ -188,6 +188,7 @@ $(document).ready(function() {
       "name" : "NYC Poster",
       "image" : "models/thumbnails/thumbnail_nyc2.jpg",
       "model" : "models/js/nyc-poster2.js",
+      "price" : "2000",
       "type" : "2"
     }
    /*     
