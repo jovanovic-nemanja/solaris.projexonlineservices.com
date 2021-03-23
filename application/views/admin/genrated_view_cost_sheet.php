@@ -563,60 +563,72 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-        		        <div class="col-md-6">
-        				</div>
-        				<div class="col-md-6" style="padding-right: 35px;">
-        				     <table class="table">
-        					    <tbody>
-        						  <tr>
-        							<td style="width:50%;"><p class="text-right mb-0"><strong>Total</strong></p></td>
-        							<td style="width:50%;"><p class="text-right mb-0"><strong>AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,3,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
-        						  </tr>
-        						  <?php 
-        								$disPrice = $costSheetData->discountPerent;
-        
-        								$totalPrice = $costSheetTotal[0]->sellingPriceSum - $disPrice;
-        
-        								$calculateVat = ((5/100)*$totalPrice);
-        
-        								$totalCost = $calculateVat+$totalPrice;
-        
-    							    ?>
-            							 
-        						  <?php if($costSheetData->discountPerent == 0 || $costSheetData->discountPerent == "") { ?>
-        						  <?php }else{ ?>
-        						    <tr>
-            							<td style="width:50%;">
-            								<div class="form-inline text-right mb-0">
-            								   <span class="form-control" placeholder="Discount percent" id="email" style="width:50%; padding: 0.875rem 1.375rem; display: inline-flex;"> Discount</span>
-            									<input type="text" readonly="readonly" class="form-control" value="<?php echo $costSheetData->discountPerent; ?>" placeholder="" id="discount" style="width:50%; display: inline-flex; text-align: right;" >
-            								</div>	
-            							</td>
-            							
-            							<td style="width:50%;"><p class="text-right mb-0"><strong ><span class="discountPrice">AED<?= number_format(round($disPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+            		        <div class="col-md-4">
+            				</div>
+            				<div class="col-md-8" style="padding-right: 35px;">
+            				     <table class="table">
+            					    <tbody>
+            						  <tr>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong>Total</strong></p></td>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong>AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,3,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
             						  </tr>
-        						  <?php } ?>
-        						  <?php if($costSheetData->discountPerent == 0 || $costSheetData->discountPerent == "") { ?>
-        						  <?php }else{ ?>
-        						    <tr>
-        							    <td style="width:50%;"><p class="text-right mb-0"><strong>Total after discount</strong></p></td>
-            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="totalarterDis">AED <?= number_format(round($totalPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
-        						    </tr>
-        						  <?php } ?>
+            						  <?php 
+            								$disPrice = $costSheetData->discountPerent;
+                                            $discountBy = $costSheetData->discountBy;
+                                            if ($discountBy == 2) {
+                                                $dispercent = $disPrice;
+                                                $percentPrice = $dispercent * $costSheetTotal[0]->sellingPriceSum / 100;
+                                                $disPrice = $percentPrice;
+                                            }
+            
+            								$totalPrice = $costSheetTotal[0]->sellingPriceSum - $disPrice;
+            
+            								$calculateVat = ((5/100)*$totalPrice);
+            
+            								$totalCost = $calculateVat+$totalPrice;
+            
+        							    ?>
+                							 
+            						  <?php if($costSheetData->discountPerent == 0 || $costSheetData->discountPerent == "") { ?>
+            						  <?php }else{ ?>
+            						    <tr>
+                							<td style="width:50%;">
+                								<div class="form-inline text-right mb-0">
+                								   <span class="form-control" placeholder="Discount percent" id="email" style="width:40%; padding: 0.875rem 1.375rem; display: inline-flex;"> Discount</span>
+
+                                                   <select class="form-control" id="discountBy" name="discountBy" style="width: 30%; display: inline-flex;">
+                                                        <option value="1" <?php if($costSheetData->discountBy==1){echo 'selected';} ?> >Flat</option>
+                                                        <option value="2" <?php if($costSheetData->discountBy==2){echo 'selected';} ?> >Percent</option>
+                                                    </select>
+
+                									<input type="text" readonly="readonly" class="form-control" value="<?php echo $costSheetData->discountPerent; ?>" placeholder="" id="discount" style="width:30%; display: inline-flex; text-align: right;" >
+                								</div>	
+                							</td>
+                							
+                							<td style="width:50%;"><p class="text-right mb-0"><strong ><span class="discountPrice">AED<?= number_format(round($disPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+                						  </tr>
+            						  <?php } ?>
+            						  <?php if($costSheetData->discountPerent == 0 || $costSheetData->discountPerent == "") { ?>
+            						  <?php }else{ ?>
+            						    <tr>
+            							    <td style="width:50%;"><p class="text-right mb-0"><strong>Total after discount</strong></p></td>
+                							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="totalarterDis">AED <?= number_format(round($totalPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+            						    </tr>
+            						  <?php } ?>
+                						  
+            						  <tr>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong>Vat @ 5% </strong></p></td>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="vatPrice">AED <?= number_format(round($calculateVat,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+            						  </tr>
             						  
-        						  <tr>
-        							<td style="width:50%;"><p class="text-right mb-0"><strong>Vat @ 5% </strong></p></td>
-        							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="vatPrice">AED <?= number_format(round($calculateVat,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
-        						  </tr>
-        						  
-        						  <tr>
-        							<td style="width:50%;"><p class="text-right mb-0"><strong>Total including tax</strong></p></td>
-        							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(round($totalCost,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
-        						  </tr>
-        						</tbody>
-        					  </table>
-        				</div>
-                   </div>
+            						  <tr>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong>Total including tax</strong></p></td>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(round($totalCost,3,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+            						  </tr>
+            						</tbody>
+            					  </table>
+            				</div>
+                       </div>
 			            <div id="outer">
                       
 					  <div class="inner">
@@ -981,13 +993,17 @@
 		});
 		var convertVal = <?= $convertCost->convert_value; ?>;
         var currency = '<?= $costSheetData->currency ?>';
-			   if(currency == 'USD')
-			   {
-			   		$("span.currencyConvert").each(function(index) { 
-            		$(this).text(Math.round($(this).html() / convertVal).toFixed(2));
-        		 	});
-			   }
+        if(currency == 'USD')
+        {
+    		$("span.currencyConvert").each(function(index) { 
+	       	   $(this).text(Math.round(formatNumber1($(this).html()) / convertVal).toFixed(2));
+	    	});
+        }
 	});
+
+function formatNumber1(num) {
+    return num.replace(",", "");
+}
 
 function addMoreRow(id,cat_id)
 {
