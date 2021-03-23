@@ -682,9 +682,9 @@
 	                    		<button class="btn btn-default btn-success" onclick="openCostCat('add-cost-cat',<?= $this->uri->segment(4); ?>);"><i class="fa fa-plus" aria-hidden="true"></i> ADD</button>
 	                    		
 	                    		<div class="row mt-3" style="padding-left: 15px; padding-right: 20px;">
-                      	            <div class="col-md-6">
+                      	            <div class="col-md-4">
                     				</div>
-                    				<div class="col-md-6">
+                    				<div class="col-md-8">
                     				     <table class="table">
                     					    <tbody>
                     						  <tr>
@@ -694,12 +694,22 @@
                     						  <tr>
                     							<td style="width:50%;">
                     								<div class="form-inline text-right mb-0">
-                    								   <span class="form-control" placeholder="Discount percent" id="email" style="width:50%; padding: 0.875rem 1.375rem; display: inline-flex;"> Discount</span>
-                    									<input type="text" class="form-control" value="<?php echo $costSheetData->discountPerent;  ?>" placeholder="" id="discount" style="width:50%; display: inline-flex; text-align: right;" >
+                								        <span class="form-control" placeholder="Discount percent" id="email" style="width:40%; padding: 0.875rem 1.375rem; display: inline-flex;"> Discount</span>
+                                                        <select class="form-control" id="discountBy" name="discountBy" style="width: 30%; display: inline-flex;">
+                                                            <option value="1" <?php if($costSheetData->discountBy==1){echo 'selected';} ?> >Flat</option>
+                                                            <option value="2" <?php if($costSheetData->discountBy==2){echo 'selected';} ?> >Percent</option>
+                                                        </select>
+                    									<input type="text" class="form-control" value="<?php echo $costSheetData->discountPerent;  ?>" placeholder="" id="discount" style="width:30%; display: inline-flex; text-align: right;" >
                     								 </div>	
                     							</td>
                     							<?php 
                     								$disPrice = $costSheetData->discountPerent;
+                                                    $discountBy = $costSheetData->discountBy;
+                                                    if ($discountBy == 2) {
+                                                        $dispercent = $disPrice;
+                                                        $percentPrice = $dispercent * $costSheetTotal[0]->sellingPriceSum / 100;
+                                                        $disPrice = $percentPrice;
+                                                    }
                     
                     								$totalPrice = $costSheetTotal[0]->sellingPriceSum - $disPrice;
                     
@@ -720,8 +730,8 @@
                     						  </tr>
                     						  
                     						  <tr>
-                    							<td style="width:50%;"><p class="text-right mb-0"><strong>Total including tax</strong></p></td>
-                    							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(round($totalCost,3,PHP_ROUND_HALF_UP),2); ?></span></strong></p></td>
+                    							<td style="width:60%;"><p class="text-right mb-0"><strong>Total including tax</strong></p></td>
+                    							<td style="width:40%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(round($totalCost,3,PHP_ROUND_HALF_UP),2); ?></span></strong></p></td>
                     						  </tr>
                     						</tbody>
                     				    </table>
@@ -1067,6 +1077,10 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+function formatNumber1(num) {
+    return num.replace(",", "");
+}
+
 $('.btn-rrr').click(function() {
     var cat_id = $(this).val();
     $(this).prev().prev().show();
@@ -1342,38 +1356,41 @@ function calculateGrandTotal(){
       	$('#discount').on('keyup', function(){
       		var subtotal = sellingPrice;
       		var percent = $(this).val();
+            var discountBy = $("#discountBy").val();
       		percents = percent;
-      		var deldata = {"percent":percent,'cost_sheet_id':<?php echo $this->uri->segment(4) ?>};
+      		var deldata = { "percent" : percent, 'cost_sheet_id' : <?php echo $this->uri->segment(4) ?>, "discountBy" : discountBy };
       		$.ajax({
-            type:"POST",
-            data:deldata,
-            url:"<?php echo base_url();?>index.php/admin/app/updateDiscount",
-            statusCode:{
-              200:function(data)
-              {      
-                obj = JSON.parse(data);
-                if(obj.err==1)
-                {
+                type:"POST",
+                data:deldata,
+                url:"<?php echo base_url();?>index.php/admin/app/updateDiscount",
+                statusCode:{
+                  200:function(data)
+                  {      
+                    obj = JSON.parse(data);
+                    if(obj.err==1)
+                    {
 
-                  //swal("Requird", "Please insert value in empty field", "error");
+                      //swal("Requird", "Please insert value in empty field", "error");
+                    }
+                    if(obj.err==0)
+                    {
+
+                        var totalDiscount = percent;
+                        if (discountBy == 2) {
+                            var percentPrice = percent * sellingPrice / 100;
+                            totalDiscount = percentPrice;
+                        }
+          				var discountedprice = subtotal-totalDiscount;
+          				var vatTotal = (5/100)*(discountedprice);
+          				$('.discountPrice').html(formatNumber(parseFloat(percent).toFixed(2)));
+          				$('.discountTotal, .totalarterDis').html(formatNumber(parseFloat(discountedprice).toFixed(2)));
+          				$('.vatPrice').html(formatNumber(parseFloat(vatTotal).toFixed(2)));
+          				$('.total, .esttotal').html(formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
+
+                    }        
+                  },
                 }
-                if(obj.err==0)
-                {
-
-                    var totalDiscount = percent;
-      				var discountedprice = subtotal-totalDiscount;
-      				var vatTotal = (5/100)*(discountedprice);
-      				$('.discountPrice').html(formatNumber(parseFloat(percent).toFixed(2)));
-      				$('.discountTotal, .totalarterDis').html(formatNumber(parseFloat(discountedprice).toFixed(2)));
-      				$('.vatPrice').html(formatNumber(parseFloat(vatTotal).toFixed(2)));
-      				$('.total, .esttotal').html(formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
-
-                }        
-              },
-              
-            }
-          });
-      		
+            });
       	});
       	
         $('#example').DataTable();
@@ -1626,9 +1643,46 @@ function calculateGrandTotal(){
 		   if(currency == 'USD')
 		   {
 		   		$("span.currencyConvert").each(function(index) { 
-        		    $(this).text(Number.parseFloat($(this).html() / convertVal).toFixed(2));
+        		    $(this).text(Number.parseFloat(formatNumber1($(this).html()) / convertVal).toFixed(2));
     		 	});
 		   }
+
+            $('#discountBy').change(function() {
+                var subtotal = sellingPrice;
+                var discountBy = $(this).val();
+                var percent = $("#discount").val();
+                percents = percent;
+                var deldata = { "percent" : percent, 'cost_sheet_id' : <?php echo $this->uri->segment(4) ?>, "discountBy" : discountBy };
+                $.ajax({
+                    type:"POST",
+                    data:deldata,
+                    url:"<?php echo base_url();?>index.php/admin/app/updateDiscount",
+                    statusCode:{
+                      200:function(data)
+                      {      
+                        obj = JSON.parse(data);
+                        if(obj.err==1) {
+                        }
+                        if(obj.err==0)
+                        {
+
+                            var totalDiscount = percent;
+                            if (discountBy == 2) {
+                                var percentPrice = percent * sellingPrice / 100;
+                                totalDiscount = percentPrice;
+                            }
+                            var discountedprice = subtotal-totalDiscount;
+                            var vatTotal = (5/100)*(discountedprice);
+                            $('.discountPrice').html(formatNumber(parseFloat(percent).toFixed(2)));
+                            $('.discountTotal, .totalarterDis').html(formatNumber(parseFloat(discountedprice).toFixed(2)));
+                            $('.vatPrice').html(formatNumber(parseFloat(vatTotal).toFixed(2)));
+                            $('.total, .esttotal').html(formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
+
+                        }        
+                      },
+                    }
+                });
+            });
 
 		    $("#project_start_date, #project_end_date").datepicker();
 

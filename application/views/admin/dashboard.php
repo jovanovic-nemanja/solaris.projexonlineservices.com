@@ -88,12 +88,12 @@
                                     <div class="">
                                         <h2 class="mb-0" style="text-align: center; color:#a3efa5;"> Jobs<br> </h2>
                                         <h2 class="mb-0" style="text-align: center; color:#a3efa5; font-size: 1.1rem;">(This Month) </h2><br>
-                                        <h5 class="mb-0">Total Jobs : <?= $jobs_count[0]['count']; ?></h5><br>
+                                        <h5 class="mb-0">Total Jobs : <?= count($jobs_count); ?></h5><br>
                                         <?php 
-                                            if($jobs_count[0]['count'] > $jobs_l_count[0]['count']) { ?>
-                                                <h5 class="mb-0"><span style="color:#a3efa5!important;"> + <?= ($jobs_count[0]['count'] - $jobs_l_count[0]['count']); ?></span> than last month </h5>
+                                            if(count($jobs_count) > $jobs_l_count[0]['count']) { ?>
+                                                <h5 class="mb-0"><span style="color:#a3efa5!important;"> + <?= (count($jobs_count) - $jobs_l_count[0]['count']); ?></span> than last month </h5>
                                         <?php }else{ ?>
-                                            <h5 class="mb-0"><span style="color:red!important;"> - <?= ($jobs_l_count[0]['count'] - $jobs_count[0]['count']); ?></span> than last month </h5>
+                                            <h5 class="mb-0"><span style="color:red!important;"> - <?= ($jobs_l_count[0]['count'] - count($jobs_count)); ?></span> than last month </h5>
                                         <?php } ?>
                                     </div>
                                   </div>

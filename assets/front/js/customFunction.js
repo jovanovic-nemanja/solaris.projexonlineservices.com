@@ -264,6 +264,9 @@ function saveRecord(formId, url, return_value)
 		    if(return_value == 5) {
 		        showLoader();    
 		    }
+		    if(return_value == 7) {
+		        showLoader();    
+		    }
 		}, 
         success: function (obj)
         {	
@@ -586,30 +589,21 @@ function saveRecord(formId, url, return_value)
                     });
 				}
 		    }else if(return_value == 7) {
+		    	hideLoader();
+
 		        if (obj.err == 0)
 				{
-				appendMessageBody(formId);
-				    $( ".currencyC" ).each(function( i ) {
-      					this.innerHTML = val; 
-  				    });
-				    if(val == 'USD')
-				    {
-				   		$("span.currencyConvert").each(function(index) { 
-	            		$(this).text(Math.round($(this).html() / usdToEuroExchRate).toFixed(2));
-	        		 	});
-				    }
-				    if(val == 'AED')
-				    {
-				   		$("span.currencyConvert").each(function(index) { 
-	            		$(this).text(Math.round($(this).html() * usdToEuroExchRate).toFixed(2));
-	        		 	});
-				    }
+					appendMessageBody(formId);
+
+					setTimeout(function(){
+						location.reload();
+					},2000) 
 				}
           
 				if (obj.err == 1)
 				{
-				showErrorMessage(formId,obj.msg); 
-				$('html, body').find(".disableButton").prop('disabled', true);				
+					showErrorMessage(formId,obj.msg); 
+					$('html, body').find(".disableButton").prop('disabled', true);				
 				}
 			
 				if (obj.err == 2)
@@ -621,10 +615,8 @@ function saveRecord(formId, url, return_value)
 				{
 					swal(obj.msg);
 					setTimeout(function(){
-								
-							location.reload();
-								
-							},2000) 
+						location.reload();
+					},2000) 
 				}
 		    }else if(return_value == 8) {
 		        if (obj.err == 0)

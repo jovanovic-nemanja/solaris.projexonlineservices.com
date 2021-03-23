@@ -649,29 +649,52 @@
                             	  if(empty($approval_status) && $this->session->userdata('is_finance_logged') == TRUE)
                             	  {
                             	?>
-    						   <form method="post" id="approvalstatusChange"> 
-    							   <div class="form-group ">
-    							       <label>Approval Status</label>
-    									<select class="form-control ff-fdd select2" name="approval_status" id="approval_status">
-    									  <option value="Approved">Approved</option>
-    									  <option value="Not Approved">Not Approved</option>                                 
-    								  </select>
-    							   </div>
-    							   <div class="form-group approvalJobCode">
-    							        <label>Job Code:</label>
-    									<textarea class="form-control ff-fdd" name="approvalJobCode" value="" id="approvalJobCode" style="height:80px;" row="5" id="" placeholder="Job Code"></textarea>
-    									<input type="hidden"  name="cost_sheet_id" value="<?= $this->uri->segment(4); ?>">
-    							   </div>
-    							   <div class="form-group notApprovalReason" style="display: none;">
-    							        <label>Reason(Why it is not approved):</label>
-    									<textarea class="form-control ff-fdd" name="notApprovalReason" value="" id="notApprovalReason" style="height:80px;" row="5" id="" placeholder="Reason"></textarea>
-    									<input type="hidden"  name="cost_sheet_id" value="<?= $this->uri->segment(4); ?>">
-    							   </div>
-    							   <div class="form-group text-center">
-    							       <button class="btn btn-lg btn-success" name="export" type="button" onclick="saveProfile('approvalstatusChange','approvalStatusChange');" style="background-color: #3e4b5b;">Save</button>
-    							   </div>
-    							   </form>
-    							<?php } if(!empty($approval_status)){ ?>
+    					            <form method="post" id="approvalstatusChange"> 
+        							   <div class="form-group ">
+        							       <label>Approval Status</label>
+        									<select class="form-control ff-fdd select2" name="approval_status" id="approval_status">
+        									  <option value="Approved">Approved</option>
+        									  <option value="Not Approved">Not Approved</option>                                 
+        								  </select>
+        							   </div>
+        							   <div class="form-group approvalJobCode">
+        							        <label>Job Code:</label>
+        									<textarea class="form-control ff-fdd" name="approvalJobCode" value="" id="approvalJobCode" style="height:80px;" row="5" id="" placeholder="Job Code"></textarea>
+        									<input type="hidden"  name="cost_sheet_id" value="<?= $this->uri->segment(4); ?>">
+        							   </div>
+        							   <div class="form-group notApprovalReason" style="display: none;">
+        							        <label>Reason(Why it is not approved):</label>
+        									<textarea class="form-control ff-fdd" name="notApprovalReason" value="" id="notApprovalReason" style="height:80px;" row="5" id="" placeholder="Reason"></textarea>
+        									<input type="hidden"  name="cost_sheet_id" value="<?= $this->uri->segment(4); ?>">
+        							   </div>
+        							   <div class="form-group text-center">
+        							       <button class="btn btn-lg btn-success" name="export" type="button" onclick="saveProfile('approvalstatusChange','approvalStatusChange');" style="background-color: #3e4b5b;">Save</button>
+        							   </div>
+    							    </form>
+    							<?php } if (empty($approval_status) && $this->session->userdata('is_admin_logged') == TRUE) { ?>
+                                    <form method="post" id="approvalstatusChange"> 
+                                       <div class="form-group ">
+                                           <label>Approval Status</label>
+                                            <select class="form-control ff-fdd select2" name="approval_status" id="approval_status">
+                                              <option value="Approved">Approved</option>
+                                              <option value="Not Approved">Not Approved</option>                                 
+                                          </select>
+                                       </div>
+                                       <div class="form-group approvalJobCode">
+                                            <label>Job Code:</label>
+                                            <textarea class="form-control ff-fdd" name="approvalJobCode" value="" id="approvalJobCode" style="height:80px;" row="5" id="" placeholder="Job Code"></textarea>
+                                            <input type="hidden"  name="cost_sheet_id" value="<?= $this->uri->segment(4); ?>">
+                                       </div>
+                                       <div class="form-group notApprovalReason" style="display: none;">
+                                            <label>Reason(Why it is not approved):</label>
+                                            <textarea class="form-control ff-fdd" name="notApprovalReason" value="" id="notApprovalReason" style="height:80px;" row="5" id="" placeholder="Reason"></textarea>
+                                            <input type="hidden"  name="cost_sheet_id" value="<?= $this->uri->segment(4); ?>">
+                                       </div>
+                                       <div class="form-group text-center">
+                                           <button class="btn btn-lg btn-success" name="export" type="button" onclick="saveProfile('approvalstatusChange','approvalStatusChange');" style="background-color: #3e4b5b;">Save</button>
+                                       </div>
+                                    </form>
+                                <?php } if(!empty($approval_status)){ ?>
     								<form method="post" id="approvalstatusChange"> 
     							   <div class="form-group ">
     							       <label>Approval Status</label>
@@ -735,7 +758,7 @@
 							    <?php if($costSheetData->quotation_status == 'Accepted'){?>
     							    <div class="form-group">
     						            <label>Download Purchase Order</label>
-    								    <a target="_blank" href="http://costestimator.theindustrialparts.com/uploads/quotationpdf/<?= $costSheetData->quotation_pdf; ?>"><span class="d-block mt-2"><img src="<?= base_url(); ?>/admin_assets/images/pdf-image.png"  style=" height: 70px;" class=""img-fluid></span></a>
+    								    <a target="_blank" href="http://localhost/uploads/quotationpdf/<?= $costSheetData->quotation_pdf; ?>"><span class="d-block mt-2"><img src="<?= base_url(); ?>/admin_assets/images/pdf-image.png"  style=" height: 70px;" class=""img-fluid></span></a>
     							    </div>
 							<?php } } ?>
 					    </div> 

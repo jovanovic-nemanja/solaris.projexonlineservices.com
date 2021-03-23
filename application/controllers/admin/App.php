@@ -336,7 +336,7 @@ class App extends CI_Controller {
                 
 		    $data['cost_sheet_m_count'] = $this->db->query($cost_sheet_sql1)->result_array();
 		    $data['cost_sheet_l_count'] = $this->db->query($cost_sheet_sql2)->result_array();
-		    $data['jobs_count'] = $this->db->query($jobs_sql)->result_array();
+		    $data['jobs_count'] = $this->site_model->get_quotation_c2('cost_sheet','status','genrated');
 		    $data['jobs_l_count'] = $this->db->query($jobs1_sql)->result_array();
 
 		    $sql = "SELECT logs.id, logs.type, logs.description, logs.status, logs.created_at, user.name FROM logs INNER JOIN user ON logs.user = user.id ORDER BY created_at DESC";
@@ -2814,8 +2814,10 @@ public function updateDiscount()
 		$user_id = $this->session->userdata('userid');
 		$pdata = $this->input->post();
 		$this->load->helper('url');		
-		$data['discountPerent']  					=(isset($pdata['percent']) ? $pdata['percent'] : '');
-		$result=$this->site_model->update_row_c1("cost_sheet",'id',$pdata['cost_sheet_id'],$data);	
+		$data['discountPerent'] = (isset($pdata['percent']) ? $pdata['percent'] : '');
+		$data['discountBy'] = (isset($pdata['discountBy']) ? $pdata['discountBy'] : '1');
+
+		$result = $this->site_model->update_row_c1("cost_sheet", 'id', $pdata['cost_sheet_id'], $data);	
 		if($result){
 			$responce['err'] = 0;
 			$responce['msg'] = "";
@@ -5338,7 +5340,6 @@ public function summery_Pdf()
 	    $cover = $data['coverletter'][0]['description'];
         $data['pdf_name'] = get_single_col_value('salesperson','id',$costSheetData->sales_person,'name');
 	    $data['pdf_email'] = get_single_col_value('salesperson','id',$costSheetData->sales_person,'email');
-	    
 	    $_str = str_replace('$salespersonName', $data['pdf_name'], $cover);
 	    $data['cover'] = str_replace('$salespersonEmail', $data['pdf_email'], $_str);
 	}else{
@@ -5759,8 +5760,8 @@ public function summery_details_Pdf()
         {
         	$message = 'Dear '.$userData->name.',
 			A quotation that you are assigned to has been generated. Please check the cost estimator application now. 
-			To download the Summary, please http://solaris.projexonlineservices.com/admin/app/summery_Pdf/'.$costsheetid.' click here.
-			To download the Detailed Quotation, please http://solaris.projexonlineservices.com/admin/app/summery_details_Pdf/'.$costsheetid.' click here.';
+			To download the Summary, please https://projexcost.com/admin/app/summery_Pdf/'.$costsheetid.' click here.
+			To download the Detailed Quotation, please https://projexcost.com/admin/app/summery_details_Pdf/'.$costsheetid.' click here.';
         	$result = $this->email
 						    ->from('costestimate@projexuae.com')
 						    ->reply_to('costestimate@projexuae.com')
@@ -5772,8 +5773,8 @@ public function summery_details_Pdf()
             
             $message = 'Dear a,
 			A quotation that you are assigned to has been generated. Please check the cost estimator application now. 
-			To download the Summary, please http://solaris.projexonlineservices.com/admin/app/summery_Pdf/'.$costsheetid.' click here.
-			To download the Detailed Quotation, please http://solaris.projexonlineservices.com/admin/app/summery_details_Pdf/'.$costsheetid.' click here.';
+			To download the Summary, please https://projexcost.com/admin/app/summery_Pdf/'.$costsheetid.' click here.
+			To download the Detailed Quotation, please https://projexcost.com/admin/app/summery_details_Pdf/'.$costsheetid.' click here.';
         	$result = $this->email
 						    ->from('costestimate@projexuae.com')
 						    ->reply_to('costestimate@projexuae.com')
@@ -5786,8 +5787,8 @@ public function summery_details_Pdf()
         {
         	$message = 'Dear Admin,
 			A quotation that you are assigned to has been generated. Please check the cost estimator application now. 
-			To download the Summary, please http://solaris.projexonlineservices.com/admin/app/summery_Pdf/'.$costsheetid.' click here.
-			To download the Detailed Quotation, please http://solaris.projexonlineservices.com/admin/app/summery_details_Pdf/'.$costsheetid.' click here.';
+			To download the Summary, please https://projexcost.com/admin/app/summery_Pdf/'.$costsheetid.' click here.
+			To download the Detailed Quotation, please https://projexcost.com/admin/app/summery_details_Pdf/'.$costsheetid.' click here.';
 
         	foreach ($adminDate as $key => $value) {
         		$result = $this->email
@@ -5836,7 +5837,7 @@ public function summery_details_Pdf()
         $message = 'A quotation has been accepted by the customer. Please approve the status and update the job code if you accept the terms. 
                     Quotaton Number:  '.$costsheetid.'
                     Please follow this link to update status:
-                    http://solaris.projexonlineservices.com/admin/app/genrated_view_cost_sheet/'.$costsheetid.'
+                    https://projexcost.com/admin/app/genrated_view_cost_sheet/'.$costsheetid.'
                     ';
 
         if(!empty($financeUser))
@@ -5879,7 +5880,7 @@ public function summery_details_Pdf()
         
        $message = 'Quotation number '.$costsheetid.' for customer '.$customer[0]['name'].' has been approved.
                     Please click here and update actual costs 
-                    http://solaris.projexonlineservices.com/admin/app/genrated_view_job/'.$costsheetid.'
+                    https://projexcost.com/admin/app/genrated_view_job/'.$costsheetid.'
                     ';
 		
 		$result = $this->email
@@ -5899,7 +5900,7 @@ public function summery_details_Pdf()
         $financeUser = $this->site_model->get_rows_c1('user','user_role_id',4);
         
         $message = 'Job sheet with Job code number '.$costsheetid.' has been submitted with actual costs. Please click here to view the sheet. 
-                    http://solaris.projexonlineservices.com/admin/app/genrated_view_job/'.$costsheetid.'
+                    https://projexcost.com/admin/app/genrated_view_job/'.$costsheetid.'
                     ';
 		
 		$result = $this->email
