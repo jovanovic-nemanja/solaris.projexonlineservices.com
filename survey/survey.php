@@ -20,8 +20,8 @@
                 <nav class="navbar top-navbar col-lg-12 col-12 p-0">
                     <div class="container">
                         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                            <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
-                            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
+                            <a class="navbar-brand brand-logo" href="https://projexcost.com/survey"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
+                            <a class="navbar-brand brand-logo-mini" href="https://projexcost.com/survey"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
                         </div>
                     </div>
                 </nav>
@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <a class="btn btn-success prev" id="prev" href="/">BACK</a>
+                                        <a class="btn btn-success prev" id="prev" href="https://projexcost.com/survey">BACK</a>
                                         <a class="btn btn-success next" id="next" href="survey1.php">NEXT</a>
                                     </div>
                                 </div>

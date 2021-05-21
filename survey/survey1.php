@@ -20,8 +20,8 @@
                 <nav class="navbar top-navbar col-lg-12 col-12 p-0">
                     <div class="container">
                         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                            <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
-                            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
+                            <a class="navbar-brand brand-logo" href="https://projexcost.com/survey"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
+                            <a class="navbar-brand brand-logo-mini" href="https://projexcost.com/survey"><img src="assets/images/Projex_Strap_blk.png" alt="logo" style="height: 60px;" /></a>
                         </div>
                     </div>
                 </nav>
