@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <a class="btn btn-success prev" id="prev" href="index.php">BACK</a>
+                                        <a class="btn btn-success prev" id="prev" href="/">BACK</a>
                                         <a class="btn btn-success next" id="next" href="survey1.php">NEXT</a>
                                     </div>
                                 </div>
