@@ -36,14 +36,13 @@
                                     <div class="card-body">
                                         <div class="container text-center pt-5">
                                             <h4 class="mb-3 mt-5">How was your online experience in using our portal?</h4>
-                                            <!--<p class="w-75 mx-auto mb-5">Choose the status that suits you the best. </p>-->
                                             <div class="row pricing-table">
                                                 <div class="col-md-4 grid-margin stretch-card pricing-card" style="cursor: pointer;">
                                                     <div class="card border-priary border pricing-card-body">
                                                         
                                                         <ul class="list-unstyled plan-features">
                                                             
-                                                            <h1 style="font-size: 700%;">🙂️️</h1>
+                                                            <h1 style="font-size: 700%;">😊</h1>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -107,4 +106,16 @@
     .pricing-card-body:active {
         background-color: black;
     }
+    .pricing-card-body.active {
+        background-color: black;
+    }
 </style>
+
+<script>
+    $(document).ready(function() {
+       $('.pricing-card-body').click(function() {
+            $(".pricing-card-body").removeClass('active');
+            $(this).addClass('active');
+       }) ;
+    });
+</script>

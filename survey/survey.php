@@ -34,7 +34,9 @@
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4>What made you happy or unhappy about our site?</h4> 
+                                        <h4>1. What made you happy about our site?</h4> 
+                                        <br>
+                                        <h4>2. What made you not happy about our site?</h4> 
                                         <br>
                                         <div class="row">
                                             <div class="col-md-3">
@@ -138,10 +140,11 @@
        $('button').click(function() {
             if($(this).attr('class') == "btn btn-default active") {
                 $(this).attr('class', 'btn btn-default');
+                return;
             }if($(this).attr('class') == "btn btn-default") {
                 $(this).attr('class', 'btn btn-default active');    
+                return;
             }
-           
        }) ;
     });
 </script>
