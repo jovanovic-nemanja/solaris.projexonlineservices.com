@@ -34,7 +34,7 @@
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4>2. What made you not happy about our site?</h4> 
+                                        <h4>What made you not happy about our site?</h4> 
                                         <br>
                                         <div class="row">
                                             <div class="col-md-3">
@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <a class="btn btn-success prev" id="prev" href="index.php">BACK</a>
+                                        <a class="btn btn-success prev" id="prev" href="survey.php">BACK</a>
                                         <!--<a class="btn btn-danger submit" id="submit" href="survey.php">SUBMIT</a>-->
                                         <button class="btn btn-danger" onclick="showSwal('basic')">SUBMIT</button>
                                     </div>
