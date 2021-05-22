@@ -76,9 +76,7 @@
                                         </div>
                                         <br>
                                         <a class="btn btn-success prev" id="prev" href="survey.php">BACK</a>
-                                        <!--<a class="btn btn-danger submit" id="submit" href="survey.php">SUBMIT</a>-->
-                                        <button class="btn btn-danger">SUBMIT</button>
-                                        <!-- <button class="btn btn-danger" onclick="showSwal('basic')">SUBMIT</button> -->
+                                        <a class="btn btn-danger" href="survey2.php">SUBMIT</a>
                                     </div>
                                 </div>
                             </div> 
