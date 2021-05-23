@@ -75,8 +75,8 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <a class="btn btn-success prev" id="prev" href="survey.php">BACK</a>
-                                        <a class="btn btn-danger" href="survey2.php">SUBMIT</a>
+                                        <a class="btn btn-success prev" id="prev" href="https://projexcost.com/survey.php">BACK</a>
+                                        <a class="btn btn-danger" href="https://projexcost.com/survey2.php">SUBMIT</a>
                                     </div>
                                 </div>
                             </div> 

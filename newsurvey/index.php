@@ -67,7 +67,7 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <a class="btn btn-success next" id="next" href="survey.php">NEXT</a>
+                                            <a class="btn btn-success next" id="next" href="https://projexcost.com/survey.php">NEXT</a>
                                         </div>
                                     </div>
                                 </div>
