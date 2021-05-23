@@ -34,7 +34,7 @@
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4>What made you not happy about our site?</h4> 
+                                        <h4>What made you not happy about our portal?</h4> 
                                         <br>
                                         <div class="row">
                                             <div class="col-md-3">
