@@ -5923,4 +5923,166 @@ public function summery_details_Pdf()
 	    }
 	    return implode($pass); //turn the array into a string
  	}
+
+
+ 	/**
+ 	* @author Nemanja
+ 	* @since 2021-05-24
+ 	* @return resource view page
+ 	*/
+ 	public function surveyNew()
+    {	
+		$this->load->view('admin/surveyNew/index');
+    }
+
+    /**
+    * save the survey count to database survey table
+    * @param data array
+ 	* @author Nemanja
+ 	* @since 2021-05-24
+ 	* @return boolean true or false
+ 	*/
+    public function addSurvey()
+	{
+		// print_r($_POST); exit;
+		$pdata = $this->input->post();
+		$this->load->helper('url');	
+		$data = [];
+
+		if (@$pdata['step1']) {
+			switch ($pdata['step1']) {
+				case '1':
+					$data['smile'] = 1;
+					break;
+
+				case '2':
+					$data['normal'] = 1;
+					break;
+
+				case '3':
+					$data['sad'] = 1;
+					break;
+
+				default:
+					break;
+			}
+		}
+		if (@$pdata['step2']) {
+			$difs = $pdata['step2'];
+
+			for ($i=0; $i < count($difs); $i++) { 
+				switch ($difs[$i]) {
+					case '1':
+						$data['happy_payment_gateway'] = 1;
+						break;
+					
+					case '2':
+						$data['happy_information'] = 1;
+						break;
+
+					case '3':
+						$data['happy_products'] = 1;
+						break;
+
+					case '4':
+						$data['happy_easeofuse'] = 1;
+						break;
+
+					case '5':
+						$data['happy_support'] = 1;
+						break;
+					
+					case '6':
+						$data['happy_checkout'] = 1;
+						break;
+
+					default:
+						break;
+				}
+			}
+		}
+		if (@$pdata['step3']) {
+			$diffs = $pdata['step3'];
+
+			for ($i=0; $i < count($diffs); $i++) { 
+				switch ($diffs[$i]) {
+					case '1':
+						$data['unhappy_payment_gateway'] = 1;
+						break;
+					
+					case '2':
+						$data['unhappy_information'] = 1;
+						break;
+
+					case '3':
+						$data['unhappy_products'] = 1;
+						break;
+
+					case '4':
+						$data['unhappy_easeofuse'] = 1;
+						break;
+
+					case '5':
+						$data['unhappy_support'] = 1;
+						break;
+					
+					case '6':
+						$data['unhappy_checkout'] = 1;
+						break;
+
+					default:
+						break;
+				}
+			}
+		}
+		
+		if(@$data)
+		{
+			$record = $this->site_model->get_rows('survey');
+			$new = [];
+			if (@$record) {
+				$new['smile'] = @$record[0]['smile'] + @$data['smile'];
+				$new['normal'] = @$record[0]['normal'] + @$data['normal'];
+				$new['sad'] = @$record[0]['sad'] + @$data['sad'];
+				$new['happy_payment_gateway'] = @$record[0]['happy_payment_gateway'] + @$data['happy_payment_gateway'];
+				$new['happy_information'] = @$record[0]['happy_information'] + @$data['happy_information'];
+				$new['happy_products'] = @$record[0]['happy_products'] + @$data['happy_products'];
+				$new['happy_easeofuse'] = @$record[0]['happy_easeofuse'] + @$data['happy_easeofuse'];
+				$new['happy_support'] = @$record[0]['happy_support'] + @$data['happy_support'];
+				$new['happy_checkout'] = @$record[0]['happy_checkout'] + @$data['happy_checkout'];
+				$new['unhappy_payment_gateway'] = @$record[0]['unhappy_payment_gateway'] + @$data['unhappy_payment_gateway'];
+				$new['unhappy_information'] = @$record[0]['unhappy_information'] + @$data['unhappy_information'];
+				$new['unhappy_products'] = @$record[0]['unhappy_products'] + @$data['unhappy_products'];
+				$new['unhappy_easeofuse'] = @$record[0]['unhappy_easeofuse'] + @$data['unhappy_easeofuse'];
+				$new['unhappy_support'] = @$record[0]['unhappy_support'] + @$data['unhappy_support'];
+				$new['unhappy_checkout'] = @$record[0]['unhappy_checkout'] + @$data['unhappy_checkout'];
+
+				$this->site_model->delete_row('survey', $record[0]['id']);
+				$this->site_model->savedata('survey', $new);
+			}else{
+				$this->site_model->savedata('survey', $data);
+			}
+
+			$responce['err'] = 1;
+			$responce['msg'] = "Successfully saved your survey data.";
+			echo json_encode($responce); 
+		}else{
+			$responce['err'] = 2;
+			$responce['msg'] = "Error.";
+			echo json_encode($responce); 
+		}
+	}
+
+	/**
+ 	* @author Nemanja
+ 	* @since 2021-05-24
+ 	* @return resource thank you survey view page
+ 	*/
+ 	public function thankyouSurvey()
+    {	
+    	$data = $this->site_model->get_rows('survey');
+    	$result = $data[0];
+
+		$this->load->view('admin/surveyNew/thankyou', $result);
+    }
 }

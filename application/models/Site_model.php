@@ -10,6 +10,10 @@ function __construct()
 	parent::__construct();		
 }
 
+public function update_row_survey($row, $params) {
+
+}
+
 // login methods
 public function do_login($table_name,$field1,$val1,$field2,$val2)
   {
@@ -830,6 +834,22 @@ function delete_row_c1( $table_name,$col1,$val1 )
 {
   //delete record  
   $this->db->where($col1,$val1);
+  $this->db->delete($table_name);
+    if ($this->db->affected_rows() > 0) 
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
+}
+
+// delete one row on one column condition
+function delete_row( $table_name, $id )
+{
+  //delete record  
+  $this->db->where('id', $id);
   $this->db->delete($table_name);
     if ($this->db->affected_rows() > 0) 
     {
