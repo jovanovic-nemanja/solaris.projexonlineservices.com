@@ -6080,9 +6080,19 @@ public function summery_details_Pdf()
  	*/
  	public function thankyouSurvey()
     {	
+		$this->load->view('admin/surveyNew/thankyou');
+    }
+
+    /**
+ 	* @author Nemanja
+ 	* @since 2021-05-25
+ 	* @return resource Survey report page
+ 	*/
+ 	public function surveyreport()
+    {	
     	$data = $this->site_model->get_rows('survey');
     	$result = $data[0];
 
-		$this->load->view('admin/surveyNew/thankyou', $result);
+		$this->load->view('admin/surveyNew/report', $result);
     }
 }

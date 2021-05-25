@@ -32,25 +32,17 @@
                         <div class="row">
                             <div class="col-12 grid-margin">
                                 <div class="card">
-                                    <div class="card-body text-center mb-5 pb-5">
+                                    <div class="card-body text-center mt-5 mb-5 pb-5">
+                                        <hr/>
+                                        <br>
                                         <h2>Thank You!</h2> 
                                         <br>
+                                        <hr/>
+                                    </div>
 
-                                        <h4>How many smiles: <?= $smile ?></h4><br>
-                                        <h4>How many normals: <?= $normal ?></h4><br>
-                                        <h4>How many sad: <?= $sad ?></h4><br>
-                                        <h4>How many Happy Payment Gateway: <?= $happy_payment_gateway ?></h4><br>
-                                        <h4>How many Happy Information: <?= $happy_information ?></h4><br>
-                                        <h4>How many Happy Products: <?= $happy_products ?></h4><br>
-                                        <h4>How many Happy Ease of use: <?= $happy_easeofuse ?></h4><br>
-                                        <h4>How many Happy Support: <?= $happy_support ?></h4><br>
-                                        <h4>How many Happy Checkout: <?= $happy_checkout ?></h4><br>
-                                        <h4>How many Unhappy Payment Gateway: <?= $unhappy_payment_gateway ?></h4><br>
-                                        <h4>How many Unhappy Information: <?= $unhappy_information ?></h4><br>
-                                        <h4>How many Unhappy Products: <?= $unhappy_products ?></h4><br>
-                                        <h4>How many Unhappy Ease of use: <?= $unhappy_easeofuse ?></h4><br>
-                                        <h4>How many Unhappy Support: <?= $unhappy_support ?></h4><br>
-                                        <h4>How many Unhappy Checkout: <?= $unhappy_checkout ?></h4><br>
+                                    <div class="row text-center d-block mb-5">
+                                        <a href="<?= base_url('/admin/app/surveyreport'); ?>" class="btn btn-success">View reports</a>
+                                        <br>
                                     </div>
                                 </div>
                             </div> 
