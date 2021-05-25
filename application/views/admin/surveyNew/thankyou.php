@@ -40,10 +40,10 @@
                                         <hr/>
                                     </div>
 
-                                    <div class="row text-center d-block mb-5">
+                                    <!-- <div class="row text-center d-block mb-5">
                                         <a href="<?= base_url('/admin/app/surveyreport'); ?>" class="btn btn-success">View reports</a>
                                         <br>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div> 
                             <br>
