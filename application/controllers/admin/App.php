@@ -77,6 +77,68 @@ class App extends CI_Controller {
 			echo json_encode($responce); 
 		}
 	}
+
+	public function importcostsheet()
+	{ 
+        $pdata = $this->input->post();
+
+		if(isset($_FILES['uploadExcel']['name']))
+		{
+			$file = $_FILES['uploadExcel']['name'];			
+			
+			//////////////////file_upload/////////////////////////////
+			$filename=time().uniqid().$_FILES['uploadExcel']['name'];
+			$url1 = "uploads/quotationpdf/".$filename;
+            move_uploaded_file($_FILES['uploadExcel']['tmp_name'], $url1);
+	        /////////////////////////////////////////////////
+	    	
+	    	$costsheet_id = (isset($pdata['CostSheetId']) ? $pdata['CostSheetId'] : '');
+	    	$cate_id = '';
+
+			$handle = fopen($url1, "r");
+			$c = 0;
+			while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
+			{
+				$cate_name = $filesop[0];
+				if(@$cate_name) {
+					$cate = $this->site_model->get_id('categories', 'title', $cate_name);
+				    if(count($cate) > 0) {
+    				    $cateID = $cate[0]['id'];
+    				}else{
+    					$cadata['title'] = $cate_name;
+						$cadata['created_at'] = date('Y-m-d H:i:s');
+						$result = $this->site_model->savedata("categories", $cadata);	
+						$cateID = $result;
+					}
+
+				    $data['cat_id']	= $cateID;
+					$data['cost_sheet_id'] = $costsheet_id;
+					$result = $this->site_model->savedata("cost_sheet_category", $data);
+					$cate_id = $cateID;
+				}else{
+					$sub_cate_name = $filesop[1];
+					$sub_cate_qty = $filesop[2];
+					$sub_cate_unit = $filesop[3];
+
+					$data1['cat_id'] = $cate_id;
+					$data1['title'] = $sub_cate_name;
+					$data1['quantity'] = $sub_cate_qty;
+					$data1['unit'] = $sub_cate_unit;
+					$data1['costsheet_id'] = $costsheet_id;
+					$data1['created_at'] = date('Y-m-d H:i:s');
+
+					$result = $this->site_model->savedata("costsheet_subcategory", $data1);
+				}
+
+				$c = $c + 1;
+			}
+			
+			$responce['err'] = 600;
+			$responce['msg'] = "Successful Operation!";
+			$responce['url'] = base_url('/admin/app/cost_sheet');
+			echo json_encode($responce); 
+		}
+	}
 	
     public function add_bulk_product()
     {	

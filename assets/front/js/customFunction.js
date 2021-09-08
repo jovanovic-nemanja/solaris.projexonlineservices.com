@@ -254,23 +254,23 @@ function saveRecord(formId, url, return_value)
         contentType: false,
         processData: false,
         data: formData,
-		beforeSend: function(){
-		    if(return_value == 1) {
-		        showLoader();    
-		    }
-		    if(return_value == 2) {
-		        showLoader();    
-		    }
-		    if(return_value == 5) {
-		        showLoader();    
-		    }
-		    if(return_value == 7) {
-		        showLoader();    
-		    }
-		}, 
+				beforeSend: function(){
+				    if(return_value == 1) {
+				        showLoader();    
+				    }
+				    if(return_value == 2) {
+				        showLoader();    
+				    }
+				    if(return_value == 5) {
+				        showLoader();    
+				    }
+				    if(return_value == 7) {
+				        showLoader();    
+				    }
+				}, 
         success: function (obj)
         {	
-		    if(return_value == 1) {
+		    	if(return_value == 1) {
 		        hideLoader();
 		        
 		        var str = "";
@@ -282,18 +282,38 @@ function saveRecord(formId, url, return_value)
     		        }
         		        
     		        $.toast({
-                      heading: 'Success',
-                      text: str,
-                      position: String("top-right"),
-                      icon: 'success',
-                      stack: false,
-                      loaderBg: '#f96868'
-                    });
+                  heading: 'Success',
+                  text: str,
+                  position: String("top-right"),
+                  icon: 'success',
+                  stack: false,
+                  loaderBg: '#f96868'
+                });
                     
-                    setTimeout(function(){
-    					location.reload();
-    				},2000);
-    		    }
+                setTimeout(function(){
+		    					location.reload();
+		    				},2000);
+		    		}
+		    		if(obj.err == 600) {
+    		        if(obj.msg == ""){
+    		            str = "Success!"
+    		        }else{
+    		          
+    		        }
+        		        
+    		        $.toast({
+                  heading: 'Success',
+                  text: str,
+                  position: String("top-right"),
+                  icon: 'success',
+                  stack: false,
+                  loaderBg: '#f96868'
+                });
+                    
+                setTimeout(function(){
+		    					location.reload();
+		    				},2000);
+		    		}
     		    if(obj.err == 100) {
     		        if(obj.msg == ""){
     		            str = "Success!"
@@ -302,27 +322,27 @@ function saveRecord(formId, url, return_value)
     		        }
         		        
     		        $.toast({
-                      heading: 'Success',
-                      text: str,
-                      position: String("top-right"),
-                      icon: 'success',
-                      stack: false,
-                      loaderBg: '#f96868'
-                    });
+                  heading: 'Success',
+                  text: str,
+                  position: String("top-right"),
+                  icon: 'success',
+                  stack: false,
+                  loaderBg: '#f96868'
+                });
                     
-                    setTimeout(function(){
-    					window.location.href = obj.url;
-    				},2000);
-    		    }if(obj.err == 1111) {
+                setTimeout(function(){
+		    					window.location.href = obj.url;
+		    				},2000);
+    		    	}if(obj.err == 1111) {
     		        $.toast({
-                      heading: 'Required Field',
-                      text: obj.msg,
-                      position: String("top-right"),
-                      icon: 'error',
-                      stack: false,
-                      loaderBg: '#46c35f'
-                    });
-    		    }
+                  heading: 'Required Field',
+                  text: obj.msg,
+                  position: String("top-right"),
+                  icon: 'error',
+                  stack: false,
+                  loaderBg: '#46c35f'
+                });
+    		    	}
     		    if(obj.err == 1) {
     		        $.each(obj.msg,function (index, val) {
     		            str += val + "<br/>"; 
