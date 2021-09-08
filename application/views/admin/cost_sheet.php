@@ -275,6 +275,19 @@
 	            <h3 class="page-title">
 	              Cost Sheet (<?= $this->uri->segment(4); ?>)
 	            </h3>
+
+                <form class="forms-sample" method="post" id='importcostsheet'>
+                  	<div class="form-group col-md-11 d-flex" id="pdfupload" style="margin-bottom: 0px !important;">
+  						<div class="custom-file col-md-9">
+  							<input type="file" class="custom-file-input" name="uploadExcel" id="uploadExcel" style="border: none;" accept=".csv">
+  							<label class="custom-file-label" for="customFile">Choose CSV</label>
+  							<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+  						</div>
+  						<div class="col-md-3">
+  							<button type="button" class="btn btn-success" name="submit" value="submit" onclick="saveProfile('importcostsheet','importcostsheet')">Upload</button>
+  						</div>
+  				    </div>
+                </form>
           	</div>
          
 		  	<div class="">
@@ -313,7 +326,7 @@
 															<option value="<?php echo $person['id'] ?>" <?php if($costSheetData->conatct_person==$person['id']){echo "selected";} ?>><?php echo $person['name']; ?></option>>
 															<?php } ?>
 														</select>
-													 <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+													 	<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 													</form>
 												</div>
 												<div class="col-md-3">
