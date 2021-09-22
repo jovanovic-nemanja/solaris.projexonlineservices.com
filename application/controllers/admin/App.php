@@ -101,119 +101,188 @@ class App extends CI_Controller {
 			while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
 			{
 				if($c > 0) {
-					$cate_name = $filesop[0];
-					if(@$cate_name) {
-						$cate = $this->site_model->get_id('categories', 'title', $cate_name);
-					    if(count($cate) > 0) {
-	    				    $cateID = $cate[0]['id'];
-	    				}else{
-	    					$cadata['title'] = $cate_name;
-							$cadata['created_at'] = date('Y-m-d H:i:s');
-							$result = $this->site_model->savedata("categories", $cadata);	
-							$cateID = $result;
-						}
+					$cate_col = $filesop[0];
+					$cate_name = $filesop[1];
 
-					    $data['cat_id']	= $cateID;
-						$data['cost_sheet_id'] = $costsheet_id;
-						$result = $this->site_model->savedata("cost_sheet_category", $data);
-						$cate_id = $cateID;
-					}else{
-						$sub_cate_name = $filesop[1];
-						$sub_cate_qty = $filesop[2];
-						$sub_cate_unit = $filesop[3];
-						$lineitem_cost1 = $filesop[4];
-						$lineitem_cost2 = $filesop[5];
-						$lineitem_cost3 = $filesop[6];
-						$lineitem_cost4 = $filesop[7];
-						$lineitem_cost5 = $filesop[8];
-						$lineitem_oh = $filesop[9];
+					if(@$cate_col) {
+						if($cate_col == "Sl. No" || $cate_col == "Total For the above" || $cate_col == "VAT @ 5%" || $cate_col == "Total Cost including VAT") {
 
-						$data1['cat_id'] = $cate_id;
-						$data1['title'] = $sub_cate_name;
-						$data1['quantity'] = $sub_cate_qty;
-						$data1['unit'] = $sub_cate_unit;
-						$data1['costsheet_id'] = $costsheet_id;
-						$data1['created_at'] = date('Y-m-d H:i:s');
+						}else {
+							if($filesop[1]) {
+								$cate = $this->site_model->get_id('categories', 'title', $cate_name);
+							    if(count($cate) > 0) {
+			    				    $cateID = $cate[0]['id'];
+			    				}else{
+			    					$cadata['title'] = $cate_name;
+									$cadata['created_at'] = date('Y-m-d H:i:s');
+									$result = $this->site_model->savedata("categories", $cadata);	
+									$cateID = $result;
+								}
 
-						$result1 = $this->site_model->savedata("costsheet_subcategory", $data1);
-						$sub_cate_id = $result1;
+							    $data['cat_id']	= $cateID;
+								$data['cost_sheet_id'] = $costsheet_id;
+								$result = $this->site_model->savedata("cost_sheet_category", $data);
+								$cate_id = $cateID;
+
+								if(@$filesop[2]) {
+									$sub_cate_name = $filesop[2];
+									$sub_cate_qty = $filesop[3];
+									$sub_cate_unit = $filesop[4];
+									$lineitem_1 = $filesop[5];
+									$lineitem_cost1 = $filesop[6];
+									$lineitem_2 = $filesop[7];
+									$lineitem_cost2 = $filesop[8];
+									$lineitem_3 = $filesop[9];
+									$lineitem_cost3 = $filesop[10];
+									$lineitem_oh = $filesop[13];
+
+									$data1['cat_id'] = $cate_id;
+									$data1['title'] = $sub_cate_name;
+									$data1['quantity'] = $sub_cate_qty;
+									$data1['unit'] = $sub_cate_unit;
+									$data1['costsheet_id'] = $costsheet_id;
+									$data1['created_at'] = date('Y-m-d H:i:s');
+
+									$result1 = $this->site_model->savedata("costsheet_subcategory", $data1);
+									$sub_cate_id = $result1;
+
+									$unit = $this->site_model->get_id('units', 'name', $data1['unit']);
+									if(@$unit) {
+										$unitID = $unit[0]['id'];
+									}else{
+										$unit__data['name'] = $data1['unit'];
+										$unit__data['created_at'] = date('Y-m-d H:i:s');
+										$unit__result = $this->site_model->savedata("units", $unit__data);
+										$unitID = $unit__result;	
+									}
+
+									if($lineitem_1 && $lineitem_cost1) {
+										$line_data['unit_cost'] = str_replace('AED', '', $lineitem_cost1);
+										$line_data['product_name'] = $lineitem_1;
+										$line_data['quantity'] = $sub_cate_qty;
+										$line_data['unit_id'] = $unitID;
+										$line_data['total_cost'] = $line_data['unit_cost'] * $line_data['quantity'];
+										$line_data['cat_id'] = $cate_id;
+										$line_data['sub_cat_id'] = $sub_cate_id;
+										$line_data['cost_sheet_id'] = $costsheet_id;
+										$line_data['created_at'] = date('Y-m-d H:i:s');
+										$line_data['status'] = 1;
+										$line_data['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
+										$line_data['selling_price'] = $line_data['total_cost'] / $line_data['o/h'];
+
+										$result3 = $this->site_model->savedata("cost_sheet_line_item", $line_data);
+									}if($lineitem_2 && $lineitem_cost2) {
+										$line_data2['unit_cost'] = str_replace('AED', '', $lineitem_cost2);
+										$line_data2['product_name'] = $lineitem_2;
+										$line_data2['quantity'] = $sub_cate_qty;
+										$line_data2['unit_id'] = $unitID;
+										$line_data2['total_cost'] = $line_data2['unit_cost'] * $line_data2['quantity'];
+										$line_data2['cat_id'] = $cate_id;
+										$line_data2['sub_cat_id'] = $sub_cate_id;
+										$line_data2['cost_sheet_id'] = $costsheet_id;
+										$line_data2['created_at'] = date('Y-m-d H:i:s');
+										$line_data2['status'] = 1;
+										$line_data2['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
+										$line_data2['selling_price'] = $line_data2['total_cost'] / $line_data2['o/h'];
+
+										$result3_2 = $this->site_model->savedata("cost_sheet_line_item", $line_data2);
+									}if($lineitem_3 && $lineitem_cost3) {
+										$line_data3['unit_cost'] = str_replace('AED', '', $lineitem_cost3);
+										$line_data3['product_name'] = $lineitem_3;
+										$line_data3['quantity'] = $sub_cate_qty;
+										$line_data3['unit_id'] = $unitID;
+										$line_data3['total_cost'] = $line_data3['unit_cost'] * $line_data3['quantity'];
+										$line_data3['cat_id'] = $cate_id;
+										$line_data3['sub_cat_id'] = $sub_cate_id;
+										$line_data3['cost_sheet_id'] = $costsheet_id;
+										$line_data3['created_at'] = date('Y-m-d H:i:s');
+										$line_data3['status'] = 1;
+										$line_data3['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
+										$line_data3['selling_price'] = $line_data3['total_cost'] / $line_data3['o/h'];
+
+										$result3_3 = $this->site_model->savedata("cost_sheet_line_item", $line_data3);
+									}
+								}
+							}else {
+								$sub_cate_name = $filesop[2];
+								$sub_cate_qty = $filesop[3];
+								$sub_cate_unit = $filesop[4];
+								$lineitem_1 = $filesop[5];
+								$lineitem_cost1 = $filesop[6];
+								$lineitem_2 = $filesop[7];
+								$lineitem_cost2 = $filesop[8];
+								$lineitem_3 = $filesop[9];
+								$lineitem_cost3 = $filesop[10];
+								$lineitem_oh = $filesop[13];
+
+								$data1['cat_id'] = $cate_id;
+								$data1['title'] = $sub_cate_name;
+								$data1['quantity'] = $sub_cate_qty;
+								$data1['unit'] = $sub_cate_unit;
+								$data1['costsheet_id'] = $costsheet_id;
+								$data1['created_at'] = date('Y-m-d H:i:s');
+
+								$result1 = $this->site_model->savedata("costsheet_subcategory", $data1);
+								$sub_cate_id = $result1;
+
+								$unit = $this->site_model->get_id('units', 'name', $data1['unit']);
+								if(@$unit) {
+									$unitID = $unit[0]['id'];
+								}else{
+									$unit__data['name'] = $data1['unit'];
+									$unit__data['created_at'] = date('Y-m-d H:i:s');
+									$unit__result = $this->site_model->savedata("units", $unit__data);
+									$unitID = $unit__result;	
+								}
 
 
-						if($lineitem_cost1) {
-							$line_data['unit_cost'] = $lineitem_cost1;
-							$line_data['product_name'] = "";
-							$line_data['quantity'] = $sub_cate_qty;
-							$line_data['unit_id'] = 1;
-							$line_data['total_cost'] = $line_data['unit_cost'] * $line_data['quantity'];
-							$line_data['cat_id'] = $cate_id;
-							$line_data['sub_cat_id'] = $sub_cate_id;
-							$line_data['cost_sheet_id'] = $costsheet_id;
-							$line_data['created_at'] = date('Y-m-d H:i:s');
-							$line_data['status'] = 1;
-							$line_data['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
-							$line_data['selling_price'] = $line_data['total_cost'] / $line_data['o/h'];
+								if($lineitem_1 && $lineitem_cost1) {
+									$line_data['unit_cost'] = str_replace('AED', '', $lineitem_cost1);
+									$line_data['product_name'] = $lineitem_1;
+									$line_data['quantity'] = $sub_cate_qty;
+									$line_data['unit_id'] = $unitID;
+									$line_data['total_cost'] = $line_data['unit_cost'] * $line_data['quantity'];
+									$line_data['cat_id'] = $cate_id;
+									$line_data['sub_cat_id'] = $sub_cate_id;
+									$line_data['cost_sheet_id'] = $costsheet_id;
+									$line_data['created_at'] = date('Y-m-d H:i:s');
+									$line_data['status'] = 1;
+									$line_data['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
+									$line_data['selling_price'] = $line_data['total_cost'] / $line_data['o/h'];
 
-							$result3 = $this->site_model->savedata("cost_sheet_line_item", $line_data);
-						}if($lineitem_cost2) {
-							$line_data2['unit_cost'] = $lineitem_cost2;
-							$line_data2['product_name'] = "";
-							$line_data2['quantity'] = $sub_cate_qty;
-							$line_data2['unit_id'] = 1;
-							$line_data2['total_cost'] = $line_data2['unit_cost'] * $line_data2['quantity'];
-							$line_data2['cat_id'] = $cate_id;
-							$line_data2['sub_cat_id'] = $sub_cate_id;
-							$line_data2['cost_sheet_id'] = $costsheet_id;
-							$line_data2['created_at'] = date('Y-m-d H:i:s');
-							$line_data2['status'] = 1;
-							$line_data2['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
-							$line_data2['selling_price'] = $line_data2['total_cost'] / $line_data2['o/h'];
+									$result3 = $this->site_model->savedata("cost_sheet_line_item", $line_data);
+								}if($lineitem_2 && $lineitem_cost2) {
+									$line_data2['unit_cost'] = str_replace('AED', '', $lineitem_cost2);
+									$line_data2['product_name'] = $lineitem_2;
+									$line_data2['quantity'] = $sub_cate_qty;
+									$line_data2['unit_id'] = $unitID;
+									$line_data2['total_cost'] = $line_data2['unit_cost'] * $line_data2['quantity'];
+									$line_data2['cat_id'] = $cate_id;
+									$line_data2['sub_cat_id'] = $sub_cate_id;
+									$line_data2['cost_sheet_id'] = $costsheet_id;
+									$line_data2['created_at'] = date('Y-m-d H:i:s');
+									$line_data2['status'] = 1;
+									$line_data2['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
+									$line_data2['selling_price'] = $line_data2['total_cost'] / $line_data2['o/h'];
 
-							$result3_2 = $this->site_model->savedata("cost_sheet_line_item", $line_data2);
-						}if($lineitem_cost3) {
-							$line_data3['unit_cost'] = $lineitem_cost3;
-							$line_data3['product_name'] = "";
-							$line_data3['quantity'] = $sub_cate_qty;
-							$line_data3['unit_id'] = 1;
-							$line_data3['total_cost'] = $line_data3['unit_cost'] * $line_data3['quantity'];
-							$line_data3['cat_id'] = $cate_id;
-							$line_data3['sub_cat_id'] = $sub_cate_id;
-							$line_data3['cost_sheet_id'] = $costsheet_id;
-							$line_data3['created_at'] = date('Y-m-d H:i:s');
-							$line_data3['status'] = 1;
-							$line_data3['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
-							$line_data3['selling_price'] = $line_data3['total_cost'] / $line_data3['o/h'];
+									$result3_2 = $this->site_model->savedata("cost_sheet_line_item", $line_data2);
+								}if($lineitem_3 && $lineitem_cost3) {
+									$line_data3['unit_cost'] = str_replace('AED', '', $lineitem_cost3);
+									$line_data3['product_name'] = $lineitem_3;
+									$line_data3['quantity'] = $sub_cate_qty;
+									$line_data3['unit_id'] = $unitID;
+									$line_data3['total_cost'] = $line_data3['unit_cost'] * $line_data3['quantity'];
+									$line_data3['cat_id'] = $cate_id;
+									$line_data3['sub_cat_id'] = $sub_cate_id;
+									$line_data3['cost_sheet_id'] = $costsheet_id;
+									$line_data3['created_at'] = date('Y-m-d H:i:s');
+									$line_data3['status'] = 1;
+									$line_data3['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
+									$line_data3['selling_price'] = $line_data3['total_cost'] / $line_data3['o/h'];
 
-							$result3_3 = $this->site_model->savedata("cost_sheet_line_item", $line_data3);
-						}if($lineitem_cost4) {
-							$line_data4['unit_cost'] = $lineitem_cost4;
-							$line_data4['product_name'] = "";
-							$line_data4['quantity'] = $sub_cate_qty;
-							$line_data4['unit_id'] = 1;
-							$line_data4['total_cost'] = $line_data4['unit_cost'] * $line_data4['quantity'];
-							$line_data4['cat_id'] = $cate_id;
-							$line_data4['sub_cat_id'] = $sub_cate_id;
-							$line_data4['cost_sheet_id'] = $costsheet_id;
-							$line_data4['created_at'] = date('Y-m-d H:i:s');
-							$line_data4['status'] = 1;
-							$line_data4['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
-							$line_data4['selling_price'] = $line_data4['total_cost'] / $line_data4['o/h'];
-
-							$result3_4 = $this->site_model->savedata("cost_sheet_line_item", $line_data4);
-						}if($lineitem_cost5) {
-							$line_data5['unit_cost'] = $lineitem_cost5;
-							$line_data5['product_name'] = "";
-							$line_data5['quantity'] = $sub_cate_qty;
-							$line_data5['unit_id'] = 1;
-							$line_data5['total_cost'] = $line_data5['unit_cost'] * $line_data5['quantity'];
-							$line_data5['cat_id'] = $cate_id;
-							$line_data5['sub_cat_id'] = $sub_cate_id;
-							$line_data5['cost_sheet_id'] = $costsheet_id;
-							$line_data5['created_at'] = date('Y-m-d H:i:s');
-							$line_data5['status'] = 1;
-							$line_data5['o/h'] = (@$lineitem_oh) ? $lineitem_oh : 1;
-							$line_data5['selling_price'] = $line_data5['total_cost'] / $line_data5['o/h'];
-
-							$result3_5 = $this->site_model->savedata("cost_sheet_line_item", $line_data5);
+									$result3_3 = $this->site_model->savedata("cost_sheet_line_item", $line_data3);
+								}
+							}
 						}
 					}
 				}
