@@ -56,7 +56,7 @@
 
                         <td><?php echo $value['name']; ?></td>
 
-                        <td style="width: 1%; word-wrap: break-word;"><?= $value['id']; ?></td>
+                        <td style="width: 1%; word-wrap: break-word;"><?= $value['quotation_number']; ?></td>
 
                         <td><?php echo get_single_col_value('customer','id',$value['customer'],'company_name'); ?></td>
 

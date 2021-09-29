@@ -4412,9 +4412,18 @@ public function genrateTemplate(){
 			echo json_encode($responce); 
 			exit;
 		}
-		$data['status']  						='genrated';
-		$data['updated_at']						=date('Y-m-d H:i:s');
-		$data['genrated_date']					=date('Y-m-d H:i:s');
+		$data['status'] = 'genrated';
+		$generatedCosts = $this->site_model->get_rows_c1('cost_sheet', 'status', 'genrated');
+		if(count($generatedCosts) > 0) {
+			$latest_number = $generatedCosts[0]['quotation_number'];
+			// print_r($latest_number); print_r($latest_number + 1); exit;
+			$data['quotation_number'] = (@$latest_number) ? $latest_number + 1 : 1;
+		}else{
+			$data['quotation_number'] = 1;	
+		}
+		
+		$data['updated_at'] = date('Y-m-d H:i:s');
+		$data['genrated_date'] = date('Y-m-d H:i:s');
 		$result=$this->site_model->update_row_c1("cost_sheet","id",$pdata['costsheet_id'],$data);
 		$userData  = $this->db->query('Select salesperson.name, salesperson.email from  salesperson LEFT JOIN cost_sheet on salesperson.id = cost_sheet.sales_person WHERE cost_sheet.id = '.$pdata['costsheet_id'].'')->row();	
 		if($result){
