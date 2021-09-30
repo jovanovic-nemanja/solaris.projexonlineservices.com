@@ -66,16 +66,23 @@
 
                         <?php } else{ echo '<td>'.$value['quotation_status'].'</td>'; } ?>
 
-                        <td>
+                        <td class="d-flex">
 
-                            <a type="button" id="<?=$value['id']; ?>" href="<?= base_url('admin/app/genrated_view_cost_sheet/'.$value['id'].''); ?>" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a type="button" id="<?=$value['id']; ?>" href="<?= base_url('admin/app/genrated_view_cost_sheet/'.$value['id'].''); ?>" class="btn btn-success mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
                             <?php if( empty($this->session->userdata('is_sales_logged')) ){ ?>
 
-                                <button class="btn revised btn-success" name="revised" onclick="" type="submit" id="revised" value="<?=$value['id']; ?>">
-
+                                <button class="btn revised btn-success mr-1" name="revised" onclick="" type="submit" id="revised" value="<?=$value['id']; ?>" title="REVISE">
                                   <i class="icon-copy"></i>REVISE
+                                </button>
+                                
+                                <form class="mr-1 revise_csv_<?=$value['id']; ?>" method="post">
+                                  <input type="file" class="custom-file-input" name="uploadCSV" id="uploadCSV" style="border: none;" accept=".csv" />
+                                  <input type="hidden" name="id" value="<?=$value['id']; ?>" id="id" />
+                                </form>
 
+                                <button class="btn CSV btn-success mr-1" name="CSV" onclick="" type="button" id="CSV" title="CSV" value="<?=$value['id']; ?>">
+                                  <i class="icon-copy"></i>CSV
                                 </button>
 
                             <?php } ?>
@@ -140,6 +147,8 @@
 
     $(document).ready(function() {
 
+      $('.custom-file-input').hide();
+
       $(".delete_row").click(function(e){
 
         e.preventDefault();    
@@ -200,7 +209,10 @@
 
       });
 
-
+      function showLoader(){
+        $.blockUI({message:'<h1> Please wait...</h1>'});
+        $("#flash").show();
+      }
 
       $(".revised").click(function(e){
 
@@ -274,6 +286,63 @@
 
       });
 
-    });
 
+      $(".CSV").click(function(e){
+        $(this).prev().children().click();
+        var getvalue = $(this).val();
+
+        $(".revise_csv_"+getvalue).change(function(){
+          var form = $(".revise_csv_"+getvalue)[0]; // You need to use standart javascript object here
+          var formData = new FormData(form);
+
+          if(confirm("Are you sure want to revise this record with CSV import?")) {
+
+            $.ajax({
+              type: "POST",
+              dataType: "json",
+              contentType: false,
+              processData: false,
+              data: formData,
+              url:"<?php echo base_url();?>index.php/admin/app/revised_record_csv",
+
+              beforeSend: function(){
+                showLoader();    
+              }, 
+
+              statusCode:{
+                200:function(data)
+                { 
+                  if(data.err == 200) {
+                    window.location.href = data.url;
+                  } 
+                },
+
+                500:function(data){
+
+                  console.log("Error :  Internal Server Error");
+
+                },
+
+                404:function(data){
+
+                  console.log("Error :  Page not found");
+
+                },
+
+                502:function(data){
+
+                  console.log("Error :  Internal Server Error");
+
+                }
+
+              }
+
+            });
+
+          }
+        });
+
+        return false;
+      });
+    });
 </script>
