@@ -1,0 +1,14 @@
+Sl. No,Main Category,Sub Category,Qty,Unit,Line Item 1,Cost 1,Line Item 2,Cost 2,Line Item 3,Cost 3,Unit Cost,Total Cost,Margin,OH / Profit,Price
+1,Flooring ,Eco Floor,100,SQM,Eco ,AED50.00,MDF Backing,AED20.00,Trim,AED10.00,AED80.00,"AED8,000.00",0.65,"AED4,308.00","AED12,308.00"
+2,,Carpet,50,SQM,Carpet,AED65.00,,,,,AED65.00,"AED3,250.00",0.65,"AED1,750.00","AED5,000.00"
+3,,Tiles,50,SQM,Tiles,AED65.00,Glue,AED20.00,,,AED85.00,"AED4,250.00",0.65,"AED2,289.00","AED6,539.00"
+4,,Skirting ,40,MT,MDF,AED10.00,Paint,AED20.00,,,AED30.00,"AED1,200.00",0.65,AED647.00,"AED1,847.00"
+5,,Ramp,2,Nos,MDF,AED50.00,Paint,AED50.00,,,AED100.00,AED200.00,0.65,AED108.00,AED308.00
+Sl. No,Main Category,Sub Category,Qty,Unit,Line Item 1,Cost 1,Line Item 2,Cost 2,Line Item 3,Cost 3,Unit Cost,Total Cost,Margin,OH / Profit,Price
+1,Partition,10CM Wall,100,SQM,MDF,AED65.00,Ply & Frame,AED120.00,Paint ,AED60.00,AED245.00,"AED24,500.00",0.65,"AED13,193.00","AED37,693.00"
+2,,20CM Wall ,50,SQM,MDF,AED65.00,Ply & Frame,AED150.00,Paint ,AED60.00,AED275.00,"AED13,750.00",0.65,"AED7,404.00","AED21,154.00"
+3,,5CM Cladding ,50,SQM,MDF,AED37.00,Ply & Frame,AED70.00,Paint ,AED30.00,AED137.00,"AED6,850.00",0.65,"AED3,689.00","AED10,539.00"
+4,,Laminate Wall ,40,MT,MDF + Laminate,AED145.00,Ply & Frame,AED120.00,Paint ,AED10.00,AED275.00,"AED11,000.00",0.65,"AED5,924.00","AED16,924.00"
+Total For the above,,,,,,,,,,,,"AED73,000.00",,"AED39,312.00","AED112,312.00"
+VAT @ 5%,,,,,,,,,,,,"AED3,650.00",,"AED1,965.60","AED5,615.60"
+Total Cost including VAT,,,,,,,,,,,,"AED76,650.00",,"AED41,277.60","AED117,927.60"
