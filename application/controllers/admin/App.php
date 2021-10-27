@@ -605,6 +605,40 @@ public function cost_sheet()
 	}
 }
 
+public function revised_cost_sheet_csv()
+{	
+	// if admin login then redirect on dashboard	
+	if($this->session->userdata('is_cost_estimator_logged') || $this->session->userdata('is_admin_logged') || $this->session->userdata('is_project_manage_logged'))
+	{
+		$cost_sheet_id = $this->uri->segment(4);
+		$sql="SELECT *, cost_sheet_category.id as cat_ids, (SELECT SUM(total_cost) FROM cost_sheet_line_item WHERE cat_id = cost_sheet_category.cat_id AND cost_sheet_line_item.cost_sheet_id = ".$cost_sheet_id.") as sumTotalCost, (SELECT SUM(selling_price) FROM cost_sheet_line_item WHERE cat_id = cost_sheet_category.cat_id AND cost_sheet_line_item.cost_sheet_id = ".$cost_sheet_id.") as sumSellingCost FROM cost_sheet_category INNER JOIN categories ON cost_sheet_category.cat_id = categories.id WHERE cost_sheet_category.cost_sheet_id = '".$cost_sheet_id."' AND cost_sheet_category.sub_cat_id IS NULL";
+		$query = "SELECT Sum(total_cost) as totalCostSum, SUM(selling_price) as sellingPriceSum from cost_sheet_line_item where cost_sheet_id='".$cost_sheet_id."'";
+
+		$data['costSheetTotal'] = $this->db->query($query)->result();
+		$data['costSheetData']  = $this->site_model->get_row_c1('cost_sheet', 'id', $cost_sheet_id);
+        $data['cost_sheet_cat'] = $this->db->query($sql)->result_array();
+		$data['categories']		= $this->site_model->get_rows_c1('categories','parent_id',0);
+		$data['product']		= $this->site_model->get_rows('products');
+		$data['customers']		= $this->site_model->get_rows('customer');
+		$data['salesperson']	= $this->site_model->get_rows('salesperson');
+		$data['venue']			= $this->site_model->get_rows('venue');
+		$data['cost_type']		= $this->site_model->get_rows('cost_type');
+		$data['units']			= $this->site_model->get_rows('units');
+
+		$data['exclusions']			= $this->site_model->get_rows('exclusions');
+		
+		$data['convertCost']	= $this->site_model->get_row_c1('convert_usd_to_aed','id',1);
+		$this->load->view('admin/common/header1');
+		$this->load->view('admin/common/sidebar');
+		$this->load->view('admin/revised_cost_sheet_csv',$data);
+		$this->load->view('admin/common/footer1');
+	}
+	else
+	{
+		redirect('admin/app/not_authorized');
+	}
+}
+
 public function cost_template()
 {	
 	// if admin login then redirect on dashboard	
@@ -4891,7 +4925,7 @@ public function revised_record_csv()
 		$getData = $this->site_model->get_row_c1('cost_sheet','id',$pdata['id']);
 		if(!empty($getData))
 		{
-			$Mdata = array('name'=>$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
+			$Mdata = array('name'=>'rev-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
 			$is_saved = $this->site_model->savedata('cost_sheet',$Mdata);
 
 			if($is_saved) {
@@ -5105,7 +5139,7 @@ public function revised_record_csv()
 					
 					$responce['err'] = 200;
 					$responce['msg'] = "Successful Operation!";
-					$responce['url'] = base_url('/admin/app/cost_sheet/'.$costsheet_id);
+					$responce['url'] = base_url('/admin/app/revised_cost_sheet_csv/'.$costsheet_id);
 					echo json_encode($responce); 
 				}
 			}
