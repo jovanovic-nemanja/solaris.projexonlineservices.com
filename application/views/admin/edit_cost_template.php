@@ -140,7 +140,7 @@
                   <div class="row">
                     <div class="col-lg-12 admin-accord">
                       <?php  if($costSheetTotal[0]->totalCostSum!=0){ ?>
-                        <div class="pp-to-ll" style="text-align: center; font-size: larger;"><p>OVERALL   &nbsp;&nbsp;&nbsp;     Cost &nbsp; <span style="float: right;" ><span class="currencyC"><?= $costSheetData->currency ?></span>&nbsp;<span class="totcurr totalcostsum currencyConvert"><?= number_format(round($costSheetTotal[0]->totalCostSum,3,PHP_ROUND_HALF_UP),2); ?></span></span></p>| <p>Average O/H &nbsp; <span style="" class="mainavg"><?= round($costSheetTotal[0]->totalCostSum/$costSheetTotal[0]->sellingPriceSum,2); ?></span></p> | <p>Price &nbsp; <span style="float: right;"><span class="currencyC"><?=$costSheetData->currency ?></span>&nbsp;<span class="selcurr sellingPriceSum currencyConvert"> <?= number_format(round($costSheetTotal[0]->sellingPriceSum,3,PHP_ROUND_HALF_UP),2); ?></span></span></p></div>
+                        <div class="pp-to-ll" style="text-align: center; font-size: larger;"><p>OVERALL   &nbsp;&nbsp;&nbsp;     Cost &nbsp; <span style="float: right;" ><span class="currencyC"><?= $costSheetData->currency ?></span>&nbsp;<span class="totcurr totalcostsum currencyConvert"><?= number_format(round($costSheetTotal[0]->totalCostSum,0,PHP_ROUND_HALF_UP),2); ?></span></span></p>| <p>Average O/H &nbsp; <span style="" class="mainavg"><?= round($costSheetTotal[0]->totalCostSum/$costSheetTotal[0]->sellingPriceSum,2); ?></span></p> | <p>Price &nbsp; <span style="float: right;"><span class="currencyC"><?=$costSheetData->currency ?></span>&nbsp;<span class="selcurr sellingPriceSum currencyConvert"> <?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2); ?></span></span></p></div>
                       <?php } else{ ?>
                         <div class="pp-to-ll" style="text-align: right; font-size: larger;"><p>OVERALL    &nbsp;&nbsp;&nbsp;    Cost &nbsp; <span style="float: right;" ><span class="currencyC"><?= $costSheetData->currency ?></span>&nbsp;<span class="totcurr totalcostsum currencyConvert">0.00</span></span></p>| <p>Average O/H &nbsp; <span style="" class="mainavg">0.00</span></p> | <p>Price &nbsp; <span style="float: right;"><span class="currencyC"></span>&nbsp;<span class="selcurr sellingPriceSum currencyConvert">0.00</span></span></p></div>
                       <?php } ?>
@@ -157,11 +157,11 @@
                                   <div class="aa-bb" style="top: -8px;">
                                     <?php if($value['sumSellingCost']){ ?>
                                       <span class="ab-2" style="padding-right: 0px;">
-                                        <span class="totcurr totalcostsum-<?= $value['cat_id']; ?> currencyConvert"><?= number_format(round($value['sumTotalCost'],3,PHP_ROUND_HALF_UP),2); ?></span>&nbsp;|&nbsp;
+                                        <span class="totcurr totalcostsum-<?= $value['cat_id']; ?> currencyConvert"><?= number_format(round($value['sumTotalCost'],0,PHP_ROUND_HALF_UP),2); ?></span>&nbsp;|&nbsp;
                                       </span>
                                       <span class="ab-2 totavg-<?= $value['cat_id']; ?>" style="padding-right: 0px;"><?= round($value['sumTotalCost']/$value['sumSellingCost'],2); ?></span>&nbsp;|&nbsp;
                                       <span class="ab-3" style="padding-right: 25px;">
-                                        <span class="selcurr sellingPriceSum-<?= $value['cat_id']; ?> currencyConvert"><?= number_format(round($value['sumSellingCost'],3,PHP_ROUND_HALF_UP),2); ?></span>
+                                        <span class="selcurr sellingPriceSum-<?= $value['cat_id']; ?> currencyConvert"><?= number_format(round($value['sumSellingCost'],0,PHP_ROUND_HALF_UP),2); ?></span>
                                       </span>
                                     <?php } else{ ?>
                                       <span class="ab-2" style="padding-right: 0px;">
@@ -203,9 +203,9 @@
                                               
                                             <div class="aa-bb" style="top: 0px;">
                                               <?php if(!empty($subvalue['sumTotalCost'])){ ?>
-                                                <span class="ab-2"><span class="totcurr subtotalcostsum-<?=$subvalue['id']; ?> urrencyConvert"><?php echo ' '.number_format(round($subvalue['sumTotalCost'],3,PHP_ROUND_HALF_UP),2); ?> &nbsp;&nbsp; | &nbsp;&nbsp;</span></span>
+                                                <span class="ab-2"><span class="totcurr subtotalcostsum-<?=$subvalue['id']; ?> urrencyConvert"><?php echo ' '.number_format(round($subvalue['sumTotalCost'],0,PHP_ROUND_HALF_UP),2); ?> &nbsp;&nbsp; | &nbsp;&nbsp;</span></span>
                                                 <span class="ab-2 avgoh-<?=$subvalue['id'];?>"><?php echo round ($subvalue['sumTotalCost']/$subvalue['sumSellingCost'],2); ?>&nbsp;&nbsp; | &nbsp;&nbsp;</span>
-                                                <span class="ab-3" style="padding-right: 10px;"><span class="selcurr subsellingPriceSum-<?=$subvalue['id']; ?> currencyConvert"><?php echo ' '.number_format(round($subvalue['sumSellingCost'],3,PHP_ROUND_HALF_UP),2); ?></span></span>
+                                                <span class="ab-3" style="padding-right: 10px;"><span class="selcurr subsellingPriceSum-<?=$subvalue['id']; ?> currencyConvert"><?php echo ' '.number_format(round($subvalue['sumSellingCost'],0,PHP_ROUND_HALF_UP),2); ?></span></span>
                                               <?php } else{ ?>
                                                 <span class="ab-2"><span class="totcurr subtotalcostsum-<?=$subvalue['id']; ?> urrencyConvert"></span></span>
                                                 <span class="ab-2 avgoh-<?=$subvalue['id'];?>"></span>
@@ -256,14 +256,14 @@
                                                           <input type="text" class="form-control" name="unit_cost" value="<?=$lineItem['unit_cost']; ?>">
                                                         </td>
                                                         <td style="width:14%" class="">
-                                                          <p style="color: green;"><span class="currencyConvert"><?= number_format(round($lineItem['total_cost'],3,PHP_ROUND_HALF_UP),2); ?></span></p>
+                                                          <p style="color: green;"><span class="currencyConvert"><?= number_format(round($lineItem['total_cost'],0,PHP_ROUND_HALF_UP),2); ?></span></p>
                                                         </td>
                                                         <td style="width:10%" class="">
                                                           <input type="text" class="form-control" name="margin" value="<?=$lineItem['o/h']; ?>">
                                                           <input type="hidden" name="lineItemId" value="<?=$lineItem['id']; ?>">
                                                         </td>
                                                         <td style="width:40%" class="">
-                                                          <p style=""><span class="currencyConvert"><?= number_format(round($lineItem['selling_price'],3,PHP_ROUND_HALF_UP),2); ?></span></p>
+                                                          <p style=""><span class="currencyConvert"><?= number_format(round($lineItem['selling_price'],0,PHP_ROUND_HALF_UP),2); ?></span></p>
                                                         </td>
                                                     </form>
                                                     </tr>
