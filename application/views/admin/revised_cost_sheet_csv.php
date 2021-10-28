@@ -396,12 +396,7 @@
 												<div class="col-md-3">
 													<form method="post" id="venueForm">
 														<label for="inputPassword4" class="">Venue</label>
-													  	<select class="form-control select2" name="venue"  id="venue" style="width: 100%;" readonly="readonly" disabled>
-															  <option value="">Select</option>
-															  <?php foreach($venue as $value) { ?>
-															  	<option value="<?php  echo $value['id']; ?>" <?php if($costSheetData->venue==$value['id']){echo 'selected';} ?>><?php  echo $value['title']; ?></option>
-															  <?php } ?>
-														  </select>
+													  	<input type="text" class="form-control" name="venue" value="<?= $costSheetData->venue; ?>" id="venue" disabled readonly>
 														<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 												  	</form>
 												</div>

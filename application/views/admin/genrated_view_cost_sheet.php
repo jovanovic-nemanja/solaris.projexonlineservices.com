@@ -383,13 +383,7 @@
 								<div class="col-md-3">
 								  <form method="post" id="venueForm">
 										<label for="inputPassword4" class="">Venue</label>
-										  <select class="form-control select2" disabled="" name="venue"  id="venue">
-											 
-											  <option>Select</option>
-											  <?php foreach($venue as $value) { ?>
-											  <option value="<?php  echo $value['id']; ?>" <?php if($costSheetData->venue==$value['id']){echo 'selected';} ?>><?php  echo $value['title']; ?></option>
-											  <?php } ?>                                        
-										  </select>
+										<input type="text" class="form-control" name="venue" value="<?= $costSheetData->venue; ?>" id="venue" disabled readonly>
 								  </form>
 								</div>
 								<div class="col-md-3">
