@@ -4860,9 +4860,9 @@ public function revised_record()
 		{
 			$name ='';
 			$template_Name = explode('-', $getData->name);
-			if(count($template_Name)==1){ $name = $template_Name[0].'-rev-1'; }
+			if(count($template_Name)==1){ $name = $template_Name[0].'-Revision-1'; }
 			else { $count = $template_Name[2];
-			$name = $template_Name[0].'-rev-'.($count+1); }
+			$name = $template_Name[0].'-Revision-'.($count+1); }
 
 			$data = array('name'=>$name,'customer'=>$getData->customer,'conatct_person'=>$getData->conatct_person,'payment_terms'=>$getData->payment_terms,'sales_person'=>$getData->sales_person,'venue'=>$getData->venue,'cost_type'=>$getData->cost_type,'currency'=>$getData->currency,'status'=>1,'created_at'=>date('Y-m-d H:i:s'));
 			$is_saved = $this->site_model->savedata('cost_sheet',$data);
@@ -4925,7 +4925,7 @@ public function revised_record_csv()
 		$getData = $this->site_model->get_row_c1('cost_sheet','id',$pdata['id']);
 		if(!empty($getData))
 		{
-			$Mdata = array('name'=>'rev-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
+			$Mdata = array('name'=>'Revision-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
 			$is_saved = $this->site_model->savedata('cost_sheet',$Mdata);
 
 			if($is_saved) {
