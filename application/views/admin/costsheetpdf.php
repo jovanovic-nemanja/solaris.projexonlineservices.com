@@ -18,7 +18,7 @@
                     $date = getdate();
                     $year = $date['year'];
                 ?>
-                <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->id; ?>/<?=$year?></strong></td>
+                <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>/<?=$year?></strong></td>
             </tr> 
             <tr>
                 <td style="padding: 5px;"><strong>From: Mr. Martin Clough </strong></td>  
