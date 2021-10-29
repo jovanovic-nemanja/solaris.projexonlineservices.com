@@ -1520,6 +1520,46 @@ public function UpdateVenue()
 	}
 }
 
+public function UpdateCity()
+{
+	if($this->session->userdata('userid'))
+	{
+		$user_id = $this->session->userdata('userid');
+		$pdata = $this->input->post();
+		$this->load->helper('url');		
+		$this->form_validation->set_rules('city', 'city', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$err = $this->form_validation->error_array();
+			$responce['err'] = 1;
+			$responce['msg'] = $err;
+			$responce['datas'] = $err;
+			echo json_encode($responce);
+			exit;
+		}
+
+		$data['city'] = (isset($pdata['city']) ? $pdata['city'] : '');
+		$data['updated_at'] = date('Y-m-d H:i:s');
+		$result = $this->site_model->update_row_c1("cost_sheet", 'id', $pdata['CostSheetId'], $data);	
+		if($result){
+			$responce['err'] = 0;
+			$responce['msg'] = "";
+			echo json_encode($responce); 
+		}else{
+			$error = $this->db->error();
+			$responce['err'] = 2;
+			$responce['msg'] = $error['message'];
+			echo json_encode($responce); 
+		}
+	}
+	else
+	{
+		$responce['err'] = 3;
+		$responce['msg'] = 'Session expired!';
+		echo json_encode($responce); 
+	}
+}
+
 public function UpdateCostType()
 {
 	if($this->session->userdata('userid'))
@@ -1720,8 +1760,9 @@ public function UpdateCurrency()
 			echo json_encode($responce);
 			exit;
 		}
-		$data['currency']  						    =(isset($pdata['currency']) ? $pdata['currency'] : '');
-		$data['updated_at']						    =date('Y-m-d H:i:s');
+
+		$data['currency'] = (isset($pdata['currency']) ? $pdata['currency'] : '');
+		$data['updated_at'] = date('Y-m-d H:i:s');
 		$result=$this->site_model->update_row_c1("cost_sheet",'id',$pdata['CostSheetId'],$data);	
 		if($result){
 			$responce['err'] = 0;
@@ -4458,6 +4499,8 @@ public function genrateTemplate(){
 		
 		$data['updated_at'] = date('Y-m-d H:i:s');
 		$data['genrated_date'] = date('Y-m-d H:i:s');
+		$data['currency'] = 'AED';
+
 		$result=$this->site_model->update_row_c1("cost_sheet","id",$pdata['costsheet_id'],$data);
 		$userData  = $this->db->query('Select salesperson.name, salesperson.email from  salesperson LEFT JOIN cost_sheet on salesperson.id = cost_sheet.sales_person WHERE cost_sheet.id = '.$pdata['costsheet_id'].'')->row();	
 		if($result){

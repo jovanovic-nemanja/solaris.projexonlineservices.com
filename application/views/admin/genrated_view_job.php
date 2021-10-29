@@ -113,7 +113,7 @@
 
     					  	<div class="row" style="margin-bottom: 20px">
 
-    						 <div class="col-md-3">
+    						 <div class="col-md-4">
 
     							<form method="post" id="template_name">
 
@@ -125,7 +125,7 @@
 
     						  </div>
 
-    						  	<div class="col-3">
+    						  	<div class="col-4">
 
     								<form method="post" id="costTypeForm">
 
@@ -149,7 +149,7 @@
 
     							</div>
 
-    							<div class="col-3">
+    							<div class="col-4">
 
     							  <form method="post" id="venueForm">
 
@@ -161,7 +161,7 @@
 
     							</div>
 
-    							<div class="col-3">
+    							<!-- <div class="col-3">
 
     									 <form method="post" id="currencyForm">
 
@@ -179,11 +179,23 @@
 
     									  </form>
 
-    								  </div> 
+    								  </div>  -->
 
-    						</div>
+    						</div><br>
 
-    						
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form method="post" id="cityForm">
+                                        <label for="inputPassword4" class="">City/Country</label>
+                                        
+                                        <textarea class="form-control" name="city" id="city" readonly disabled rows="10" onchange ="updateData('cityForm','UpdateCity');"><?= $costSheetData->city; ?></textarea>
+
+                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                    </form>
+                                </div>
+
+                            </div><br>
+
 
     						<div class="row" style="margin-bottom: 20px">
 

@@ -103,10 +103,10 @@
                                 <i class="menu-arrow"></i></a>
                               <?php if($this->session->userdata('is_admin_logged') || !empty($this->session->userdata('is_cost_estimator_logged'))){ ?> 
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown">
-                                    <a class="dropdown-item" href="<?= base_url('admin/app/venues'); ?>">
+                                    <!-- <a class="dropdown-item" href="<?= base_url('admin/app/venues'); ?>">
                                       <i class="dropdown-item-icon fa fa-institution menu-icon text-primary"></i>
                                       Manage Venue
-                                    </a>
+                                    </a> -->
                                     <a class="dropdown-item" href="<?= base_url('admin/app/cost_type'); ?>">
                                       <i class="dropdown-item-icon icon-book-open menu-icon text-primary"></i>
                                       Manage Job Type

@@ -103,13 +103,13 @@
 						<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionProject" style="background-color: #38ce3c;">
 						  <div class="card-body">
 						  	<div class="row" style="margin-bottom: 20px">
-							  <div class="col-md-3">
+							  <div class="col-md-4">
 								<form method="post" id="template_name">
 									<label for="exampleInputEmail1">Job / Template Name</label>
 									  <input type="text" class="form-control" name="template_Name" value="<?= $costSheetData->name; ?>" id="template_Name"  placeholder="" readonly="readonly">
 								</form>
 							   </div>
-							   <div class="col-3">
+							   <div class="col-4">
 									<form method="post" id="costTypeForm">
 											<label for="inputPassword4" class="">Job type</label>
 											  <select class="form-control select2" readonly="readonly"  id="cost_type">
@@ -121,13 +121,13 @@
 											  </select>
 									</form>
 								</div>
-								<div class="col-3">
+								<div class="col-4">
 									  <form method="post" id="venueForm">
 											<label for="inputPassword4" class="">Venue</label>
 											<input type="text" class="form-control" name="venue" value="<?= $costSheetData->venue; ?>" id="venue" disabled readonly>
 									  </form>
 								  </div>
-								  <div class="col-3">
+								  <!-- <div class="col-3">
 									 <form method="post" id="currencyForm">
 											<label for="inputPassword4" class="">Currency</label>
 											  <select class="form-control select2" readonly="readonly" id="currency">
@@ -136,9 +136,22 @@
 												  <option value="AED" <?php if($costSheetData->currency=='AED'){echo 'selected';} ?>>AED</option>                                    
 											  </select>
 									  </form>
-								  </div>
+								  </div> -->
 
-							</div>
+							</div><br>
+
+              <div class="row">
+                  <div class="col-md-12">
+                      <form method="post" id="cityForm">
+                          <label for="inputPassword4" class="">City/Country</label>
+                          
+                          <textarea class="form-control" name="city" id="city" readonly disabled rows="10" onchange ="updateData('cityForm','UpdateCity');"><?= $costSheetData->city; ?></textarea>
+
+                          <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                      </form>
+                  </div>
+
+              </div><br>
 
 							<div class="row" style="margin-bottom: 20px">
 							    <div class="col-md-4">

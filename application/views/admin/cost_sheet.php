@@ -374,14 +374,14 @@
 									<div id="collapse-17" class="collapse" role="tabpanel" aria-labelledby="heading-17" data-parent="#accordion-6" style="">
 			                            <div class="card-body">
 			                              	<div class="row">
-			                              	  	<div class="col-md-3">
+			                              	  	<div class="col-md-4">
 			                              	    	<form method="post" id="template_name">
 														<label for="exampleInputEmail1">Job Name</label>
 													  	<input type="text" class="form-control" name="template_Name" value="<?= $costSheetData->name; ?>" id="template_Name"  placeholder="" onchange ="updateFormData('template_name','updateTemplateName');">
 													   	<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 													</form>
 			                              	  	</div>
-			                              	  	<div class="col-md-3">
+			                              	  	<div class="col-md-4">
 													<form method="post" id="costTypeForm">
 														<label for="inputPassword4" class="">Job type</label>
 												  		<select class="form-control js-example-basic-single" onchange="updateData('costTypeForm','UpdateCostType');" name="cost_type"  id="cost_type" style="width: 100%;">
@@ -393,7 +393,7 @@
 														<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 													</form>
 												</div>
-												<div class="col-md-3">
+												<div class="col-md-4">
 													<form method="post" id="venueForm">
 														<label for="inputPassword4" class="">Venue</label>
                                                         
@@ -402,7 +402,7 @@
 														<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 												  	</form>
 												</div>
-												<div class="col-md-3">
+												<!-- <div class="col-md-3">
 													<form method="post" id="currencyForm">
 														<label for="inputPassword4" class="">Currency</label>
 													  	<select class="form-control js-example-basic-single" onchange="updateDataCurrency('currencyForm','UpdateCurrency',this.value, <?= $convertCost->convert_value; ?>);" name="currency"  id="currency" style="width: 100%;">
@@ -412,8 +412,22 @@
 													  	</select>
 														<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 												  	</form>
-												</div>
-			                              	</div>
+												</div> -->
+			                              	</div><br>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <form method="post" id="cityForm">
+                                                        <label for="inputPassword4" class="">City/Country</label>
+                                                        
+                                                        <textarea class="form-control" name="city" id="city"  rows="10" onchange ="updateData('cityForm','UpdateCity');"><?= $costSheetData->city; ?></textarea>
+
+                                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                                    </form>
+                                                </div>
+
+                                            </div><br>
+
 			                              	<div class="row">
 			                              	  	<div class="col-md-4">
 													<form method="post" id="projectStartDate">
@@ -1629,7 +1643,8 @@ function calculateGrandTotal(){
     			var template_name 	= $('#template_Name').val();
     			var customer_name 	= $('#customer').val();
     			var venue_name 		= $('#venue').val();
-    			var currency_name 	= $('#currency').val();
+    			var currency_name 	= 'AED';
+                // var currency_name   = $('#currency').val();
     			var cost_type 		= $('#cost_type').val();
     			var contactPerson 	= $('#contactPerson').val();
     			var payment_terms 	= $('#payment_terms').val();
