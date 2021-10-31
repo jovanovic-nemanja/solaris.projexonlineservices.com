@@ -353,6 +353,14 @@ function get_rows_c1($table_name,$col1,$val1)
   $query = $this->db->get($table_name);
   return $query->result_array();
 }
+// get all rows on condition 1
+function get_rows_B1($table_name)
+{ 
+  $this->db->where('quotation_number is NOT NULL', NULL, FALSE);
+  $this->db->order_by("id", "DESC");
+  $query = $this->db->get($table_name);
+  return $query->result_array();
+}
 
 function get_rows_d1($table_name, $col1, $val1, $col2, $val2)
 { 

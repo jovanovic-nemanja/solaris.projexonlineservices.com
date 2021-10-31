@@ -145,7 +145,7 @@
                       <form method="post" id="cityForm">
                           <label for="inputPassword4" class="">City/Country</label>
                           
-                          <textarea class="form-control" name="city" id="city" readonly disabled rows="10" onchange ="updateData('cityForm','UpdateCity');"><?= $costSheetData->city; ?></textarea>
+                          <textarea class="form-control" name="city" id="city" readonly disabled rows="2" onchange ="updateData('cityForm','UpdateCity');"><?= $costSheetData->city; ?></textarea>
 
                           <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
                       </form>
