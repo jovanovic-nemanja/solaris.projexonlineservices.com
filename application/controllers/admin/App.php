@@ -4491,7 +4491,6 @@ public function genrateTemplate(){
 		$generatedCosts = $this->site_model->get_rows_c1('cost_sheet', 'status', 'genrated');
 		if(count($generatedCosts) > 0) {
 			$latest_number = $generatedCosts[0]['quotation_number'];
-			// print_r($latest_number); print_r($latest_number + 1); exit;
 			$data['quotation_number'] = (@$latest_number) ? $latest_number + 1 : 1;
 		}else{
 			$data['quotation_number'] = 1;	
@@ -4966,9 +4965,21 @@ public function revised_record_csv()
 		$pdata = $this->input->post();
 
 		$getData = $this->site_model->get_row_c1('cost_sheet','id',$pdata['id']);
+		
+		$generatedCosts = $this->site_model->get_rows_B1('cost_sheet');
+		if(count($generatedCosts) > 0) {
+			$latest_number = $generatedCosts[0]['quotation_number'];
+			$quotation_number = $latest_number + 1;
+			$quot_numb = $quotation_number . " rev " . $latest_number;
+			
+		}else{
+			$quot_numb = "1 rev 0";	
+			$quotation_number = 1;
+		}
+
 		if(!empty($getData))
 		{
-			$Mdata = array('name'=>'Revision-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
+			$Mdata = array('name'=>'Revision-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'quotation_number' => $quotation_number, 'quot_numb' => $quot_numb, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
 			$is_saved = $this->site_model->savedata('cost_sheet',$Mdata);
 
 			if($is_saved) {
