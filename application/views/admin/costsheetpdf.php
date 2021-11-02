@@ -18,7 +18,12 @@
                     $date = getdate();
                     $year = $date['year'];
                 ?>
-                <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quot_numb; ?>/<?=$year?></strong></td>
+                <?php 
+                    if($costSheetData->quot_numb) { ?>
+                        <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>' rev '<?php echo $costSheetData->quot_numb; ?>/<?=$year?></strong></td>
+                <?php } else{ ?>
+                    <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>/<?=$year?></strong></td>
+                <?php } ?>                
             </tr> 
             <tr>
                 <td style="padding: 5px;"><strong>From: Mr. Martin Clough </strong></td>  

@@ -56,7 +56,12 @@
 
                         <td><?php echo $value['name']; ?></td>
 
-                        <td style="width: 1%; word-wrap: break-word;"><?= $value['quot_numb']; ?></td>
+                        <?php if($value['quot_numb']) { ?>
+                          <td style="width: 1%; word-wrap: break-word;"><?= $value['quotation_number']; ?> rev <?= $value['quot_numb']; ?></td>
+                        <?php }else { ?>
+                          <td style="width: 1%; word-wrap: break-word;"><?= $value['quotation_number']; ?></td>
+                        <?php }?>
+                        
 
                         <td><?php echo get_single_col_value('customer','id',$value['customer'],'company_name'); ?></td>
 

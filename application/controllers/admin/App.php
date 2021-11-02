@@ -4496,13 +4496,6 @@ public function genrateTemplate(){
 			exit;
 		}
 		$data['status'] = 'genrated';
-		$generatedCosts = $this->site_model->get_rows_c1('cost_sheet', 'status', 'genrated');
-		if(count($generatedCosts) > 0) {
-			$latest_number = $generatedCosts[0]['quotation_number'];
-			$data['quotation_number'] = (@$latest_number) ? $latest_number + 1 : 1;
-		}else{
-			$data['quotation_number'] = 1;	
-		}
 		
 		$data['updated_at'] = date('Y-m-d H:i:s');
 		$data['genrated_date'] = date('Y-m-d H:i:s');
@@ -6111,7 +6104,7 @@ public function summery_details_Pdf()
 	}
 
 	$data['exclusions'] = $arr;
-	
+
 	$date = getdate();
     $year = $date['year'];
 	
