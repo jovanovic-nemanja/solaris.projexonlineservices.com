@@ -266,7 +266,14 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Quotation (<?= $this->uri->segment(4); ?>)
+                    <?php 
+                        if($costSheetData->quot_numb) { ?>
+                            Quotation (<?= $costSheetData->quotation_number; ?> rev <?= $costSheetData->quot_numb; ?>)
+
+                    <?php } else{ ?>
+                        
+                        Quotation (<?= $this->uri->segment(4); ?>)
+                    <?php } ?>
                 </h3>
             </div>
          

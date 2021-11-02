@@ -818,8 +818,9 @@
                     <?php 
                         if(@$exclusions) {
                             foreach($exclusions as $key => $value) { ?>
-                                <div class=''>
-                                    <input type='checkbox' class='exclusion' value='<?= $value['id']; ?>' style='width: 20px; height: 20px;' />  <label><?= $value['title']; ?></label>
+                                <div class='row'>
+                                    <input type='checkbox' class='exclusion col-md-1' value='<?= $value['id']; ?>' style='width: 20px; height: 20px;' />  
+                                    <label class="col-md-11"><?= $value['description']; ?></label>
                                 </div> 
                     <?php } } ?>
                 </div>
