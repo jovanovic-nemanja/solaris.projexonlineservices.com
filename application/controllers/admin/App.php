@@ -4910,13 +4910,7 @@ public function revised_record()
 
 		if(!empty($getData))
 		{
-			$name ='';
-			$template_Name = explode('-', $getData->name);
-			if(count($template_Name)==1){ $name = $template_Name[0].'-Revision-1'; }
-			else { $count = $template_Name[2];
-			$name = $template_Name[0].'-Revision-'.($count+1); }
-
-			$data = array('name'=>$name,'customer'=>$getData->customer,'conatct_person'=>$getData->conatct_person,'payment_terms'=>$getData->payment_terms,'sales_person'=>$getData->sales_person,'venue'=>$getData->venue,'cost_type'=>$getData->cost_type,'currency'=>$getData->currency,'status'=>1,'created_at'=>date('Y-m-d H:i:s'), 'quotation_number' => $getData->quotation_number, 'quot_numb' => $quot_numb);
+			$data = array('name'=>'Revision-'.$getData->name,'customer'=>$getData->customer,'conatct_person'=>$getData->conatct_person,'payment_terms'=>$getData->payment_terms,'sales_person'=>$getData->sales_person,'venue'=>$getData->venue,'cost_type'=>$getData->cost_type,'currency'=>$getData->currency,'status'=>1,'created_at'=>date('Y-m-d H:i:s'), 'quotation_number' => $getData->quotation_number, 'quot_numb' => $quot_numb);
 			$is_saved = $this->site_model->savedata('cost_sheet',$data);
 			$getCatData = $this->site_model->get_rows_c1('cost_sheet_category','cost_sheet_id',$pdata['id']);
 
