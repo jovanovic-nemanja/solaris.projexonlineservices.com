@@ -5938,7 +5938,14 @@ public function summery_Pdf()
     $html = $this->load->view('admin/costsheetpdf.php',$data,true);
     $mpdf->AddPage(); 
     $mpdf->WriteHTML($html);
-    $mpdf->Output('QT/S-' . $costSheetData->quot_numb . '/'. $year .'.pdf','D');
+    
+    if($costSheetData->quot_numb) {
+    	$quotation_number = $costSheetData->quotation_number . ' rev ' . $costSheetData->quot_numb . '-'. $year;
+    }else{
+    	$quotation_number = $costSheetData->quotation_number . '-'. $year;
+    }
+
+    $mpdf->Output('QT-S-' . $quotation_number .'.pdf','D');
 }
 
 public function job_summery_Pdf()
@@ -6111,7 +6118,14 @@ public function summery_details_Pdf()
 	$mpdf = new \Mpdf\Mpdf();
     $html = $this->load->view('admin/costsheetDetailspdf.php',$data,true);
     $mpdf->WriteHTML($html);
-    $mpdf->Output('QT/S-' . $costSheetData->quot_numb . '/'. $year .'.pdf','D');
+
+    if($costSheetData->quot_numb) {
+    	$quotation_number = $costSheetData->quotation_number . ' rev ' . $costSheetData->quot_numb . '-'. $year;
+    }else{
+    	$quotation_number = $costSheetData->quotation_number . '-'. $year;
+    }
+
+    $mpdf->Output('QT-S-' . $quotation_number .'.pdf','D');
 }
 
 	function summery_excel()
