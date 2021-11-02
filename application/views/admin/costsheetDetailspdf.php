@@ -20,7 +20,7 @@
             ?>
             <?php 
                 if($costSheetData->quot_numb) { ?>
-                    <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>' rev '<?php echo $costSheetData->quot_numb; ?>/<?=$year?></strong></td>
+                    <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?> rev <?php echo $costSheetData->quot_numb; ?>/<?=$year?></strong></td>
             <?php } else{ ?>
                 <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>/<?=$year?></strong></td>
             <?php } ?>
