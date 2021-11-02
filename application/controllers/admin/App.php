@@ -2401,6 +2401,14 @@ public function not_authorized()
 public function create_cost_sheet()
 {
 	$data['created_at']  =date('Y-m-d H:i:s');
+
+	$generatedCosts = $this->site_model->get_rows_B1('cost_sheet');
+	if(count($generatedCosts) > 0) {
+		$data['quotation_number'] = $generatedCosts[0]['quotation_number'] + 1;
+	}else{
+		$data['quotation_number'] = 1;
+	}
+
 	$user_id = $this->session->userdata('userid');
 	$is_created = $this->site_model->savedata("cost_sheet", $data);
 	$insert_id = $this->db->insert_id();
@@ -2800,7 +2808,7 @@ public function addContactPerson()
 			$this->load->helper('url');	
 			$this->form_validation->set_rules('name','Name','trim|required');
 			$this->form_validation->set_rules('email','Email','trim|required');
-			$this->form_validation->set_rules('mobile','Mobile','trim|required|numeric');
+			// $this->form_validation->set_rules('mobile','Mobile','trim|required|numeric');
 
 			if ($this->form_validation->run() == FALSE) {
 				$err = $this->form_validation->error_array();
@@ -2844,7 +2852,7 @@ $dt['created_at'] = $dateSrc;
 			$this->load->helper('url');	
 			$this->form_validation->set_rules('name','Name','trim|required');
 			$this->form_validation->set_rules('email','Email','trim|required');
-			$this->form_validation->set_rules('mobile','Mobile','trim|required|numeric');
+			// $this->form_validation->set_rules('mobile','Mobile','trim|required|numeric');
 
 			if ($this->form_validation->run() == FALSE) {
 				$err = $this->form_validation->error_array();
@@ -4897,7 +4905,16 @@ public function revised_record()
 	if($this->input->post())
 	{
 		$pdata = $this->input->post();
+
 		$getData = $this->site_model->get_row_c1('cost_sheet','id',$pdata['id']);
+		
+		if($getData->quot_numb) {
+			$quot_numb = $getData->quot_numb + 1;
+			
+		}else{
+			$quot_numb = 1;
+		}
+
 		if(!empty($getData))
 		{
 			$name ='';
@@ -4906,7 +4923,7 @@ public function revised_record()
 			else { $count = $template_Name[2];
 			$name = $template_Name[0].'-Revision-'.($count+1); }
 
-			$data = array('name'=>$name,'customer'=>$getData->customer,'conatct_person'=>$getData->conatct_person,'payment_terms'=>$getData->payment_terms,'sales_person'=>$getData->sales_person,'venue'=>$getData->venue,'cost_type'=>$getData->cost_type,'currency'=>$getData->currency,'status'=>1,'created_at'=>date('Y-m-d H:i:s'));
+			$data = array('name'=>$name,'customer'=>$getData->customer,'conatct_person'=>$getData->conatct_person,'payment_terms'=>$getData->payment_terms,'sales_person'=>$getData->sales_person,'venue'=>$getData->venue,'cost_type'=>$getData->cost_type,'currency'=>$getData->currency,'status'=>1,'created_at'=>date('Y-m-d H:i:s'), 'quotation_number' => $getData->quotation_number, 'quot_numb' => $quot_numb);
 			$is_saved = $this->site_model->savedata('cost_sheet',$data);
 			$getCatData = $this->site_model->get_rows_c1('cost_sheet_category','cost_sheet_id',$pdata['id']);
 
@@ -4966,20 +4983,16 @@ public function revised_record_csv()
 
 		$getData = $this->site_model->get_row_c1('cost_sheet','id',$pdata['id']);
 		
-		$generatedCosts = $this->site_model->get_rows_B1('cost_sheet');
-		if(count($generatedCosts) > 0) {
-			$latest_number = $generatedCosts[0]['quotation_number'];
-			$quotation_number = $latest_number + 1;
-			$quot_numb = $quotation_number . " rev " . $latest_number;
+		if($getData->quot_numb) {
+			$quot_numb = $getData->quot_numb + 1;
 			
 		}else{
-			$quot_numb = "1 rev 0";	
-			$quotation_number = 1;
+			$quot_numb = 1;
 		}
 
 		if(!empty($getData))
 		{
-			$Mdata = array('name'=>'Revision-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'quotation_number' => $quotation_number, 'quot_numb' => $quot_numb, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
+			$Mdata = array('name'=>'Revision-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'quotation_number' => $getData->quotation_number, 'quot_numb' => $quot_numb, 'project_start_date'=>$getData->project_start_date, 'project_end_date'=>$getData->project_end_date, 'exclusions'=>$getData->exclusions, 'copyright'=>$getData->copyright, 'created_at'=>date('Y-m-d H:i:s'));
 			$is_saved = $this->site_model->savedata('cost_sheet',$Mdata);
 
 			if($is_saved) {
@@ -5929,7 +5942,7 @@ public function summery_Pdf()
     $html = $this->load->view('admin/costsheetpdf.php',$data,true);
     $mpdf->AddPage(); 
     $mpdf->WriteHTML($html);
-    $mpdf->Output('costsheet_summary.pdf','D');
+    $mpdf->Output('QT/S-' . $costSheetData->quot_numb . ' / '. $year .'.pdf','D');
 }
 
 public function job_summery_Pdf()

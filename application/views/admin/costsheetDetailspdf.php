@@ -18,7 +18,7 @@
                 $date = getdate();
                 $year = $date['year'];
             ?>
-            <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>/<?=$year?></strong></td>
+            <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quot_numb; ?>/<?=$year?></strong></td>
         </tr>
         <tr>
             <td style="padding: 5px;"><strong>From: Mr. Martin Clough </strong></td>
@@ -89,13 +89,13 @@
                         <?= $subvalue['unit']; ?>
                     <?php } ?>
                 </td>
-                <td style=" padding:5px; background:#fff; border:1px solid #ccc; text-align:center;"><?= $costSheetData->currency; ?> <?= number_format(round($subvalue['sumSellingCost'],3,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
+                <td style=" padding:5px; background:#fff; border:1px solid #ccc; text-align:center;"><?= $costSheetData->currency; ?> <?= number_format(round($subvalue['sumSellingCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
             </tr>
             
            <?php $j++; } $i++; } ?>
            <tr>
                 <td style="font-weight:bold; padding:5px; background:#ccc;" colspan="4">Total </td>
-                <td style="font-weight:bold; padding:5px; background:#ccc; text-align:center;">AED  <?= number_format(round($costSheetTotal[0]->sellingPriceSum,3,PHP_ROUND_HALF_UP),2,'.',','); ?></td>
+                <td style="font-weight:bold; padding:5px; background:#ccc; text-align:center;">AED  <?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?></td>
             </tr>
            <?php 
               $disPrice = $costSheetData->discountPerent;
@@ -107,20 +107,20 @@
             ?>
             <tr>
                 <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc;" colspan="4">Discount &nbsp;&nbsp;&nbsp;&nbsp; <?= $costSheetData->discountPerent; ?> </td>
-                <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc; text-align:center;">-AED <?= number_format(round($disPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
+                <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc; text-align:center;">-AED <?= number_format(round($disPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
             </tr>
             <tr>
                 <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc;" colspan="4">Total after discount</td>
-                <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc; text-align:center;">AED <?= number_format(round($totalPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
+                <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc; text-align:center;">AED <?= number_format(round($totalPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
             </tr>
             <?php } ?>
             <tr>
                 <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc;" colspan="4">Vat @ 5%</td>
-                <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc; text-align:center;">AED <?= number_format(round($calculateVat,3,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
+                <td style="font-weight:bold; padding:5px; background:#fff; border:1px solid #ccc; text-align:center;">AED <?= number_format(round($calculateVat,0,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
             </tr>
             <tr>
                 <td style="font-weight:bold; padding:5px; background:#ccc;" colspan="4">Total Including TAX</td>
-                <td style="font-weight:bold; padding:5px; background:#ccc; text-align:center;">AED <?= number_format(round($totalCost,3,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
+                <td style="font-weight:bold; padding:5px; background:#ccc; text-align:center;">AED <?= number_format(round($totalCost,0,PHP_ROUND_HALF_UP),2,'.',','); ?> </td>
             </tr>
         </table>
     </div>

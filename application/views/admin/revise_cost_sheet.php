@@ -3,7 +3,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                  Cost Sheet (<?= $this->uri->segment(4); ?>)
+                  Cost Sheet (<?= $costSheetData->quot_numb; ?>)
                 </h3>
             </div>
          
@@ -519,9 +519,10 @@
                     <?php 
                         if(@$exclusions) {
                             foreach($exclusions as $key => $value) { ?>
-                                <div class=''>
-                                    <input type='checkbox' class='exclusion' value='<?= $value['id']; ?>' style='width: 20px; height: 20px;' />  <label><?= $value['title']; ?></label>
-                                </div> 
+                            	<div class='row'>
+                                <input type='checkbox' class='exclusion col-md-1' value='<?= $value['id']; ?>' style='width: 20px; height: 20px;' />  
+                                <label class="col-md-11"><?= $value['description']; ?></label>
+                              </div> 
                     <?php } } ?>
                 </div>
                 <div class="form-group col-md-12 text-right">

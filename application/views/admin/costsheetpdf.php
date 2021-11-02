@@ -18,7 +18,7 @@
                     $date = getdate();
                     $year = $date['year'];
                 ?>
-                <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quotation_number; ?>/<?=$year?></strong></td>
+                <td style="padding: 5px;"><strong>Ref No: QT/S-<?php echo $costSheetData->quot_numb; ?>/<?=$year?></strong></td>
             </tr> 
             <tr>
                 <td style="padding: 5px;"><strong>From: Mr. Martin Clough </strong></td>  
@@ -63,11 +63,11 @@
                     ?>
                         <tr>
                             <td style="width:70%; border: 1px solid #000; padding: 15px; font-size: 14px;"><?php echo $alphas[$i-1].'. '.$value['title']; ?></td>
-                            <td style="width:30%; border: 1px solid #000; text-align: center; font-size: 14px;"><?= number_format(round($value['sumSellingCost'], 3, PHP_ROUND_HALF_UP),2,'.',','); ?> <?=$costSheetData->currency ?></td>
+                            <td style="width:30%; border: 1px solid #000; text-align: center; font-size: 14px;"><?= number_format(round($value['sumSellingCost'], 0, PHP_ROUND_HALF_UP),2,'.',','); ?> <?=$costSheetData->currency ?></td>
                         </tr>
                     <?php $i++; } ?>
                     <?php  if($costSheetTotal[0]->totalCostSum!=0){ ?>
-                        <h4 style=''>Total: AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,3,PHP_ROUND_HALF_UP),2,'.',','); ?> <?= $costSheetData->currency ?></h4>
+                        <h4 style=''>Total: AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?> <?= $costSheetData->currency ?></h4>
                     <?php } ?>
                 </tbody>
            </table>  
@@ -106,7 +106,7 @@
                               </tbody>                  
                             </table>  
                         </td>
-                        <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>AED <?= number_format(round($disPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
+                        <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>AED <?= number_format(round($disPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
                 <?php } ?>
                       
               </tr>
@@ -114,16 +114,16 @@
 			    <?php }else{ ?>
                   <tr>
                     <td style="width:70%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>Total after discount</strong></p></td>
-                    <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>AED <?= number_format(round($totalPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
+                    <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>AED <?= number_format(round($totalPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
                   </tr>
                 <?php } ?>
               <tr>
-              <td style="width:70%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>Vat @ 5% <!--  <?= number_format(round($totalPrice,3,PHP_ROUND_HALF_UP),2,'.',','); ?> --></strong></p></td>
-              <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>AED <?= number_format(round($calculateVat,3,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
+              <td style="width:70%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>Vat @ 5% <!--  <?= number_format(round($totalPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?> --></strong></p></td>
+              <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>AED <?= number_format(round($calculateVat,0,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
               </tr>
               <tr>
               <td style="width:70%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;"><strong>Total including tax</strong></p></td>
-              <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;">AED <strong><?= number_format(round($totalCost,3,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
+              <td style="width:30%; text-align:right; font-weight:bold;"><p class="text-right mb-0" style="text-align:right;">AED <strong><?= number_format(round($totalCost,0,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
               </tr>
             </tbody>
             </table>
