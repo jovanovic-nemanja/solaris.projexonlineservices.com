@@ -356,10 +356,15 @@ function get_rows_c1($table_name,$col1,$val1)
 // get all rows on condition 1
 function get_rows_B1($table_name)
 { 
+  $this->db->select_max('quotation_number');
+  $this->db->from($table_name);
   $this->db->where('quotation_number is NOT NULL', NULL, FALSE);
-  $this->db->order_by("id", "DESC");
-  $query = $this->db->get($table_name);
-  return $query->result_array();
+  $query = $this->db->get();
+  if($query->num_rows() > 0){
+     return $query->row('quotation_number');        
+  }else{
+     return 0;
+  }
 }
 
 function get_rows_d1($table_name, $col1, $val1, $col2, $val2)
