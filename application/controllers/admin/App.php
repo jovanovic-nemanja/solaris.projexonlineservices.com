@@ -2402,12 +2402,8 @@ public function create_cost_sheet()
 {
 	$data['created_at']  =date('Y-m-d H:i:s');
 
-	$generatedCosts = $this->site_model->get_rows_B1('cost_sheet');
-	if(count($generatedCosts) > 0) {
-		$data['quotation_number'] = $generatedCosts[0]['quotation_number'] + 1;
-	}else{
-		$data['quotation_number'] = 1;
-	}
+	$max = $this->site_model->get_rows_B1('cost_sheet');
+	$data['quotation_number'] = $max + 1;
 
 	$user_id = $this->session->userdata('userid');
 	$is_created = $this->site_model->savedata("cost_sheet", $data);
