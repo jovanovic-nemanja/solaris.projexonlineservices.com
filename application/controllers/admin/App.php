@@ -1712,6 +1712,48 @@ public function updateEndDate()
 	}
 }
 
+public function updateValidityDate()
+{
+	if($this->session->userdata('userid'))
+	{
+		$user_id = $this->session->userdata('userid');
+		$pdata = $this->input->post();
+		$this->load->helper('url');		
+	
+		$data['validity_date']  	=(isset($pdata['validity_date']) ? $pdata['validity_date'] : '');
+		$choose_Date = date("Y-m-d", strtotime($data['validity_date']));
+		$today = date('Y-m-d');
+		$ch = date_create($choose_Date);
+		$td = date_create($today);
+		$diff = date_diff($td, $ch);
+		if($diff->format("%R%a") < 0) {
+		    $responce['err'] = 202;
+			$responce['msg'] = "Validity Date should be greater than today!";
+			echo json_encode($responce); 
+		}else{
+		    $data['status']  				=1;
+    		$data['updated_at']				=date('Y-m-d H:i:s');
+    		$result=$this->site_model->update_row_c1("cost_sheet",'id',$pdata['CostSheetId'],$data);	
+    		if($result){
+    			$responce['err'] = 0;
+    			$responce['msg'] = "Success Validity Date";
+    			echo json_encode($responce); 
+    		}else{
+    			$error = $this->db->error();
+    			$responce['err'] = 2;
+    			$responce['msg'] = $error['message'];
+    			echo json_encode($responce); 
+    		}
+		}
+	}
+	else
+	{
+		$responce['err'] = 3;
+		$responce['msg'] = 'Session expired!';
+		echo json_encode($responce); 
+	}
+}
+
 public function updateTemplateName()
 {
 	if($this->session->userdata('userid'))

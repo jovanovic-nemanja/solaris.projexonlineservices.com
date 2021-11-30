@@ -292,7 +292,7 @@
 						  <div class="card-body">
 							   <div class="row" style="margin-bottom: 20px">
 								  
-								  <div class="col-md-3">
+								  <div class="col-md-4">
 									<form method="post" id="customerForm">
 										<label for="inputPassword4"  class="">Customer</label>
 										  <select class="form-control select2" disabled="" name="customer"  id="customer">
@@ -304,7 +304,7 @@
 										  </select>
 									</form>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<?php $getContactPerson = $this->site_model->get_rows_c1('contact_person','conatct_person',$costSheetData->customer); ?>
 										<form method="post" id="contact_person">
 												<label for="inputPassword4" class="">Contact person</label>
@@ -316,7 +316,7 @@
 												</select>
 										</form>
 									</div>
-									<div class="col-md-3">
+									<!-- <div class="col-md-3">
 										<?php 
 										if($costSheetData->customer)
 										{
@@ -334,8 +334,8 @@
 													  <?php } ?>                              
 												</select>
 										</form>
-									</div>
-									<div class="col-md-3">
+									</div> -->
+									<div class="col-md-4">
 										<form method="post" id="sales_person">
 												<label for="inputPassword4" class="">Sales Person</label>
 												<select class="form-control select2" name="salesPerson" disabled="" id="salesPerson">
@@ -453,7 +453,33 @@
                                         <input disabled readonly type='checkbox' class='copyright' id='copyright' onchange ="updateFormData('copyRight', 'copy_Right');" <?= ($costSheetData->copyright == 1) ? "checked" : ""; ?> />
                                     </div>
                                 </div>
-						   </div> 
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form method="post" id="validityDate">
+                                        <label for="exampleInputEmail1">Validity Date</label>
+                                        <input type="text" class="form-control" name="validity_date" value="<?= $costSheetData->validity_date; ?>" id="validity_date"  placeholder="" onchange ="updateFormData('validityDate','updateValidityDate');" readonly>
+                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                    </form>
+                                </div>
+                                <div class="col-md-8">
+                                    <form method="post" id="paymenttermsForm">
+                                        <label for="inputPassword4" class="">Payment terms</label>
+
+                                        <?php if ($costSheetData->payment_terms) {
+                                            $payment_terms = $costSheetData->payment_terms;
+                                        }else{
+                                            $payment_terms = "50% Advance on Confirmation of order. 50% After Project Completion.";
+                                        } ?>
+                                        
+                                        <textarea disabled readonly class="form-control" name="payment_terms" id="payment_terms"  rows="4" onchange ="updateData('paymenttermsForm','UpdatePaymentTerms');"><?= $payment_terms; ?></textarea>
+
+                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                    </form>
+                                </div>
+                            </div>
+
 						  </div>
 					    </div>
 					 </div>
@@ -610,10 +636,13 @@
                 								<div class="form-inline text-right mb-0">
                 								   <span class="form-control" placeholder="Discount percent" id="email" style="width:40%; padding: 0.875rem 1.375rem; display: inline-flex;"> Discount</span>
 
-                                                   <select class="form-control" id="discountBy" name="discountBy" style="width: 30%; display: inline-flex;">
+                                                   <span class="form-control" placeholder="Flat" id="flat" style="width:30%; padding: 0.875rem 1.375rem; display: inline-flex;"> Flat</span>
+                                                    <input type="hidden" name="discountBy" value="1" id="discountBy" />
+
+                                                   <!-- <select class="form-control" id="discountBy" name="discountBy" style="width: 30%; display: inline-flex;">
                                                         <option value="1" <?php if($costSheetData->discountBy==1){echo 'selected';} ?> >Flat</option>
                                                         <option value="2" <?php if($costSheetData->discountBy==2){echo 'selected';} ?> >Percent</option>
-                                                    </select>
+                                                    </select> -->
 
                 									<input type="text" readonly="readonly" class="form-control" value="<?php echo $costSheetData->discountPerent; ?>" placeholder="" id="discount" style="width:30%; display: inline-flex; text-align: right;" >
                 								</div>	
@@ -644,31 +673,34 @@
             				</div>
                        </div>
 			            <div id="outer">
+                            <div class="d-md-flex pt-4 pb-5">
+                                <div class="inner">
+                                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_Pdf">
+                                        <input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
+                                        <button class="btn msgBtn btn-primary" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary PDF</button>
+                                    </form>
+                                </div>
+                                  
+                                <div class="inner">
+                                        <a href="<?php echo base_url(); ?>index.php/admin/app/summery_details_Pdf/<?= $this->uri->segment(4); ?>" class="btn msgBtn btn-primary"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed PDF</a>
+                                </div>
+                                  
+                                <div class="inner">
+                                      
+                                    <form method="post" action="<?php echo base_url(); ?>admin/app/summery_subcat_excel">
+                                        <input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
+                                        <button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed Word</button>
+                                    </form>
+                                </div> 
+                                <div class="inner">
+                                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_excel">
+                                        <input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
+                                        <button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary Word</button>
+                                    </form>
+                                </div>
+                            </div>
                       
-					  <div class="inner">
-						<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_Pdf">
-							<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
-							<button class="btn msgBtn btn-primary" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary PDF</button>
-						</form>
-		              </div>
-					  
-		              <div class="inner">
-							<a href="<?php echo base_url(); ?>index.php/admin/app/summery_details_Pdf/<?= $this->uri->segment(4); ?>" class="btn msgBtn btn-primary"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed PDF</a>
-		              </div>
-		              
-		              <div class="inner">
-		                  
-						<form method="post" action="<?php echo base_url(); ?>admin/app/summery_subcat_excel">
-							<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
-							<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed Excel</button>
-						</form>
-		              </div> 
-		              <div class="inner">
-						<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_excel">
-							<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
-							<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary Excel</button>
-						</form>
-		              </div>
+        					  
                       <div class="row">	
 					     <div class="col-md-6 mt-4 pl-4 text-left">
                             <?php if($costSheetData->quotation_status == 'Accepted' ){

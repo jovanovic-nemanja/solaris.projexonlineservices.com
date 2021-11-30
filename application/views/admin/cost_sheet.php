@@ -305,7 +305,7 @@
 									<div id="collapse-16" class="collapse" role="tabpanel" aria-labelledby="heading-16" data-parent="#accordion-6" style="">
 			                            <div class="card-body">
 			                              	<div class="row">
-			                              	  	<div class="col-md-3">
+			                              	  	<div class="col-md-4">
 			                              	    	<form method="post" id="customerForm">
 														<label for="inputPassword4"  class="">Customer</label>
 													  	<select class="form-control select2" onchange="updateCustomerData('customerForm','UpdateCustomer');" name="customer"  id="customer">
@@ -317,7 +317,7 @@
 														<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 													</form>
 			                              	  	</div>
-			                              	  	<div class="col-md-3">
+			                              	  	<div class="col-md-4">
 													<?php $getContactPerson = $this->site_model->get_rows_c1('contact_person','conatct_person',$costSheetData->customer); ?>
 													<form method="post" id="contact_person">
 														<label for="inputPassword4" class="">Contact person</label>
@@ -330,7 +330,7 @@
 													 	<input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 													</form>
 												</div>
-												<div class="col-md-3">
+												<!-- <div class="col-md-3">
 													<?php 
 														if($costSheetData->customer) {
 															$payment_termss =$this->db->query("SELECT customer.*, (SELECT title FROM payment_terms WHERE id = customer.payment_terms) as pterms1, (SELECT title FROM payment_terms WHERE id = customer.payment_terms2) as pterms2, (SELECT title FROM payment_terms WHERE id = customer.payment_terms3) as pterms3 FROM `customer` WHERE id = ".$costSheetData->customer."")->row(); 
@@ -347,8 +347,8 @@
 															</select>
 															<input class="form-control select2" type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
 														</form>
-												</div>
-												<div class="col-md-3">
+												</div> -->
+												<div class="col-md-4">
 													<form method="post" id="sales_person">
 														<label for="inputPassword4" class="">Sales Person</label>
 														<select class="form-control select2" onchange="updateData('sales_person','UpdateSalesPerson');" name="salesPerson"  id="salesPerson">
@@ -464,7 +464,33 @@
                                                         </form>
                                                     </div>
                                                 </div>
-			                              	</div>
+			                              	</div><br>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <form method="post" id="validityDate">
+                                                        <label for="exampleInputEmail1">Validity Date</label>
+                                                        <input type="text" class="form-control" name="validity_date" value="<?= $costSheetData->validity_date; ?>" id="validity_date"  placeholder="" onchange ="updateFormData('validityDate','updateValidityDate');">
+                                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                                    </form>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <form method="post" id="paymenttermsForm">
+                                                        <label for="inputPassword4" class="">Payment terms</label>
+
+                                                        <?php if ($costSheetData->payment_terms) {
+                                                            $payment_terms = $costSheetData->payment_terms;
+                                                        }else{
+                                                            $payment_terms = "50% Advance on Confirmation of order. 50% After Project Completion.";
+                                                        } ?>
+                                                        
+                                                        <textarea class="form-control" name="payment_terms" id="payment_terms"  rows="4" onchange ="updateData('paymenttermsForm','UpdatePaymentTerms');"><?= $payment_terms; ?></textarea>
+
+                                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                                    </form>
+                                                </div>
+
+                                            </div>
 			                            </div>
 		                          	</div>
 							 	</div>
@@ -720,10 +746,14 @@
                     							<td style="width:50%;">
                     								<div class="form-inline text-right mb-0">
                 								        <span class="form-control" placeholder="Discount percent" id="email" style="width:40%; padding: 0.875rem 1.375rem; display: inline-flex;"> Discount</span>
-                                                        <select class="form-control" id="discountBy" name="discountBy" style="width: 30%; display: inline-flex;">
+
+                                                        <span class="form-control" placeholder="Flat" id="flat" style="width:30%; padding: 0.875rem 1.375rem; display: inline-flex;"> Flat</span>
+                                                        <input type="hidden" name="discountBy" value="1" id="discountBy" />
+
+                                                        <!-- <select class="form-control" id="discountBy" name="discountBy" style="width: 30%; display: inline-flex;">
                                                             <option value="1" <?php if($costSheetData->discountBy==1){echo 'selected';} ?> >Flat</option>
                                                             <option value="2" <?php if($costSheetData->discountBy==2){echo 'selected';} ?> >Percent</option>
-                                                        </select>
+                                                        </select> -->
                     									<input type="text" class="form-control" value="<?php echo $costSheetData->discountPerent;  ?>" placeholder="" id="discount" style="width:30%; display: inline-flex; text-align: right;" >
                     								 </div>	
                     							</td>
@@ -1045,8 +1075,8 @@
                 if(obj.err==0)
                 {
                     sellingPrice = obj.data.sellingPriceSum;
-                    $('.sellingPriceSum, .totalsellingPrice').html(formatNumber(parseFloat(obj.data.sellingPriceSum).toFixed(2)));
-                    $('.totalcostsum').html(formatNumber(parseFloat(obj.data.totalcostsum).toFixed(2)));
+                    $('.sellingPriceSum, .totalsellingPrice').html(formatNumber(parseInt(obj.data.sellingPriceSum).toFixed(2)));
+                    $('.totalcostsum').html(formatNumber(parseInt(obj.data.totalcostsum).toFixed(2)));
                     var TotalAvg = (obj.data.totalcostsum)/(obj.data.sellingPriceSum);
                     $('.mainavg').html(formatNumber(TotalAvg.toFixed(2)));
                     var Total = obj.data.sellingPriceSum;
@@ -1061,9 +1091,9 @@
                     	    catAvg = (obj.categoryData[i].sumTotalCost)/(obj.categoryData[i].sumSellingCost);
                     	}
                     	
-        				$('.totalcostsum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseFloat(obj.categoryData[i].sumTotalCost).toFixed(2)));
+        				$('.totalcostsum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseInt(obj.categoryData[i].sumTotalCost).toFixed(2)));
         				$('.totavg-'+obj.categoryData[i].cat_id+'').html(formatNumber(catAvg.toFixed(2)));
-        				$('.sellingPriceSum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseFloat(obj.categoryData[i].sumSellingCost).toFixed(2)));
+        				$('.sellingPriceSum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseInt(obj.categoryData[i].sumSellingCost).toFixed(2)));
    					 
 					});
 					$.each(obj.subCategoryData, function (i) {
@@ -1078,8 +1108,8 @@
                     	}
                     	
         				$('.avgoh-'+obj.subCategoryData[i].id+'').html(formatNumber(avg.toFixed(2)) + " | ");
-        				$('.subtotalcostsum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseFloat(obj.subCategoryData[i].sumTotalCost).toFixed(2)) + " | ");
-        				$('.subsellingPriceSum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseFloat(obj.subCategoryData[i].sumSellingCost).toFixed(2)));
+        				$('.subtotalcostsum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseInt(obj.subCategoryData[i].sumTotalCost).toFixed(2)) + " | ");
+        				$('.subsellingPriceSum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseInt(obj.subCategoryData[i].sumSellingCost).toFixed(2)));
    					 
 					});
 
@@ -1087,10 +1117,10 @@
 					var totalDiscount = percent;
       				var discountedprice = (Total)-totalDiscount;
       				var vatTotal = (5/100)*(discountedprice)
-      				$('.discountPrice').html('AED '+formatNumber(parseFloat(totalDiscount).toFixed(2)));
-      				$('.discountTotal, .totalarterDis').html('AED '+ formatNumber(parseFloat(discountedprice).toFixed(2)));
-      				$('.vatPrice').html('AED '+formatNumber(parseFloat(vatTotal).toFixed(2)));
-      				$('.total, .esttotal').html('AED '+formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
+      				$('.discountPrice').html('AED '+formatNumber(parseInt(totalDiscount).toFixed(2)));
+      				$('.discountTotal, .totalarterDis').html('AED '+ formatNumber(parseInt(discountedprice).toFixed(2)));
+      				$('.vatPrice').html('AED '+formatNumber(parseInt(vatTotal).toFixed(2)));
+      				$('.total, .esttotal').html('AED '+formatNumber(parseInt(discountedprice+vatTotal).toFixed(2)));
 
                 }        
              }
@@ -1313,8 +1343,8 @@ function calculateGrandTotal(){
 
                     // alertify.success("Success");
                     sellingPrice = obj.data.sellingPriceSum;
-                    $('.sellingPriceSum, .totalsellingPrice').html(formatNumber(parseFloat(obj.data.sellingPriceSum).toFixed(2)));
-                    $('.totalcostsum').html(formatNumber(parseFloat(obj.data.totalcostsum).toFixed(2)));
+                    $('.sellingPriceSum, .totalsellingPrice').html(formatNumber(parseInt(obj.data.sellingPriceSum).toFixed(2)));
+                    $('.totalcostsum').html(formatNumber(parseInt(obj.data.totalcostsum).toFixed(2)));
                     var TotalAvg = (obj.data.totalcostsum)/(obj.data.sellingPriceSum);
                     $('.mainavg').html(formatNumber(TotalAvg.toFixed(2)));
                     var Total = obj.data.sellingPriceSum;
@@ -1329,9 +1359,9 @@ function calculateGrandTotal(){
                     	    catAvg = (obj.categoryData[i].sumTotalCost)/(obj.categoryData[i].sumSellingCost);
                     	}
                     	
-        				$('.totalcostsum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseFloat(obj.categoryData[i].sumTotalCost).toFixed(2)));
+        				$('.totalcostsum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseInt(obj.categoryData[i].sumTotalCost).toFixed(2)));
         				$('.totavg-'+obj.categoryData[i].cat_id+'').html(formatNumber(catAvg.toFixed(2)));
-        				$('.sellingPriceSum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseFloat(obj.categoryData[i].sumSellingCost).toFixed(2)));
+        				$('.sellingPriceSum-'+obj.categoryData[i].cat_id+'').html(formatNumber(parseInt(obj.categoryData[i].sumSellingCost).toFixed(2)));
    					 
 					});
 					$.each(obj.subCategoryData, function (i) {
@@ -1346,8 +1376,8 @@ function calculateGrandTotal(){
                     	}
                     	
         				$('.avgoh-'+obj.subCategoryData[i].id+'').html(formatNumber(avg.toFixed(2)) + "  |  ");
-        				$('.subtotalcostsum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseFloat(obj.subCategoryData[i].sumTotalCost).toFixed(2)) + "  |  ");
-        				$('.subsellingPriceSum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseFloat(obj.subCategoryData[i].sumSellingCost).toFixed(2)));
+        				$('.subtotalcostsum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseInt(obj.subCategoryData[i].sumTotalCost).toFixed(2)) + "  |  ");
+        				$('.subsellingPriceSum-'+obj.subCategoryData[i].id+'').html(formatNumber(parseInt(obj.subCategoryData[i].sumSellingCost).toFixed(2)));
    					 
 					});
 
@@ -1355,10 +1385,10 @@ function calculateGrandTotal(){
 					var totalDiscount = percent;
       				var discountedprice = (Total)-totalDiscount;
       				var vatTotal = (5/100)*(discountedprice)
-      				$('.discountPrice').html('AED '+formatNumber(parseFloat(totalDiscount).toFixed(2)));
-      				$('.discountTotal, .totalarterDis').html('AED '+formatNumber(parseFloat(discountedprice).toFixed(2)));
+      				$('.discountPrice').html('AED '+formatNumber(parseInt(totalDiscount).toFixed(2)));
+      				$('.discountTotal, .totalarterDis').html('AED '+formatNumber(parseInt(discountedprice).toFixed(2)));
       				$('.vatPrice').html('AED '+formatNumber((vatTotal).toFixed(2)));
-      				$('.total, .esttotal').html('AED '+formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
+      				$('.total, .esttotal').html('AED '+formatNumber(parseInt(discountedprice+vatTotal).toFixed(2)));
 
                 }        
               },
@@ -1408,10 +1438,10 @@ function calculateGrandTotal(){
                         }
           				var discountedprice = subtotal-totalDiscount;
           				var vatTotal = (5/100)*(discountedprice);
-          				$('.discountPrice').html(formatNumber(parseFloat(percent).toFixed(2)));
-          				$('.discountTotal, .totalarterDis').html(formatNumber(parseFloat(discountedprice).toFixed(2)));
-          				$('.vatPrice').html(formatNumber(parseFloat(vatTotal).toFixed(2)));
-          				$('.total, .esttotal').html(formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
+          				$('.discountPrice').html(formatNumber(parseInt(percent).toFixed(2)));
+          				$('.discountTotal, .totalarterDis').html(formatNumber(parseInt(discountedprice).toFixed(2)));
+          				$('.vatPrice').html(formatNumber(parseInt(vatTotal).toFixed(2)));
+          				$('.total, .esttotal').html(formatNumber(parseInt(discountedprice+vatTotal).toFixed(2)));
 
                     }        
                   },
@@ -1700,10 +1730,10 @@ function calculateGrandTotal(){
                             }
                             var discountedprice = subtotal-totalDiscount;
                             var vatTotal = (5/100)*(discountedprice);
-                            $('.discountPrice').html(formatNumber(parseFloat(percent).toFixed(2)));
-                            $('.discountTotal, .totalarterDis').html(formatNumber(parseFloat(discountedprice).toFixed(2)));
-                            $('.vatPrice').html(formatNumber(parseFloat(vatTotal).toFixed(2)));
-                            $('.total, .esttotal').html(formatNumber(parseFloat(discountedprice+vatTotal).toFixed(2)));
+                            $('.discountPrice').html(formatNumber(parseInt(percent).toFixed(2)));
+                            $('.discountTotal, .totalarterDis').html(formatNumber(parseInt(discountedprice).toFixed(2)));
+                            $('.vatPrice').html(formatNumber(parseInt(vatTotal).toFixed(2)));
+                            $('.total, .esttotal').html(formatNumber(parseInt(discountedprice+vatTotal).toFixed(2)));
 
                         }        
                       },
@@ -1711,7 +1741,7 @@ function calculateGrandTotal(){
                 });
             });
 
-		    $("#project_start_date, #project_end_date").datepicker();
+		    $("#project_start_date, #project_end_date, #validity_date").datepicker();
 
 		    $("#project_end_date").change(function () {
     		    var startDate = document.getElementById("project_start_date").value;
