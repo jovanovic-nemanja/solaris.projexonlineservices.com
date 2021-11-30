@@ -41,7 +41,7 @@
                     </div>
                   </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                       <label class="col-sm-3 col-form-label" for="inputPassword4">Payment terms 1</label>
                       <div class="col-sm-5">
                         <select class="js-example-basic-single" style="width:100%" name="payment_terms" id="payment_terms">
@@ -75,7 +75,7 @@
                           <?php } ?>  
                         </select>
                       </div>
-                    </div>
+                    </div> -->
                     <button type="button" class="btn btn-success" onclick="saveProfile('addCustomer','addCustomer')">Submit</button>
                 </form>
               </div>

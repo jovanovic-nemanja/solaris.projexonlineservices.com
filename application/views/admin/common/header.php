@@ -213,7 +213,7 @@
                       <div class="submenu">
                         <ul class="submenu-item">
                           <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/app/add_customers'); ?>">Add New Customer</a></li>
-                          <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/app/payment_terms'); ?>">Payment Terms</a></li>
+                          <!-- <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/app/payment_terms'); ?>">Payment Terms</a></li> -->
                           <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/app/customers'); ?>">Manage Customers</a></li>
                           <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/app/contact_person'); ?>">Manage Contact Person</a></li>
                         </ul>
