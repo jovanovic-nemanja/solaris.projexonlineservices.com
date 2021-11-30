@@ -22,7 +22,7 @@
         					<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
     					            <div class="row" style="margin-bottom: 20px">
-        							    <div class="col-3">
+        							    <div class="col-4">
             								<form method="post" id="customerForm">
             									<label for="inputPassword4"  class="">Customer</label>
     									        <select class="form-control select2" disabled="" name="customer"  id="customer">
@@ -34,7 +34,7 @@
             								</form>
         								</div>
 
-        								<div class="col-3">
+        								<div class="col-4">
         									<?php $getContactPerson = $this->site_model->get_rows_c1('contact_person','conatct_person',$costSheetData->customer); ?>
         									<form method="post" id="contact_person">
     											<label for="inputPassword4" class="">Contact person</label>
@@ -46,7 +46,7 @@
         									</form>
         								</div>
 
-        								<div class="col-3">
+        								<!-- <div class="col-3">
         									<?php 
             									if($costSheetData->customer) {
             									   $payment_termss =$this->db->query("SELECT customer.*, (SELECT title FROM payment_terms WHERE id = customer.payment_terms) as pterms1, (SELECT title FROM payment_terms WHERE id = customer.payment_terms2) as pterms2, (SELECT title FROM payment_terms WHERE id = customer.payment_terms3) as pterms3 FROM `customer` WHERE id = ".$costSheetData->customer."")->row(); 
@@ -63,9 +63,9 @@
     							                    <?php } ?>                              
     											</select>
         									</form>
-        								</div>
+        								</div> -->
 
-        								<div class="col-3">
+        								<div class="col-4">
         									<form method="post" id="sales_person">
     											<label for="inputPassword4" class="">Sales Person</label>
     											<select class="form-control select2" name="salesPerson" disabled="" id="salesPerson">
@@ -223,7 +223,32 @@
 
     							</div>
 
-    					   </div> 
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form method="post" id="validityDate">
+                                        <label for="exampleInputEmail1">Validity Date</label>
+                                        <input type="text" class="form-control" name="validity_date" value="<?= $costSheetData->validity_date; ?>" id="validity_date"  placeholder="" onchange ="updateFormData('validityDate','updateValidityDate');" readonly>
+                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                    </form>
+                                </div>
+                                <div class="col-md-8">
+                                    <form method="post" id="paymenttermsForm">
+                                        <label for="inputPassword4" class="">Payment terms</label>
+
+                                        <?php if ($costSheetData->payment_terms) {
+                                            $payment_terms = $costSheetData->payment_terms;
+                                        }else{
+                                            $payment_terms = "50% Advance on Confirmation of order. 50% After Project Completion.";
+                                        } ?>
+                                        
+                                        <textarea disabled readonly class="form-control" name="payment_terms" id="payment_terms"  rows="4" onchange ="updateData('paymenttermsForm','UpdatePaymentTerms');"><?= $payment_terms; ?></textarea>
+
+                                        <input type="hidden" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                    </form>
+                                </div>
+                            </div>
 
     					  </div>
 
