@@ -18,7 +18,7 @@
                       <th>Company Name</th>
                       <th>Email address</th>
                       <th>VAT number</th>
-                      <th>Payment terms</th>
+                      <!-- <th>Payment terms</th> -->
                       <th>Telephone number</th>
                       <!--<th>Created date</th>-->
                       <th>Actions</th>
@@ -31,7 +31,7 @@
                         <td><?php echo $value['company_name']; ?></td>
                         <td><?php echo $value['email']; ?></td>
                         <td><?php echo $value['vat_number']; ?></td>
-                        <td><?php echo get_single_col_value('payment_terms','id',$value['payment_terms'],'title'); ?></td>
+                        <!-- <td><?php echo get_single_col_value('payment_terms','id',$value['payment_terms'],'title'); ?></td> -->
                         <td><?php echo $value['tel_number']; ?></td>
                         <!--<td><?php echo dateConvert($value['created_at'],'d-M-Y'); ?></td>-->
                        

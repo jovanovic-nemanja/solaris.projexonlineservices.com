@@ -41,7 +41,9 @@
                     </div>
                   </div>
 
-                  <div class="form-group row">
+                  <input type="hidden" name="id" value="<?php echo $this->uri->segment(4); ?>">
+
+                  <!-- <div class="form-group row">
                     <label class="col-sm-3 col-form-label" for="inputPassword4">Payment terms 1</label>
                     <div class="col-sm-5">
                       <select class="js-example-basic-single" style="width:100%" name="payment_terms" id="payment_terms">
@@ -74,9 +76,9 @@
                           <option value="<?php  echo $value['id']; ?>" <?php if($customers->payment_terms3==$value['id']){ echo 'selected'; } ?>><?php  echo $value['title']; ?></option>
                         <?php } ?>  
                       </select>
-                      <input type="hidden" name="id" value="<?php echo $this->uri->segment(4); ?>">
+                      
                     </div>
-                  </div>
+                  </div> -->
                   <button type="button" class="btn btn-success" onclick="saveProfile('addCustomer','editCustomer')">Submit</button>
                 </form>
               </div>

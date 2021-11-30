@@ -1958,7 +1958,7 @@ public function customers()
 	{
 		$data['categories']	= $this->site_model->get_rows('categories');
 		$data['units']	= $this->site_model->get_rows('units');
-		$data['payment_terms']	= $this->site_model->get_rows('payment_terms');
+		// $data['payment_terms']	= $this->site_model->get_rows('payment_terms');
 		$data['customer']	= $this->site_model->get_rows('customer');
 		$this->load->view('admin/common/header');
 		$this->load->view('admin/common/sidebar');
@@ -2357,7 +2357,7 @@ public function add_customers()
 		$data['conatctPerson']	= $this->site_model->get_rows('contact_person');
 		$data['categories']	= $this->site_model->get_rows('categories');
 		$data['units']	= $this->site_model->get_rows('units');
-		$data['payment_terms']	= $this->site_model->get_rows('payment_terms');
+		// $data['payment_terms']	= $this->site_model->get_rows('payment_terms');
 		$data['customer']	= $this->site_model->get_rows('customer');
 		$this->load->view('admin/common/header');
 		$this->load->view('admin/common/sidebar');
@@ -2379,7 +2379,7 @@ public function edit_customers()
 		$data['conatctPerson']	= $this->site_model->get_rows('contact_person');
 		$data['categories']	= $this->site_model->get_rows('categories');
 		$data['units']	= $this->site_model->get_rows('units');
-		$data['payment_terms']	= $this->site_model->get_rows('payment_terms');
+		// $data['payment_terms']	= $this->site_model->get_rows('payment_terms');
 		$data['customer']	= $this->site_model->get_rows('customer');
 		$data['customers']	= $this->site_model->get_row_c1('customer','id',$id);
 		$this->load->view('admin/common/header');
@@ -4242,9 +4242,9 @@ public function addCustomer()
 		$data['company_name']  					=(isset($pdata['company_name']) ? $pdata['company_name'] : '');
 		$data['email']  						=(isset($pdata['email']) ? $pdata['email'] : '');
 		$data['vat_number']  					=(isset($pdata['vat_number']) ? $pdata['vat_number'] : '');
-		$data['payment_terms']  				=(isset($pdata['payment_terms']) ? $pdata['payment_terms'] : '');
-		$data['payment_terms2']  				=(isset($pdata['payment_terms2']) ? $pdata['payment_terms2'] : '');
-		$data['payment_terms3']  				=(isset($pdata['payment_terms3']) ? $pdata['payment_terms3'] : '');
+		// $data['payment_terms']  				=(isset($pdata['payment_terms']) ? $pdata['payment_terms'] : '');
+		// $data['payment_terms2']  				=(isset($pdata['payment_terms2']) ? $pdata['payment_terms2'] : '');
+		// $data['payment_terms3']  				=(isset($pdata['payment_terms3']) ? $pdata['payment_terms3'] : '');
 		$data['tel_number']  					=(isset($pdata['tel_number']) ? $pdata['tel_number'] : '');
 		$data['address']  						=(isset($pdata['address']) ? $pdata['address'] : '');
 		$data['mobile']  						=(isset($pdata['mobile']) ? $pdata['mobile'] : '');
@@ -4302,9 +4302,9 @@ public function editCustomer()
 		$data['company_name']  					=(isset($pdata['company_name']) ? $pdata['company_name'] : '');
 		$data['email']  						=(isset($pdata['email']) ? $pdata['email'] : '');
 		$data['vat_number']  					=(isset($pdata['vat_number']) ? $pdata['vat_number'] : '');
-		$data['payment_terms']  				=(isset($pdata['payment_terms']) ? $pdata['payment_terms'] : '');
-		$data['payment_terms2']  				=(isset($pdata['payment_terms2']) ? $pdata['payment_terms2'] : '');
-		$data['payment_terms3']  				=(isset($pdata['payment_terms3']) ? $pdata['payment_terms3'] : '');
+		// $data['payment_terms']  				=(isset($pdata['payment_terms']) ? $pdata['payment_terms'] : '');
+		// $data['payment_terms2']  				=(isset($pdata['payment_terms2']) ? $pdata['payment_terms2'] : '');
+		// $data['payment_terms3']  				=(isset($pdata['payment_terms3']) ? $pdata['payment_terms3'] : '');
 		$data['tel_number']  					=(isset($pdata['tel_number']) ? $pdata['tel_number'] : '');
 		$data['address']  						=(isset($pdata['address']) ? $pdata['address'] : '');
 		$data['mobile']  						=(isset($pdata['mobile']) ? $pdata['mobile'] : '');
