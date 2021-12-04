@@ -90,7 +90,10 @@ class App extends CI_Controller {
 			$filename=time().uniqid().$_FILES['uploadExcel']['name'];
 			$url1 = "uploads/quotationpdf/".$filename;
             move_uploaded_file($_FILES['uploadExcel']['tmp_name'], $url1);
-	        /////////////////////////////////////////////////
+	        //////////////////////////////////////////////////////////
+
+	        $refer_data['refer_csv'] = $url1;
+			$refer_result = $this->site_model->update_row_c1("cost_sheet", 'id', $pdata['CostSheetId'], $refer_data);	
 	    	
 	    	$costsheet_id = (isset($pdata['CostSheetId']) ? $pdata['CostSheetId'] : '');
 	    	$cate_id = '';
@@ -5978,6 +5981,140 @@ public function summery_Pdf()
     }
 
     $mpdf->Output('QT-S-' . $quotation_number .'.pdf','D');
+}
+
+public function summery_word()
+{
+	$pdata = $this->input->post();
+	$user_id = $this->session->userdata('userid');
+	$cost_sheet_id = ($this->input->post('costsheet_id') ? $this->input->post('costsheet_id') : $this->uri->segment(4));
+	
+	$sql="SELECT *, cost_sheet_category.id as cat_ids, (SELECT SUM(total_cost) FROM cost_sheet_line_item WHERE cat_id = cost_sheet_category.cat_id AND cost_sheet_line_item.cost_sheet_id = ".$cost_sheet_id.") as sumTotalCost, (SELECT SUM(selling_price) FROM cost_sheet_line_item WHERE cat_id = cost_sheet_category.cat_id AND cost_sheet_line_item.cost_sheet_id = ".$cost_sheet_id.") as sumSellingCost FROM cost_sheet_category INNER JOIN categories ON cost_sheet_category.cat_id = categories.id WHERE cost_sheet_category.cost_sheet_id = '".$cost_sheet_id."' AND cost_sheet_category.sub_cat_id IS NULL";
+		$query = "SELECT Sum(total_cost) as totalCostSum, SUM(selling_price) as sellingPriceSum from cost_sheet_line_item where cost_sheet_id='".$cost_sheet_id."'";
+
+	$data['costSheetTotal'] = $this->db->query($query)->result();
+	$costSheetData = $data['costSheetData']  = $this->site_model->get_row_c1('cost_sheet','id',$cost_sheet_id);
+    $data['cost_sheet_cat'] = $this->db->query($sql)->result_array();
+	$data['categories']		= $this->site_model->get_rows_c1('categories','parent_id',0);
+	$data['product']		= $this->site_model->get_rows('products');
+	$data['customers']		= $this->site_model->get_rows('customer');
+	
+	$data['copyrights']		= $this->site_model->get_rows('copyright');
+	$data['terms']		= $this->site_model->get_rows('terms_conditions');
+	$data['validity']		= $this->site_model->get_rows('validity');
+	$data['coverletter']		= $this->site_model->get_rows('coverletter');
+	if(@$data['coverletter'][0]) {
+	    $cover = $data['coverletter'][0]['description'];
+        $data['pdf_name'] = get_single_col_value('salesperson','id',$costSheetData->sales_person,'name');
+	    $data['pdf_email'] = get_single_col_value('salesperson','id',$costSheetData->sales_person,'email');
+	    $_str = str_replace('$salespersonName', $data['pdf_name'], $cover);
+	    $data['cover'] = str_replace('$salespersonEmail', $data['pdf_email'], $_str);
+	}else{
+	    $data['cover'] = '';
+	}
+	
+	$data['salesperson']	= $this->site_model->get_rows('salesperson');
+	$data['venue']			= $this->site_model->get_rows('venue');
+	$data['cost_type']		= $this->site_model->get_rows('cost_type');
+	$data['units']			= $this->site_model->get_rows('units');
+	$data['convertCost']	= $this->site_model->get_row_c1('convert_usd_to_aed','id',1);
+
+	$dt = $data['costSheetData'];
+	$exclusions = $dt->exclusions;
+
+	if (@$exclusions) {
+		$diff_data = explode(",", $exclusions);
+		$arr = [];
+
+		if (@$diff_data) {
+			foreach ($diff_data as $key => $value) {
+				$d = $this->site_model->get_row_c1('exclusions', 'id', $value);
+				$arr[] = array(
+					'id' => $d->id,
+					'title' => $d->title,
+					'description' => $d->description
+				);
+			}
+		}
+	}
+
+	$data['exclusions'] = $arr;
+
+	$this->load->view('admin/summary_word', $data);
+
+	header("Content-Type: application/vnd.ms-word");
+	header("Expires: 0");
+	header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+	header("Content-disposition: attachment; filename=\"Summary Word.doc\"");
+
+	
+}
+
+public function summery_detail_word()
+{
+	$pdata = $this->input->post();
+	$user_id = $this->session->userdata('userid');
+	$cost_sheet_id = ($this->input->post('costsheet_id') ? $this->input->post('costsheet_id') : $this->uri->segment(4));
+	$sql="SELECT *, cost_sheet_category.id as cat_ids, (SELECT SUM(total_cost) FROM cost_sheet_line_item WHERE cat_id = cost_sheet_category.cat_id AND cost_sheet_line_item.cost_sheet_id = ".$cost_sheet_id.") as sumTotalCost, (SELECT SUM(selling_price) FROM cost_sheet_line_item WHERE cat_id = cost_sheet_category.cat_id AND cost_sheet_line_item.cost_sheet_id = ".$cost_sheet_id.") as sumSellingCost FROM cost_sheet_category INNER JOIN categories ON cost_sheet_category.cat_id = categories.id WHERE cost_sheet_category.cost_sheet_id = '".$cost_sheet_id."' AND cost_sheet_category.sub_cat_id IS NULL";
+	$query = "SELECT Sum(total_cost) as totalCostSum, SUM(selling_price) as sellingPriceSum from cost_sheet_line_item where cost_sheet_id='".$cost_sheet_id."'";
+
+	$data['costSheetTotal'] = $this->db->query($query)->result();
+	$costSheetData = $data['costSheetData']  = $this->site_model->get_row_c1('cost_sheet','id',$cost_sheet_id);
+    $data['cost_sheet_cat'] = $this->db->query($sql)->result_array();
+	$data['categories']		= $this->site_model->get_rows_c1('categories','parent_id',0);
+	$data['product']		= $this->site_model->get_rows('products');
+	$data['customers']		= $this->site_model->get_rows('customer');
+	$data['salesperson']	= $this->site_model->get_rows('salesperson');
+	$data['venue']			= $this->site_model->get_rows('venue');
+	$data['cost_type']		= $this->site_model->get_rows('cost_type');
+	$data['units']			= $this->site_model->get_rows('units');
+	$data['convertCost']	= $this->site_model->get_row_c1('convert_usd_to_aed','id',1);
+
+    $data['copyrights']		= $this->site_model->get_rows('copyright');
+	$data['terms']		= $this->site_model->get_rows('terms_conditions');
+	$data['validity']		= $this->site_model->get_rows('validity');
+	$data['coverletter']		= $this->site_model->get_rows('coverletter');
+    
+    if(@$data['coverletter'][0]) {
+	    $cover = $data['coverletter'][0]['description'];
+        $data['pdf_name'] = get_single_col_value('salesperson','id',$costSheetData->sales_person,'name');
+	    $data['pdf_email'] = get_single_col_value('salesperson','id',$costSheetData->sales_person,'email');
+	    
+	    $_str = str_replace('$salespersonName', $data['pdf_name'], $cover);
+	    $data['cover'] = str_replace('$salespersonEmail', $data['pdf_email'], $_str);
+	}else{
+	    $data['cover'] = '';
+	}
+	
+	$dt = $data['costSheetData'];
+	$exclusions = $dt->exclusions;
+
+	if (@$exclusions) {
+		$diff_data = explode(",", $exclusions);
+		$arr = [];
+
+		if (@$diff_data) {
+			foreach ($diff_data as $key => $value) {
+				$d = $this->site_model->get_row_c1('exclusions', 'id', $value);
+				$arr[] = array(
+					'id' => $d->id,
+					'title' => $d->title,
+					'description' => $d->description
+				);
+			}
+		}
+	}
+
+	$data['exclusions'] = $arr;
+
+	$this->load->view('admin/summary_detail_word', $data);
+
+	header("Content-Type: application/vnd.ms-word");
+	header("Expires: 0");
+	header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+	header("Content-disposition: attachment; filename=\"Summary Detail Word.doc\"");
+
+	
 }
 
 public function job_summery_Pdf()

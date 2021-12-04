@@ -33,6 +33,12 @@
         <link rel="shortcut icon" href="<?= base_url('demo_admin_assets'); ?>/images/favicon.png" />
     <!-css: end--->
     <script src="<?= base_url(); ?>/assets/front/js/jquery-1.11.2.min.js"></script>
+
+    <style type="text/css">
+      .content-wrapper {
+        min-height: calc(100vh - 144px);
+      }
+    </style>
 </head>
 <body>
     <div class="container-scroller">

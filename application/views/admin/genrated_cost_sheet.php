@@ -266,6 +266,10 @@
             <h3 class="page-title">
               Quotation (<?= $this->uri->segment(4); ?>)
             </h3>
+
+            <?php if ($costSheetData->refer_csv) { ?>
+                <a href="<?= base_url() . $costSheetData->refer_csv; ?>" class="btn btn-success " target="_blank">Download CSV</a>
+            <?php } ?>
           </div>
           
     	  <div class="row">
@@ -651,28 +655,31 @@
     			</div>
            </div>
 			    <div id="outer">
-				    <div class="inner">
-    					<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_Pdf">
-    						<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
-    						<button class="btn msgBtn btn-primary" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary PDF</button>
-    					</form>
-	                </div>
-                    <div class="inner">
-					    <a href="<?php echo base_url(); ?>index.php/admin/app/summery_details_Pdf/<?= $this->uri->segment(4); ?>" class="btn msgBtn btn-primary"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed PDF</a>
-	                </div>
-	                <div class="inner">
-	                    
-    					<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_subcat_excel">
-    						<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
-    						<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed Word</button>
-    					</form>
-	                </div> 
-	                <div class="inner">
-    					<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_excel">
-    						<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
-    						<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary Word</button>
-    					</form>
-	                </div>
+                    <div class="d-md-flex pt-4 pb-5">
+    				    <div class="inner">
+        					<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_Pdf">
+        						<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
+        						<button class="btn msgBtn btn-primary" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary PDF</button>
+        					</form>
+    	                </div>
+                        <div class="inner">
+    					    <a href="<?php echo base_url(); ?>index.php/admin/app/summery_details_Pdf/<?= $this->uri->segment(4); ?>" class="btn msgBtn btn-primary"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed PDF</a>
+    	                </div>
+    	                <div class="inner">
+    	                    
+        					<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_detail_word">
+        						<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
+        						<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed Word</button>
+        					</form>
+    	                </div> 
+    	                <div class="inner">
+        					<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_word">
+        						<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
+        						<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary Word</button>
+        					</form>
+    	                </div>
+                    </div>
+
                       <div class="row">	
     				     <div class="col-md-6 mt-4 pl-4 text-left">
                         <?php if($costSheetData->quotation_status == 'Accepted' ){

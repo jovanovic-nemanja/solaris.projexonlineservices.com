@@ -638,13 +638,13 @@
 		              
 		              <div class="inner">
 		              	
-						<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_subcat_excel">
+						<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_detail_word">
 							<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
 							<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Detailed Word</button>
 						</form>
 		              </div> 
 		              <div class="inner">
-						<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_excel">
+						<form method="post" action="<?php echo base_url(); ?>index.php/admin/app/summery_word">
 							<input type="hidden" name="costsheet_id" value="<?= $this->uri->segment(4); ?>">
 							<button class="btn msgBtn btn-success" name="export" type="submit"><i class="fa fa-file-text-o" aria-hidden="true"></i>Download Summary Word</button>
 						</form>

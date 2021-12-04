@@ -31,6 +31,12 @@
     <!-css: end--->
     <script src="<?= base_url(); ?>/assets/front/js/jquery-1.11.2.min.js"></script>
     <script src="<?= base_url(); ?>/assets/front/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+      .content-wrapper {
+        min-height: calc(100vh - 144px);
+      }
+    </style>
 </head>
 <body>
     <div class="container-scroller">
