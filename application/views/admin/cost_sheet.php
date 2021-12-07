@@ -451,9 +451,18 @@
                                                         }else{
                                                             $color = "#fff";
                                                         }
+
+                                                        if(@$costSheetData->terms_condition) {
+                                                            $color_terms_condition = "black";
+                                                        }else{
+                                                            $color_terms_condition = "#fff";
+                                                        }
                                                     ?>
-                                                    <a class="btn btn-default" data-toggle="modal" data-target="#add-exclusion" style='padding-top: 35px; color: <?= $color; ?>'><i class="fa fa-plus" aria-hidden="true"></i> Project Exclusion</a>
-                                                    <div style='padding-top: 35px;'>
+                                                    <a class="btn btn-default" data-toggle="modal" data-target="#add-exclusion" style='padding: 5px; color: <?= $color; ?>'><i class="fa fa-plus" aria-hidden="true"></i> Project Exclusion</a>
+
+                                                    <a class="btn btn-default" data-toggle="modal" data-target="#add-terms_condition" style='padding: 5px; color: <?= $color_terms_condition; ?>'><i class="fa fa-plus" aria-hidden="true"></i> Terms & Condition</a>
+
+                                                    <div style='padding: 5px;'>
                                                         <form method="post" id="copyRight">
                                                             <label class='' for='inputPassword4'>Copyright 
                                                                 
@@ -843,7 +852,7 @@
             <form method="post" id="projectExclusion">
                 <div class="modal-body">
                     <input type="hidden" class="CostSheetId" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
-                    <input type="hidden" class="exclus" name="exclus" value="">
+                    <input type="hidden" class="exclus" name="exclus" value="<?= $costSheetData->exclusions; ?>">
                     <input type="hidden" class="exclusions_data" value="<?= $costSheetData->exclusions; ?>">
                     <?php 
                         if(@$exclusions) {
@@ -863,21 +872,83 @@
     </div>
 </div>
 
+<div class="modal fade" id="add-terms_condition" tabindex="-1" role="dialog" aria-labelledby="add-terms_condition" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="padding: 20px;">
+            <h5 class="" id="exampleModalLabel" styly="color: black!important;">Terms & Conditions</h5>
+            <form method="post" id="TermsCondition">
+                <div class="modal-body">
+                    <input type="hidden" class="CostSheetId" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                    <input type="hidden" class="termsConditions" name="terms_conditions" value="<?= $costSheetData->terms_condition; ?>">
+                    <input type="hidden" class="terms_conditions_data" value="<?= $costSheetData->terms_condition; ?>">
+                    <?php 
+                        if(@$terms_conditions) {
+                            foreach($terms_conditions as $keyterms_conditions => $term_value) { ?>
+                                <div class='row'>
+                                    <input type='checkbox' class='terms_condition col-md-1' value='<?= $term_value['id']; ?>' style='width: 20px; height: 20px;' />  
+                                    <label class="col-md-11"><?= $term_value['description']; ?></label>
+                                </div> 
+                    <?php } } ?>
+                </div>
+                <div class="form-group col-md-12 text-right">
+                    <button type="button" class="btn btn-primary" onclick="updateData1('TermsCondition', 'UpdateTermsCondition')">Submit</button> 
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Close</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         var arr = [];
+        var exclustionsValue = $('.exclus').val();
+        if(exclustionsValue == '') {
+            var arr = [];
+        }else{
+            var arr = JSON.parse("[" + exclustionsValue + "]");
+        }
+
+        var termsValue = $('.termsConditions').val();
+        if(termsValue == '') {
+            var arr_terms = [];
+        }else{
+            var arr_terms = JSON.parse("[" + termsValue + "]");
+        }
         
         $('.exclusion').click(function() {
             var element = $(this);
             if(!$(this).is(":checked")) {
                 $(this).removeAttr('checked');
-                var x = arr.indexOf($(this).val());
+                var x = arr.indexOf(parseInt($(this).val()));
                 arr.splice(x, 1);
             }else {
                 $(this).attr('checked', true);
-                arr.push($(this).val());
+
+                if(arr.includes(parseInt($(this).val()))) {
+                
+                }else{
+                    arr.push(parseInt($(this).val()));    
+                }
             }
             $('.exclus').val(arr);
+        });
+
+        $('.terms_condition').click(function() {
+            var element = $(this);
+            if(!$(this).is(":checked")) {
+                $(this).removeAttr('checked');
+                var x = arr_terms.indexOf(parseInt($(this).val()));
+                arr_terms.splice(x, 1);
+            }else {
+                $(this).attr('checked', true);
+                if(arr_terms.includes(parseInt($(this).val()))) {
+                
+                }else{
+                    arr_terms.push(parseInt($(this).val()));    
+                }
+            }
+            $('.termsConditions').val(arr_terms);
         });
         
         $('.copyright').click(function() {
@@ -1825,5 +1896,33 @@ function calculateGrandTotal(){
             $('.exclus').val(exclusions_data);
         }
     });
+
+    $(document).ready(function() {
+        var termsCondition_data = $('.terms_conditions_data').val();
+        if (termsCondition_data) {
+            var diff_data = termsCondition_data.split(",");
+            var arr = [];
+            var vals = [];
+
+            if (diff_data) {
+                for (var i = 0; i < diff_data.length; i++) {
+                    arr[i] = diff_data[i];
+                }
+            }
+
+            if($('.terms_condition')) {
+                $('.terms_condition').each(function(i){
+                    if(arr.includes($(this).val())) {
+                        $(this).attr('checked', true);
+                    }else{
+                        $(this).removeAttr('checked');
+                    }
+                });
+            }
+            
+            $('.termsConditions').val(termsCondition_data);
+        }
+    });
+
 
 </script>

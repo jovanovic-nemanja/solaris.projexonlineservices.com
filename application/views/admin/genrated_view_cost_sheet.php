@@ -450,9 +450,28 @@
                                         <input type="hidden" class="exclus" name="exclus" value="">
                                         <input type="hidden" class="exclusions_data" value="<?= $costSheetData->exclusions; ?>">
                                     </form><br>
+
+                                    <form method="post" id="terms_Conditions">
+                                        <label for="inputPassword4"  class="">Terms & Conditions</label>
+                                        <select class="form-control js-example-basic-multiple" multiple="multiple" name="terms_condition"  id="terms_condition" style="width:100%; cursor: not-allowed;" disabled>
+                                            <?php 
+                                                if (@$terms_conditions) {
+                                                    foreach ($terms_conditions as $terms_conditionskey => $terms_conditionsvalue) { 
+                                                        if (strlen($terms_conditionsvalue['description']) > 10)
+                                                            $str = substr($terms_conditionsvalue['description'], 0, 7) . '...'; ?>
+
+                                                            <option value="<?= $terms_conditionsvalue['id']; ?>"><?= $str; ?></option>
+
+                                            <?php } } ?>
+                                        </select>
+                                        <input type="hidden" class="CostSheetId" name="CostSheetId" value="<?= $this->uri->segment(4); ?>">
+                                        <input type="hidden" class="termsConditions" name="terms_conditions" value="">
+                                        <input type="hidden" class="terms_conditions_data" value="<?= $costSheetData->terms_condition; ?>">
+                                    </form><br>
+
                                     <div>
-                                        <label class='' for='inputPassword4'>Copyright 
-                                            
+                                        <label for='inputPassword4'>
+                                            Copyright 
                                         </label>
                                         <input disabled readonly type='checkbox' class='copyright' id='copyright' onchange ="updateFormData('copyRight', 'copy_Right');" <?= ($costSheetData->copyright == 1) ? "checked" : ""; ?> />
                                     </div>
@@ -1436,6 +1455,22 @@ function calculateGrandTotal(){
             
             $('#exclusion').val(arr);
             $('#exclusion').trigger('change');
+        }
+
+
+        var terms_data = $('.terms_conditions_data').val();
+        if (terms_data) {
+            var diff_data1 = terms_data.split(",");
+            var arr = [];
+
+            if (diff_data1) {
+                for (var i = 0; i < diff_data1.length; i++) {
+                    arr[i] = diff_data1[i];
+                }
+            }
+            
+            $('#terms_condition').val(arr);
+            $('#terms_condition').trigger('change');
         }
     });
 </script>

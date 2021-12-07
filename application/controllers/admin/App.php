@@ -595,11 +595,16 @@ public function cost_sheet()
 		$data['units']			= $this->site_model->get_rows('units');
 
 		$data['exclusions']			= $this->site_model->get_rows('exclusions');
+		$data['terms_conditions']			= $this->site_model->get_rows('terms_conditions');
+
+		// print_r($data['exclusions']);
+		// echo "<br><br><br>";
+		// print_r($data['terms_conditions']); exit;
 		
 		$data['convertCost']	= $this->site_model->get_row_c1('convert_usd_to_aed','id',1);
 		$this->load->view('admin/common/header1');
 		$this->load->view('admin/common/sidebar');
-		$this->load->view('admin/cost_sheet',$data);
+		$this->load->view('admin/cost_sheet', $data);
 		$this->load->view('admin/common/footer1');
 	}
 	else
@@ -848,7 +853,7 @@ public function revise_cost_sheet()
 		$data['venue']			= $this->site_model->get_rows('venue');
 
 		$data['exclusions']			= $this->site_model->get_rows('exclusions');
-
+		$data['terms_conditions']			= $this->site_model->get_rows('terms_conditions');
 		$data['cost_type']		= $this->site_model->get_rows('cost_type');
 		$data['units']			= $this->site_model->get_rows('units');
 		$data['convertCost']	= $this->site_model->get_row_c1('convert_usd_to_aed','id',1);
@@ -888,6 +893,7 @@ public function genrated_cost_sheet()
 		$data['cost_type']		= $this->site_model->get_rows('cost_type');
 
 		$data['exclusions']			= $this->site_model->get_rows('exclusions');
+		$data['terms_conditions']			= $this->site_model->get_rows('terms_conditions');
 
 		$data['units']			= $this->site_model->get_rows('units');
 		$data['convertCost']	= $this->site_model->get_row_c1('convert_usd_to_aed','id',1);
@@ -952,6 +958,7 @@ public function genrated_view_cost_sheet()
 		$data['comments']		= $this->site_model->get_cost_comments($cost_sheet_id);
 
 		$data['exclusions']			= $this->site_model->get_rows('exclusions');
+		$data['terms_conditions']			= $this->site_model->get_rows('terms_conditions');
 		
 		$data['approval_status'] = $this->site_model->get_row_c1('approval_status','costsheet_id',$cost_sheet_id);
 		$data['product']		= $this->site_model->get_rows('products');
@@ -1462,6 +1469,46 @@ public function UpdateExclusion()
 		}
 
 		$data['exclusions'] = (isset($pdata['exclus']) ? $pdata['exclus'] : '');
+		$data['updated_at'] = date('Y-m-d H:i:s');
+		$result = $this->site_model->update_row_c1("cost_sheet", 'id', $pdata['CostSheetId'], $data);	
+		if($result){
+			$responce['err'] = 0;
+			$responce['msg'] = "";
+			echo json_encode($responce); 
+		}else{
+			$error = $this->db->error();
+			$responce['err'] = 2;
+			$responce['msg'] = $error['message'];
+			echo json_encode($responce); 
+		}
+	}
+	else
+	{
+		$responce['err'] = 3;
+		$responce['msg'] = 'Session expired!';
+		echo json_encode($responce); 
+	}
+}
+
+public function UpdateTermsCondition()
+{
+	if($this->session->userdata('userid'))
+	{
+		$user_id = $this->session->userdata('userid');
+		$pdata = $this->input->post();
+		$this->load->helper('url');		
+		$this->form_validation->set_rules('terms_conditions', 'terms_condition','trim|required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$err = $this->form_validation->error_array();
+			$responce['err'] = 1;
+			$responce['msg'] = $err;
+			$responce['datas'] = $err;
+			echo json_encode($responce);
+			exit;
+		}
+
+		$data['terms_condition'] = (isset($pdata['terms_conditions']) ? $pdata['terms_conditions'] : '');
 		$data['updated_at'] = date('Y-m-d H:i:s');
 		$result = $this->site_model->update_row_c1("cost_sheet", 'id', $pdata['CostSheetId'], $data);	
 		if($result){
@@ -4962,7 +5009,7 @@ public function revised_record()
 
 		if(!empty($getData))
 		{
-			$data = array('name'=>'Revision-'.$getData->name,'customer'=>$getData->customer,'conatct_person'=>$getData->conatct_person,'payment_terms'=>$getData->payment_terms,'sales_person'=>$getData->sales_person,'venue'=>$getData->venue,'cost_type'=>$getData->cost_type,'currency'=>$getData->currency,'status'=>1,'created_at'=>date('Y-m-d H:i:s'), 'quotation_number' => $getData->quotation_number, 'quot_numb' => $quot_numb);
+			$data = array('name'=>'Revision-'.$getData->name, 'customer'=>$getData->customer, 'conatct_person'=>$getData->conatct_person, 'payment_terms'=>$getData->payment_terms, 'sales_person'=>$getData->sales_person, 'venue'=>$getData->venue, 'city' => $getData->city, 'cost_type'=>$getData->cost_type, 'currency'=>$getData->currency, 'status'=>1, 'created_at'=>date('Y-m-d H:i:s'), 'quotation_number' => $getData->quotation_number, 'quot_numb' => $quot_numb, 'project_start_date' => $getData->project_start_date, 'project_end_date' => $getData->project_end_date);
 			$is_saved = $this->site_model->savedata('cost_sheet',$data);
 			$getCatData = $this->site_model->get_rows_c1('cost_sheet_category','cost_sheet_id',$pdata['id']);
 
@@ -5976,6 +6023,25 @@ public function summery_Pdf()
 	}
 
 	$data['exclusions'] = $arr;
+	
+	$terms_condition = $dt->terms_condition;
+
+	if (@$terms_condition) {
+		$diff_data1 = explode(",", $terms_condition);
+		$arr1 = [];
+
+		if (@$diff_data1) {
+			foreach ($diff_data1 as $key1 => $value1) {
+				$dd = $this->site_model->get_row_c1('terms_conditions', 'id', $value1);
+				$arr1[] = array(
+					'id' => $dd->id,
+					'description' => $dd->description
+				);
+			}
+		}
+	}
+
+	$data['terms_condition'] = $arr1;
 
     $date = getdate();
     $year = $date['year'];
@@ -6051,6 +6117,25 @@ public function summery_word()
 
 	$data['exclusions'] = $arr;
 
+	$terms_condition = $dt->terms_condition;
+
+	if (@$terms_condition) {
+		$diff_data1 = explode(",", $terms_condition);
+		$arr1 = [];
+
+		if (@$diff_data1) {
+			foreach ($diff_data1 as $key1 => $value1) {
+				$dd = $this->site_model->get_row_c1('terms_conditions', 'id', $value1);
+				$arr1[] = array(
+					'id' => $dd->id,
+					'description' => $dd->description
+				);
+			}
+		}
+	}
+
+	$data['terms_condition'] = $arr1;
+
 	$this->load->view('admin/summary_word', $data);
 
 	header("Content-Type: application/vnd.ms-word");
@@ -6118,6 +6203,25 @@ public function summery_detail_word()
 
 	$data['exclusions'] = $arr;
 
+	$terms_condition = $dt->terms_condition;
+
+	if (@$terms_condition) {
+		$diff_data1 = explode(",", $terms_condition);
+		$arr1 = [];
+
+		if (@$diff_data1) {
+			foreach ($diff_data1 as $key1 => $value1) {
+				$dd = $this->site_model->get_row_c1('terms_conditions', 'id', $value1);
+				$arr1[] = array(
+					'id' => $dd->id,
+					'description' => $dd->description
+				);
+			}
+		}
+	}
+
+	$data['terms_condition'] = $arr1;
+
 	$this->load->view('admin/summary_detail_word', $data);
 
 	header("Content-Type: application/vnd.ms-word");
@@ -6176,6 +6280,25 @@ public function job_summery_Pdf()
 
 	$data['exclusions'] = $arr;
 
+	$terms_condition = $dt->terms_condition;
+
+	if (@$terms_condition) {
+		$diff_data1 = explode(",", $terms_condition);
+		$arr1 = [];
+
+		if (@$diff_data1) {
+			foreach ($diff_data1 as $key1 => $value1) {
+				$dd = $this->site_model->get_row_c1('terms_conditions', 'id', $value1);
+				$arr1[] = array(
+					'id' => $dd->id,
+					'description' => $dd->description
+				);
+			}
+		}
+	}
+
+	$data['terms_condition'] = $arr1;
+
 	$mpdf = new \Mpdf\Mpdf();
     $html = $this->load->view('admin/jobsheetpdf.php',$data,true);
     $mpdf->AddPage(); 
@@ -6228,6 +6351,25 @@ public function job_summery_details_Pdf()
 	}
 
 	$data['exclusions'] = $arr;
+
+	$terms_condition = $dt->terms_condition;
+
+	if (@$terms_condition) {
+		$diff_data1 = explode(",", $terms_condition);
+		$arr1 = [];
+
+		if (@$diff_data1) {
+			foreach ($diff_data1 as $key1 => $value1) {
+				$dd = $this->site_model->get_row_c1('terms_conditions', 'id', $value1);
+				$arr1[] = array(
+					'id' => $dd->id,
+					'description' => $dd->description
+				);
+			}
+		}
+	}
+
+	$data['terms_condition'] = $arr1;
 	
 	$mpdf = new \Mpdf\Mpdf();
     $html = $this->load->view('admin/jobsheetdetailpdf.php',$data,true);
@@ -6291,6 +6433,25 @@ public function summery_details_Pdf()
 	}
 
 	$data['exclusions'] = $arr;
+
+	$terms_condition = $dt->terms_condition;
+
+	if (@$terms_condition) {
+		$diff_data1 = explode(",", $terms_condition);
+		$arr1 = [];
+
+		if (@$diff_data1) {
+			foreach ($diff_data1 as $key1 => $value1) {
+				$dd = $this->site_model->get_row_c1('terms_conditions', 'id', $value1);
+				$arr1[] = array(
+					'id' => $dd->id,
+					'description' => $dd->description
+				);
+			}
+		}
+	}
+
+	$data['terms_condition'] = $arr1;
 
 	$date = getdate();
     $year = $date['year'];

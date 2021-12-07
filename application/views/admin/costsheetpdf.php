@@ -141,17 +141,17 @@
                 <ul style="margin: 20px 0px; padding: 0px 60px; display: inline-block; width: 87%; line-height: 24px;">
                   <?php
                     if (@$exclusions) {
-                      foreach ($exclusions as $key => $value) { ?>
-                        <li><?= $value['description']; ?></li>    
+                        foreach ($exclusions as $key => $value) { ?>
+                            <li><?= $value['description']; ?></li>    
                   <?php } } ?>
                 </ul>
                 <h2 style="margin: 20px 0px 0px; padding: 0px 20px;"><strong>Terms & Conditions:</strong> </h2>
                 <ul style="margin: 20px 0px; padding: 0px 60px; display: inline-block; width: 87%; line-height: 24px;">
-                    <?php 
-                        if(@$terms) {
-                            foreach($terms as $key => $value) { ?>
-                                <li><?= $value['description']; ?></li>        
-                    <?php } } ?>    
+                    <?php
+                        if (@$terms_condition) {
+                            foreach ($terms_condition as $keyterms_condition => $valueterms_condition) { ?>
+                                <li><?= $valueterms_condition['description']; ?></li>    
+                    <?php } } ?>
                 </ul>
                 <h2 style="margin: 20px 0px 0px; padding: 0px 20px;"><strong>Validity</strong> </h2>
                 <?php 
