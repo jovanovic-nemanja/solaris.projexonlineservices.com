@@ -2447,8 +2447,8 @@ public function create_cost_sheet()
 {
 	$data['created_at']  =date('Y-m-d H:i:s');
 
-	$max = $this->site_model->get_rows_B1('cost_sheet');
-	$data['quotation_number'] = $max + 1;
+	// $max = $this->site_model->get_rows_B1('cost_sheet');
+	// $data['quotation_number'] = $max + 1;
 
 	$user_id = $this->session->userdata('userid');
 	$is_created = $this->site_model->savedata("cost_sheet", $data);
@@ -4528,7 +4528,7 @@ public function genrateTemplate(){
 			echo json_encode($responce);
 			exit;
 		}
-		$is_exist = $this->site_model->is_exist_c2('cost_sheet','id',$pdata['costsheet_id'],'status','genrated');
+		$is_exist = $this->site_model->is_exist_c2('cost_sheet','id', $pdata['costsheet_id'], 'status', 'genrated');
 		if($is_exist)
 		{
 			$responce['err'] = 3;
@@ -4537,7 +4537,18 @@ public function genrateTemplate(){
 			exit;
 		}
 		$data['status'] = 'genrated';
-		
+
+		$cost_row = $this->site_model->get_row_c1('cost_sheet', 'id', $pdata['costsheet_id']);
+
+		if(@$cost_row) {
+			if(@$cost_row->quot_numb) {
+
+			}else{
+				$max = $this->site_model->get_rows_B1('cost_sheet');
+				$data['quotation_number'] = $max + 1;
+			}
+		}
+						
 		$data['updated_at'] = date('Y-m-d H:i:s');
 		$data['genrated_date'] = date('Y-m-d H:i:s');
 		$data['currency'] = 'AED';
