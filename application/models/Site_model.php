@@ -359,6 +359,7 @@ function get_rows_B1($table_name)
   $this->db->select_max('quotation_number');
   $this->db->from($table_name);
   $this->db->where('quotation_number is NOT NULL', NULL, FALSE);
+  $this->db->where('status', 'genrated');
   $query = $this->db->get();
   if($query->num_rows() > 0){
      return $query->row('quotation_number');        

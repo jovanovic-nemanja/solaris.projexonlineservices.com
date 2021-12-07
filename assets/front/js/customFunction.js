@@ -646,16 +646,21 @@ function saveRecord(formId, url, return_value)
 					appendMessageBody(formId);
 					if(obj.data)
 					{
-						 var objr = JSON.parse(obj.data)
-						 var objp = JSON.parse(obj.paymentdata)
-						 $.each(objr,function(key, value)
-			                {
-			                    $("#contactPerson").append('<option value=' + value.id + '>' + value.name + '</option>');
-			               });
-						  if(objp)
-						  {
-						  	$("#payment_terms").append('<option value=' + objp.payment_terms + '>' + objp.payment_term + '</option><option value=' + objp.payment_terms2 + '>' + objp.payment_term2 + '</option><option value=' + objp.payment_terms3 + '>' + objp.payment_term3 + '</option>');
-						  }
+					 	var objr = JSON.parse(obj.data)
+					 	var objp = JSON.parse(obj.paymentdata)
+
+					 	var opts = '<option value="">Select</option>';
+					 	$.each(objr,function(key, value)
+            {
+              opts += '<option value=' + value.id + '>' + value.name + '</option>';
+           	});
+
+						$("#contactPerson").append(opts);
+
+					  if(objp)
+					  {
+					  	$("#payment_terms").append('<option value=' + objp.payment_terms + '>' + objp.payment_term + '</option><option value=' + objp.payment_terms2 + '>' + objp.payment_term2 + '</option><option value=' + objp.payment_terms3 + '>' + objp.payment_term3 + '</option>');
+					  }
 					}
 				
 				}

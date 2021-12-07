@@ -1232,7 +1232,7 @@ function addMoreRow(id,cat_id)
 		        $('#qty-'+newId+',#unit_cost-'+newId+'').on('keyup change',function(){
 		          qty = $('#qty-'+newId+'').val()
 		          unitcost = $('#unit_cost-'+newId+'').val();
-		          totalCost = Number.parseFloat(unitcost * qty).toFixed(2);
+		          totalCost = Math.ceil(unitcost * qty).toFixed(2);
 		          $('#total_cost-'+newId+'').val(totalCost);
 		        });
 		        $('#margin-'+newId+'').keypress(function (e) {
@@ -1243,7 +1243,7 @@ function addMoreRow(id,cat_id)
 		        $('#total_cost-'+newId+',#margin-'+newId+',#qty-'+newId+',#unit_cost-'+newId+'').on('keyup change',function(){
 		          total_cost = $('#total_cost-'+newId+'').val()
 		          margin = $('#margin-'+newId+'').val();
-		          totalsellingCost = Number.parseFloat(total_cost / margin).toFixed(2);
+		          totalsellingCost = Math.ceil(total_cost / margin).toFixed(2);
 		          $('#selling_price-'+newId+'').val(totalsellingCost);
 	              });
 		         
