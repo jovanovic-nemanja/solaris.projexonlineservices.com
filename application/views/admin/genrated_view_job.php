@@ -276,7 +276,7 @@
 
                         <?php  if($costSheetTotal[0]->totalCostSum!=0){ ?>
 
-                       <div class="pp-to-ll" style="text-align: center;"><p>Cost&nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right;" ><span class="currencyC"><?= $costSheetData->currency ?></span><span class="currencyConvert"><?= number_format(round($costSheetTotal[0]->totalCostSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></span></p></div>
+                       <div class="pp-to-ll" style="text-align: center;"><p>Cost&nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right;" ><span class="currencyC"><?= $costSheetData->currency ?></span><span class="currencyConvert"><?= number_format(ceil($costSheetTotal[0]->totalCostSum),2,'.',','); ?></span></span></p></div>
 
                        <?php } ?>
 
@@ -302,7 +302,7 @@
 
     						  	<?php if($value['sumSellingCost']){ ?>
 
-    						        <span class="ab-2"><span class="currencyConvert"><?= number_format(round($value['sumTotalCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></span>
+    						        <span class="ab-2"><span class="currencyConvert"><?= number_format(ceil($value['sumTotalCost']),2,'.',','); ?></span></span>
 
     							 <?php } ?>
 
@@ -346,7 +346,7 @@
 
         														<?php if(!empty($subvalue['sumTotalCost'])){ ?>
 
-        														    <span class="ab-2"><span class="currencyConvert"><?php echo number_format(round($subvalue['sumTotalCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></span>
+        														    <span class="ab-2"><span class="currencyConvert"><?php echo number_format(ceil($subvalue['sumTotalCost']),2,'.',','); ?></span></span>
 
         														<?php } ?>
 
@@ -468,7 +468,7 @@
 
         													  <td style="width:10%" class="">
 
-        														   <p style=""><span class="currencyConvert total_cost_val"><?= number_format(round($lineItem['total_cost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></p>
+        														   <p style=""><span class="currencyConvert total_cost_val"><?= number_format(ceil($lineItem['total_cost']),2,'.',','); ?></span></p>
 
         													  </td>
 
@@ -476,13 +476,13 @@
 
         													  <td style="width:10%" class="">
 
-        														   <p class='total_actual_cost'><?= number_format(round($lineItem['total_actual_cost'], 0, PHP_ROUND_HALF_UP),2,'.',','); ?></p>
+        														   <p class='total_actual_cost'><?= number_format(ceil($lineItem['total_actual_cost']),2,'.',','); ?></p>
 
         													  </td>
 
         													  <td style="width:10%" class="">
 
-        														   <p class='deviation_val'><?= number_format(round($lineItem['deviation'], 0, PHP_ROUND_HALF_UP),2,'.',','); ?></p>
+        														   <p class='deviation_val'><?= number_format(ceil($lineItem['deviation']),2,'.',','); ?></p>
 
         													  </td>
 

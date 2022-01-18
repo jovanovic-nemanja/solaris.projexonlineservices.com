@@ -459,7 +459,7 @@
                   <div class="col-lg-12 admin-accord">
                     <div class="card-body">
                         <?php  if($costSheetTotal[0]->totalCostSum!=0){ ?>
-                       <div class="pp-to-ll" style="text-align: center;"><p>Cost: <span style="float: right;" >AED <?= number_format(round($costSheetTotal[0]->totalCostSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></p>| <p>Average O/H: <span style="" ><?= round($costSheetTotal[0]->totalCostSum/$costSheetTotal[0]->sellingPriceSum,2); ?></span></p> | <p>Price: <span style="float: right;">AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?> </span></p></div>
+                       <div class="pp-to-ll" style="text-align: center;"><p>Cost: <span style="float: right;" >AED <?= number_format(ceil($costSheetTotal[0]->totalCostSum),2,'.',','); ?></span></p>| <p>Average O/H: <span style="" ><?= round($costSheetTotal[0]->totalCostSum/$costSheetTotal[0]->sellingPriceSum,2); ?></span></p> | <p>Price: <span style="float: right;">AED <?= number_format(ceil($costSheetTotal[0]->sellingPriceSum),2,'.',','); ?> </span></p></div>
                        <?php } ?>
                       <div class="accordion accordion-bordered" id="accordion-2" role="tablist">
                       <?php $i =1; foreach ($cost_sheet_cat as $key => $value) { 
@@ -472,9 +472,9 @@
                               <?php echo $alphas[$i-1].'. '.$value['title']; ?>
 							  <div class="aa-bb">
 							  	<?php if($value['sumSellingCost']){ ?>
-							    <span class="ab-2"><?= number_format(round($value['sumTotalCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+							    <span class="ab-2"><?= number_format(ceil($value['sumTotalCost']),2,'.',','); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
 								<span class="ab-2"><?= round($value['sumTotalCost']/$value['sumSellingCost'],2); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="ab-3"><?= number_format(round($value['sumSellingCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span>
+								<span class="ab-3"><?= number_format(ceil($value['sumSellingCost']),2,'.',','); ?></span>
 								 <?php } ?>
 							  </div>
 							 
@@ -501,9 +501,9 @@
 														<?=$j.'.';?><?= $subvalue['title']; ?>
 														<div class="aa-bb" style="">
 															<?php if(!empty($subvalue['sumTotalCost'])){ ?>
-															<span class="ab-2"><?php echo number_format(round($subvalue['sumTotalCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+															<span class="ab-2"><?php echo number_format(ceil($subvalue['sumTotalCost']),2,'.',','); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
 															<span class="ab-2"><?php echo round ($subvalue['sumTotalCost']/$subvalue['sumSellingCost'],2); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
-															<span class="ab-3"><?php echo number_format(round($subvalue['sumSellingCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span>
+															<span class="ab-3"><?php echo number_format(ceil($subvalue['sumSellingCost']),2,'.',','); ?></span>
 															<?php } ?>
 
 														 </div>
@@ -548,12 +548,12 @@
 														  <td style="width:10%" class=""><p><?=$lineItem['unit_cost']; ?></p>
 														  </td>
 														  <td style="width:14%" class="">
-															   <p style=""><?= number_format(round($lineItem['total_cost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></p>
+															   <p style=""><?= number_format(ceil($lineItem['total_cost']),2,'.',','); ?></p>
 														  </td>
 														  <td style="width:10%" class=""><p><?=$lineItem['o/h']; ?></p>
 														  </td>
 														  <td style="width:10%" class="">
-															   <p style=""><?= number_format(round($lineItem['selling_price'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></p>
+															   <p style=""><?= number_format(ceil($lineItem['selling_price']),2,'.',','); ?></p>
 														  </td>
 														  
 													  </tr>
@@ -586,7 +586,7 @@
 					    <tbody>
 						  <tr>
 							<td style="width:80%;"><p class="text-right mb-0"><strong>Total</strong></p></td>
-							<td style="width:20%;"><p class="text-right mb-0"><strong>AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
+							<td style="width:20%;"><p class="text-right mb-0"><strong>AED <?= number_format(ceil($costSheetTotal[0]->sellingPriceSum),2,'.',','); ?></strong></p></td>
 						  </tr>
 						  <tr>
 							<td style="width:80%;">
@@ -605,20 +605,20 @@
 								$totalCost = $calculateVat+$totalPrice;
 
 							 ?>
-							<td style="width:20%;"><p class="text-right mb-0"><strong ><span class="discountPrice">AED <?= number_format(round($disPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+							<td style="width:20%;"><p class="text-right mb-0"><strong ><span class="discountPrice">AED <?= number_format(ceil($disPrice),2,'.',','); ?></span></strong></p></td>
 						  </tr>
 						  <tr>
 							<td style="width:80%;"><p class="text-right mb-0"><strong>Total after discount</strong></p></td>
-							<td style="width:20%;"><p class="text-right mb-0"><strong><span class="totalarterDis">AED <?= number_format(round($totalPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+							<td style="width:20%;"><p class="text-right mb-0"><strong><span class="totalarterDis">AED <?= number_format(ceil($totalPrice),2,'.',','); ?></span></strong></p></td>
 						  </tr>
 						  <tr>
 							<td style="width:80%;"><p class="text-right mb-0"><strong>Vat @ 5%</strong></p></td>
-							<td style="width:20%;"><p class="text-right mb-0"><strong><span class="vatPrice">AED <?= number_format(round($calculateVat,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+							<td style="width:20%;"><p class="text-right mb-0"><strong><span class="vatPrice">AED <?= number_format(ceil($calculateVat),2,'.',','); ?></span></strong></p></td>
 						  </tr>
 						  
 						  <tr>
 							<td style="width:80%;"><p class="text-right mb-0"><strong>Total including tax</strong></p></td>
-							<td style="width:20%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(round($totalCost,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+							<td style="width:20%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(ceil($totalCost),2,'.',','); ?></span></strong></p></td>
 						  </tr>
 						</tbody>
 					  </table>

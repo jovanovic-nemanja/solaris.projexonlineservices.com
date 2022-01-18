@@ -518,7 +518,7 @@
                                     <?php  if($costSheetTotal[0]->totalCostSum!=0){ ?>
                                         <div class="pp-to-ll" style="text-align:center;">
                                             <p>Price&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <span style="float: right;"><?= $costSheetData->currency ?><span class="currencyConvert"><?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span> 
+                                                <span style="float: right;"><?= $costSheetData->currency ?><span class="currencyConvert"><?= number_format(ceil($costSheetTotal[0]->sellingPriceSum),2,'.',','); ?></span> 
                                                 </span>
                                             </p>
                                         </div>
@@ -535,7 +535,7 @@
                                                               <?php echo $alphas[$i-1].'. '.$value['title']; ?>
                                 							  <div class="aa-bb">
                                 							  	<?php if($value['sumSellingCost']){ ?>
-                                								    <span class="ab-3"><?= $costSheetData->currency ?>: <span class="currencyConvert"><?= number_format(round($value['sumSellingCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></span>
+                                								    <span class="ab-3"><?= $costSheetData->currency ?>: <span class="currencyConvert"><?= number_format(ceil($value['sumSellingCost']),2,'.',','); ?></span></span>
                             								    <?php } ?>
                                 							  </div>
                                                             </a>
@@ -560,7 +560,7 @@
                                             														
                                             														<div class="aa-bb" style="">
                                             															<?php if(!empty($subvalue['sumTotalCost'])){ ?>
-                                            															    <span class="ab-3"><?= $costSheetData->currency ?>: <span class="currencyConvert"><?php echo number_format(round($subvalue['sumSellingCost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></span>
+                                            															    <span class="ab-3"><?= $costSheetData->currency ?>: <span class="currencyConvert"><?php echo number_format(ceil($subvalue['sumSellingCost']),2,'.',','); ?></span></span>
                                             															<?php } ?>
                                             														 </div>
                                             													</h4>
@@ -597,14 +597,14 @@
                                                     														  <td style="width:10%" class="">
                                                     															   <p><?=get_single_col_value('units','id',$lineItem['unit_id'],'name'); ?></p>
                                                     														  </td>
-                                                    														   <td style="width:34%" class=""><p><span class="currencyConvert"><?php echo number_format(round($lineItem['unit_cost'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></p>
+                                                    														   <td style="width:34%" class=""><p><span class="currencyConvert"><?php echo number_format(ceil($lineItem['unit_cost']),2,'.',','); ?></span></p>
                                                     														  </td> 
                                                     														  <!-- <td style="width:14%" class="">
-                                                    															   <p style=""><?php //number_format(round($lineItem['total_cost'],3,PHP_ROUND_HALF_UP),2,'.',','); ?></p>
+                                                    															   <p style=""><?php //number_format(ceil($lineItem['total_cost'],3,PHP_ROUND_HALF_UP),2,'.',','); ?></p>
                                                     														  </td> -->
                                                     														  
                                                     														  <td style="width:10%" class="">
-                                                    															   <p style=""><span class="currencyConvert"><?= number_format(round($lineItem['selling_price'],0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></p>
+                                                    															   <p style=""><span class="currencyConvert"><?= number_format(ceil($lineItem['selling_price']),2,'.',','); ?></span></p>
                                                     														  </td>
                                                 													    </tr>
                                             													    <?php $k++; } ?>
@@ -633,7 +633,7 @@
             					    <tbody>
             						  <tr>
             							<td style="width:50%;"><p class="text-right mb-0"><strong>Total</strong></p></td>
-            							<td style="width:50%;"><p class="text-right mb-0"><strong>AED <?= number_format(round($costSheetTotal[0]->sellingPriceSum,0,PHP_ROUND_HALF_UP),2,'.',','); ?></strong></p></td>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong>AED <?= number_format(ceil($costSheetTotal[0]->sellingPriceSum),2,'.',','); ?></strong></p></td>
             						  </tr>
             						  <?php 
             								$disPrice = $costSheetData->discountPerent;
@@ -671,25 +671,25 @@
                 								</div>	
                 							</td>
                 							
-                							<td style="width:50%;"><p class="text-right mb-0"><strong ><span class="discountPrice">AED<?= number_format(round($disPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+                							<td style="width:50%;"><p class="text-right mb-0"><strong ><span class="discountPrice">AED<?= number_format(ceil($disPrice),2,'.',','); ?></span></strong></p></td>
                 						  </tr>
             						  <?php } ?>
             						  <?php if($costSheetData->discountPerent == 0 || $costSheetData->discountPerent == "") { ?>
             						  <?php }else{ ?>
             						    <tr>
             							    <td style="width:50%;"><p class="text-right mb-0"><strong>Total after discount</strong></p></td>
-                							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="totalarterDis">AED <?= number_format(round($totalPrice,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+                							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="totalarterDis">AED <?= number_format(ceil($totalPrice),2,'.',','); ?></span></strong></p></td>
             						    </tr>
             						  <?php } ?>
                 						  
             						  <tr>
             							<td style="width:50%;"><p class="text-right mb-0"><strong>Vat @ 5% </strong></p></td>
-            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="vatPrice">AED <?= number_format(round($calculateVat,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="vatPrice">AED <?= number_format(ceil($calculateVat),2,'.',','); ?></span></strong></p></td>
             						  </tr>
             						  
             						  <tr>
             							<td style="width:50%;"><p class="text-right mb-0"><strong>Total including tax</strong></p></td>
-            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(round($totalCost,0,PHP_ROUND_HALF_UP),2,'.',','); ?></span></strong></p></td>
+            							<td style="width:50%;"><p class="text-right mb-0"><strong><span class="total">AED <?= number_format(ceil($totalCost),2,'.',','); ?></span></strong></p></td>
             						  </tr>
             						</tbody>
             					  </table>
